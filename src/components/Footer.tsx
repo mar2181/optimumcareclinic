@@ -80,9 +80,9 @@ const Footer = () => {
               <div className="flex items-start gap-3 text-primary-foreground/80">
                 <Clock className="w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div className="flex flex-col gap-1">
-                  <span>Mon - Fri: 7am - 5pm</span>
-                  <span>Saturday: 8am - 12pm</span>
-                  <span>Sunday: Closed</span>
+                  <span>{t.footer.hoursDetail.weekdays}</span>
+                  <span>{t.footer.hoursDetail.saturday}</span>
+                  <span>{t.footer.hoursDetail.sunday}</span>
                 </div>
               </div>
             </div>
@@ -154,7 +154,7 @@ const Footer = () => {
 
           {/* SEO Keywords */}
           <p className="mt-6 text-xs text-primary-foreground/40 text-center">
-            Urgent Care Pharr | Walk-in Clinic McAllen | Cash Medical Clinic Texas | Womens Health Rio Grande Valley | Testosterone Therapy Pharr | IV Therapy RGV | Sports Physicals McAllen | Affordable Healthcare South Texas
+            After-Hours Doctor Pharr | Family Clinic McAllen | Evening Clinic Texas | Pediatric Care Rio Grande Valley | Same-Day Doctor RGV | Family Medicine South Texas | Walk-in Clinic Pharr | After Hours Care McAllen
           </p>
         </div>
       </div>

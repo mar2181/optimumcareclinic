@@ -72,28 +72,28 @@ const Hero = () => {
 
   const content = {
     en: {
-      badge: "Premier IV Therapy & Urgent Care",
-      headline: "Affordable Healthcare.",
-      headlineAccent: "No Insurance Needed.",
-      subhead: "Walk-in urgent care and premium wellness services for the Rio Grande Valley. Bilingual staff, transparent pricing, same-day service.",
+      badge: "After-Hours Family Medicine",
+      headline: "Your Family Doctor.",
+      headlineAccent: "After Hours.",
+      subhead: "Comprehensive family medicine from 5pm-10pm, when your regular doctor's office is closed. Same-day sick visits, chronic care, and preventive services for the whole family.",
       stats: {
         patients: "Patients Served",
         years: "Years Experience",
         rating: "Patient Rating",
       },
-      trust: ["Walk-ins Welcome", "Bilingual Staff", "Cash-Only Pricing"],
+      trust: ["Open 5pm-10pm", "Bilingual Staff", "Family-Focused Care"],
     },
     es: {
-      badge: "Terapia IV Premium y Cuidado de Urgencias",
-      headline: "Atención Médica Accesible.",
-      headlineAccent: "Sin Seguro Necesario.",
-      subhead: "Clínica de urgencias sin cita y servicios premium de bienestar para el Valle del Río Grande. Personal bilingüe, precios transparentes, servicio el mismo día.",
+      badge: "Medicina Familiar Nocturna",
+      headline: "Tu Médico Familiar.",
+      headlineAccent: "Después del Horario.",
+      subhead: "Medicina familiar integral de 5pm a 10pm, cuando el consultorio de tu médico regular está cerrado. Visitas de enfermedad el mismo día, cuidado crónico y servicios preventivos para toda la familia.",
       stats: {
         patients: "Pacientes Atendidos",
         years: "Años de Experiencia",
         rating: "Calificación",
       },
-      trust: ["Sin Cita Previa", "Personal Bilingüe", "Precios en Efectivo"],
+      trust: ["Abierto 5pm-10pm", "Personal Bilingüe", "Enfoque Familiar"],
     },
   };
 
@@ -222,7 +222,7 @@ const Hero = () => {
               >
                 <img
                   src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                  alt="Friendly healthcare provider at Optimum Care urgent care clinic in Pharr Texas"
+                  alt="Friendly family doctor at Optimum Care after-hours clinic in Pharr Texas"
                   width={600}
                   height={700}
                   className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"

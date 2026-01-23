@@ -11,10 +11,10 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({
-  title = 'Optimum Health Pharr | IV Therapy & Vitamin Drips',
-  titleEs = 'Optimum Health Pharr | Terapia IV y Vitaminas',
-  description = 'Premier IV hydration clinic in the Rio Grande Valley. Boost immunity and energy with vitamin drips, urgent care, and wellness services in Pharr, Texas.',
-  descriptionEs = 'Clínica premier de hidratación IV en el Valle del Río Grande. Aumenta tu inmunidad y energía con infusiones de vitaminas, atención urgente y servicios de bienestar en Pharr, Texas.',
+  title = 'Optimum Care Pharr | After-Hours Family Clinic',
+  titleEs = 'Optimum Care Pharr | Clínica Familiar Nocturna',
+  description = 'After-hours family medicine in the Rio Grande Valley. Open 5pm-10pm daily. Same-day sick visits, chronic care, and preventive services for the whole family in Pharr, Texas.',
+  descriptionEs = 'Medicina familiar nocturna en el Valle del Río Grande. Abierto 5pm-10pm todos los días. Visitas de enfermedad el mismo día, cuidado crónico y servicios preventivos para toda la familia en Pharr, Texas.',
   canonicalUrl,
   ogImage = 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
 }: SEOHeadProps) => {

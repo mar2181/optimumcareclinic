@@ -54,10 +54,11 @@ const CheckIn = () => {
   });
 
   const symptomOptions = [
-    { value: 'flu_cold', label: t.checkIn.symptoms.fluCold },
-    { value: 'pain_injury', label: t.checkIn.symptoms.painInjury },
-    { value: 'wellness_iv', label: t.checkIn.symptoms.wellnessIv },
-    { value: 'pediatric', label: t.checkIn.symptoms.pediatric },
+    { value: 'sick_visit', label: t.checkIn.symptoms.sickVisit },
+    { value: 'chronic_care', label: t.checkIn.symptoms.chronicCare },
+    { value: 'preventive', label: t.checkIn.symptoms.preventive },
+    { value: 'procedure', label: t.checkIn.symptoms.procedure },
+    { value: 'iv_wellness', label: t.checkIn.symptoms.ivWellness },
   ];
 
   const onSubmit = async (data: CheckInFormData) => {
@@ -130,8 +131,8 @@ const CheckIn = () => {
       <SEOHead
         title="Online Check-In | Optimum Care Pharr"
         titleEs="Registro en Línea | Optimum Care Pharr"
-        description="Skip the wait with online check-in at Optimum Care Pharr. Fast, convenient digital registration for urgent care and IV therapy."
-        descriptionEs="Evita la espera con el registro en línea en Optimum Care Pharr. Registro digital rápido y conveniente para atención urgente y terapia IV."
+        description="Skip the wait with online check-in at Optimum Care Pharr. Fast, convenient digital registration for after-hours family medicine."
+        descriptionEs="Evita la espera con el registro en línea en Optimum Care Pharr. Registro digital rápido y conveniente para medicina familiar nocturna."
       />
       {/* Header */}
       <div className="bg-primary text-primary-foreground py-6">

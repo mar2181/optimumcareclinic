@@ -1,27 +1,27 @@
-import { Shield, Stethoscope, MapPin, Sparkles } from 'lucide-react';
+import { Shield, Stethoscope, Clock, Users } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 
 const trustItems = [
   {
     icon: Shield,
-    labelEn: 'Licensed Medical Staff',
-    labelEs: 'Personal Médico Licenciado',
+    labelEn: 'Licensed Family Medicine Staff',
+    labelEs: 'Personal de Medicina Familiar Licenciado',
   },
   {
     icon: Stethoscope,
-    labelEn: 'MD Supervised',
-    labelEs: 'Supervisado por MD',
+    labelEn: 'Board Certified Providers',
+    labelEs: 'Proveedores Certificados',
   },
   {
-    icon: MapPin,
-    labelEn: 'Serving Pharr & McAllen',
-    labelEs: 'Sirviendo a Pharr y McAllen',
+    icon: Clock,
+    labelEn: 'Open 5pm-10pm Daily',
+    labelEs: 'Abierto 5pm-10pm Diario',
   },
   {
-    icon: Sparkles,
-    labelEn: 'Premium Ingredients',
-    labelEs: 'Ingredientes Premium',
+    icon: Users,
+    labelEn: 'All Ages Welcome',
+    labelEs: 'Todas las Edades Bienvenidas',
   },
 ];
 
