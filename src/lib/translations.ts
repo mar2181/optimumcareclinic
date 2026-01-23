@@ -46,6 +46,12 @@ export const translations = {
         },
       },
     },
+    // Testimonials
+    testimonials: {
+      title: "What Our Patients Say",
+      subtitle: "Real reviews from the Rio Grande Valley community",
+      noReviews: "No reviews yet.",
+    },
     // Why Choose Us
     whyUs: {
       title: "Why Choose Optimum Care?",
@@ -157,6 +163,12 @@ export const translations = {
       pricing: "Precios",
       resources: "Centro de Salud",
       callNow: "Llámenos",
+    },
+    // Testimonials
+    testimonials: {
+      title: "Lo Que Dicen Nuestros Pacientes",
+      subtitle: "Reseñas reales de la comunidad del Valle del Río Grande",
+      noReviews: "Aún no hay reseñas.",
     },
     // Hero
     hero: {

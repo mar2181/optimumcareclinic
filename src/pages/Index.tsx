@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import TrustBadges from '@/components/TrustBadges';
 import ServiceGrid from '@/components/ServiceGrid';
 import WhyChooseUs from '@/components/WhyChooseUs';
-import PricingTable from '@/components/PricingTable';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import IVBuilderSection from '@/components/iv-builder/IVBuilderSection';
+import PricingTable from '@/components/PricingTable';
 import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
 import FloatingCheckInButton from '@/components/FloatingCheckInButton';
@@ -20,8 +22,10 @@ const Index = () => {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <TrustBadges />
         <ServiceGrid />
         <WhyChooseUs />
+        <TestimonialsSection />
         <IVBuilderSection />
         <PricingTable />
         <LocationSection />
