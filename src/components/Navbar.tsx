@@ -3,6 +3,7 @@ import { Menu, X, Phone } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
+import WaitTimeDisplay from '@/components/WaitTimeDisplay';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,6 +42,9 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
+            {/* Wait Time Display */}
+            <WaitTimeDisplay />
+            
             {/* Language Toggle */}
             <div className="flex items-center gap-2 text-sm">
               <span className={lang === 'en' ? 'font-semibold text-foreground' : 'text-muted-foreground'}>
@@ -93,6 +97,11 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
+              {/* Wait Time Display */}
+              <div className="flex justify-center py-2">
+                <WaitTimeDisplay />
+              </div>
+              
               {/* Language Toggle */}
               <div className="flex items-center justify-center gap-3 py-2">
                 <span className={lang === 'en' ? 'font-semibold text-foreground' : 'text-muted-foreground'}>
