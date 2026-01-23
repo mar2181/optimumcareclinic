@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, ClipboardPen, Users, Star, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import heroImage from '@/assets/hero-family-doctor.jpg';
 
 // Animated counter hook
 const useCounter = (end: number, duration: number = 2000) => {
@@ -221,8 +222,8 @@ const Hero = () => {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                  alt="Friendly family doctor at Optimum Care after-hours clinic in Pharr Texas"
+                  src={heroImage}
+                  alt="Friendly family doctor examining a child with mother present at Optimum Care after-hours clinic in Pharr Texas"
                   width={600}
                   height={700}
                   className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
