@@ -130,10 +130,26 @@ export const translations = {
         title: "Stay Updated",
         placeholder: "Enter your email",
         button: "Subscribe",
-        note: "Get health tips and clinic updates",
-      },
+      note: "Get health tips and clinic updates",
     },
   },
+  // IV Builder
+  ivBuilder: {
+    title: "Build Your Custom IV Therapy",
+    subtitle: "Select your base treatment and add boosters for a personalized wellness experience",
+    step1: "Choose Your Base Treatment",
+    step2: "Add Boosters (Optional)",
+    summary: {
+      title: "Your Custom Drip",
+      empty: "Select a base treatment to get started",
+      base: "Base Treatment",
+      addons: "Boosters",
+      total: "Total",
+      book: "Book Appointment",
+      reset: "Start Over",
+    },
+  },
+},
   es: {
     // Navbar
     nav: {
@@ -265,10 +281,26 @@ export const translations = {
         title: "Mantente Informado",
         placeholder: "Ingresa tu correo",
         button: "Suscribirse",
-        note: "Recibe consejos de salud y novedades",
-      },
+      note: "Recibe consejos de salud y novedades",
     },
   },
+  // IV Builder
+  ivBuilder: {
+    title: "Crea Tu Terapia IV Personalizada",
+    subtitle: "Selecciona tu tratamiento base y añade potenciadores para una experiencia de bienestar personalizada",
+    step1: "Elige Tu Tratamiento Base",
+    step2: "Añade Potenciadores (Opcional)",
+    summary: {
+      title: "Tu Infusión Personalizada",
+      empty: "Selecciona un tratamiento base para comenzar",
+      base: "Tratamiento Base",
+      addons: "Potenciadores",
+      total: "Total",
+      book: "Reservar Cita",
+      reset: "Empezar de Nuevo",
+    },
+  },
+},
 } as const;
 
 export type Language = keyof typeof translations;
