@@ -52,7 +52,10 @@ const TestimonialCard = ({ testimonial, lang }: { testimonial: Testimonial; lang
           {testimonial.avatar_url ? (
             <img 
               src={testimonial.avatar_url} 
-              alt={testimonial.name}
+              alt={`${testimonial.name} - patient testimonial from ${testimonial.role}`}
+              width={48}
+              height={48}
+              loading="lazy"
               className="h-full w-full object-cover"
             />
           ) : (

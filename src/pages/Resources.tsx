@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
+import SEOHead from '@/components/SEOHead';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -80,6 +81,12 @@ const Resources = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-background"
     >
+      <SEOHead
+        title="Health Hub | Optimum Care Pharr"
+        titleEs="Centro de Salud | Optimum Care Pharr"
+        description="Expert health tips and wellness resources for the Rio Grande Valley community. Men's health, women's wellness, and family care articles."
+        descriptionEs="Consejos de salud y recursos de bienestar para la comunidad del Valle del Río Grande. Artículos de salud masculina, femenina y familiar."
+      />
       <Navbar />
 
       <main className="container mx-auto px-6 py-12 md:py-16">
@@ -157,7 +164,10 @@ const Resources = () => {
                       {article.image_url ? (
                         <img
                           src={article.image_url}
-                          alt={article.title}
+                          alt={`${article.title} - health article from Optimum Care Pharr`}
+                          width={400}
+                          height={192}
+                          loading="lazy"
                           className="w-full h-full object-cover"
                         />
                       ) : (
