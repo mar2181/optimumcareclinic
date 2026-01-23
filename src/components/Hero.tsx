@@ -130,9 +130,9 @@ const Hero = () => {
   const c = content[lang];
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden animated-gradient-bg">
-      {/* Animated Background Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <section className="relative min-h-screen flex items-center overflow-hidden animated-gradient-bg">
+      {/* Animated Background Shapes - Desktop only */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
         {/* Large gradient orb - top right */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
@@ -169,7 +169,71 @@ const Hero = () => {
         <FloatingParticles />
       </div>
 
-      <div className="container mx-auto px-6 py-16 md:py-20 relative z-10">
+      {/* ========== MOBILE LAYOUT ========== */}
+      <div className="md:hidden w-full flex flex-col px-4 pt-4 pb-8 relative z-10">
+        {/* Mobile Hero Image - Large rounded */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-full mb-4"
+        >
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/40">
+            <img
+              src={heroImage}
+              alt="Friendly family doctor examining a child with mother present at Optimum Care after-hours clinic in Pharr Texas"
+              className="w-full h-[340px] object-cover"
+            />
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+          </div>
+        </motion.div>
+
+        {/* Mobile Content Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="w-full bg-secondary/80 backdrop-blur-sm rounded-3xl p-6 border border-border/30"
+        >
+          {/* Title */}
+          <h1 className="text-3xl font-bold text-foreground leading-tight mb-2">
+            {c.headline.replace('.', '')}
+          </h1>
+          
+          {/* Accent Subtitle */}
+          <p className="text-lg font-semibold text-accent mb-4">
+            {c.headlineAccent.replace('.', '')}
+          </p>
+          
+          {/* Description */}
+          <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+            {c.subhead}
+          </p>
+
+          {/* CTA Buttons - Side by side */}
+          <div className="flex gap-3">
+            <Button
+              asChild
+              className="flex-1 bg-accent hover:bg-gold-light text-accent-foreground font-semibold py-5 rounded-xl text-sm"
+            >
+              <Link to="/check-in">
+                {t.hero.checkInOnline}
+              </Link>
+            </Button>
+            <Button
+              variant="outline"
+              className="flex-1 border-2 border-foreground/30 text-foreground hover:bg-foreground/10 font-semibold py-5 rounded-xl text-sm"
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              {t.hero.viewPrices}
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* ========== DESKTOP LAYOUT ========== */}
+      <div className="hidden md:block container mx-auto px-6 py-16 md:py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Content - Takes 7 columns */}
           <div className="lg:col-span-7 flex flex-col gap-6 md:gap-8">
