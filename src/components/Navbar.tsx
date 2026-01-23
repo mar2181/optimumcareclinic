@@ -12,6 +12,19 @@ const Navbar = () => {
     setLang(lang === 'en' ? 'es' : 'en');
   };
 
+  const handleNavClick = () => {
+    setIsOpen(false);
+  };
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    handleNavClick();
+  };
+
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6">
@@ -43,16 +56,26 @@ const Navbar = () => {
               </span>
             </div>
 
-            <a href="#services" className="text-foreground/80 hover:text-foreground transition-colors font-medium">
+            <a 
+              href="#services" 
+              onClick={(e) => scrollToSection(e, 'services')}
+              className="text-foreground/80 hover:text-foreground transition-colors font-medium"
+            >
               {t.nav.services}
             </a>
-            <a href="#pricing" className="text-foreground/80 hover:text-foreground transition-colors font-medium">
+            <a 
+              href="#pricing" 
+              onClick={(e) => scrollToSection(e, 'pricing')}
+              className="text-foreground/80 hover:text-foreground transition-colors font-medium"
+            >
               {t.nav.pricing}
             </a>
 
-            <Button className="bg-primary hover:bg-navy-light text-primary-foreground gap-2">
-              <Phone className="w-4 h-4" />
-              {t.nav.callNow}
+            <Button asChild className="bg-primary hover:bg-navy-light text-primary-foreground gap-2">
+              <a href="tel:+19564674226">
+                <Phone className="w-4 h-4" />
+                {t.nav.callNow}
+              </a>
             </Button>
           </div>
 
@@ -87,22 +110,24 @@ const Navbar = () => {
 
               <a
                 href="#services"
+                onClick={(e) => scrollToSection(e, 'services')}
                 className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
-                onClick={() => setIsOpen(false)}
               >
                 {t.nav.services}
               </a>
               <a
                 href="#pricing"
+                onClick={(e) => scrollToSection(e, 'pricing')}
                 className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
-                onClick={() => setIsOpen(false)}
               >
                 {t.nav.pricing}
               </a>
 
-              <Button className="bg-primary hover:bg-navy-light text-primary-foreground gap-2 w-full">
-                <Phone className="w-4 h-4" />
-                {t.nav.callNow}
+              <Button asChild className="bg-primary hover:bg-navy-light text-primary-foreground gap-2 w-full">
+                <a href="tel:+19564674226">
+                  <Phone className="w-4 h-4" />
+                  {t.nav.callNow}
+                </a>
               </Button>
             </div>
           </div>

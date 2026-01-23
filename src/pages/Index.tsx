@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import ServiceGrid from '@/components/ServiceGrid';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import PricingTable from '@/components/PricingTable';
+import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -14,6 +15,7 @@ const Index = () => {
         <ServiceGrid />
         <WhyChooseUs />
         <PricingTable />
+        <LocationSection />
       </main>
       <Footer />
     </div>
