@@ -1,9 +1,11 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
+import { Clock, Briefcase } from 'lucide-react';
 import serviceSickVisit from '@/assets/service-sick-visit.jpg';
 import serviceChronicCare from '@/assets/service-chronic-care.jpg';
 import serviceImmunizations from '@/assets/service-immunizations.jpg';
 import patientPediatric from '@/assets/patient-moment-pediatric.jpg';
+import serviceEmploymentTesting from '@/assets/service-employment-testing.jpg';
 
 interface ServiceCardProps {
   title: string;
@@ -119,6 +121,46 @@ const ServiceGrid = () => {
             {t.services.subtitle}
           </motion.p>
         </div>
+
+        {/* Featured Employment Testing Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative mb-12 rounded-2xl overflow-hidden shadow-xl"
+        >
+          <div className="absolute inset-0">
+            <img 
+              src={serviceEmploymentTesting} 
+              alt={lang === 'es' ? 'Físico de empleo y prueba de drogas después del horario' : 'After-hours employment physical and drug testing'}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/40" />
+          </div>
+          <div className="relative p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-12">
+            <div className="flex-1 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-4">
+                <Clock className="w-4 h-4" />
+                <span className="font-medium text-sm">5 PM - 10 PM</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground mb-3">
+                {t.services.employment.title}
+              </h3>
+              <p className="text-primary-foreground/90 text-lg mb-4">
+                {t.services.employment.subtitle}
+              </p>
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                {Object.values(t.services.employment.items).map((item, index) => (
+                  <div key={index} className="flex items-center gap-2 bg-primary-foreground/10 backdrop-blur px-4 py-2 rounded-full">
+                    <Briefcase className="w-4 h-4 text-accent" />
+                    <span className="text-primary-foreground font-medium text-sm">{item.title}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Featured Services with Images - 2x2 Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
