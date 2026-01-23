@@ -12,6 +12,7 @@ import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
 import FloatingCheckInButton from '@/components/FloatingCheckInButton';
 import SectionDivider from '@/components/SectionDivider';
+import MobileBottomNav from '@/components/MobileBottomNav';
 
 const Index = () => {
   return (
@@ -48,6 +49,7 @@ const Index = () => {
       </main>
       <Footer />
       <FloatingCheckInButton />
+      <MobileBottomNav />
     </motion.div>
   );
 };
