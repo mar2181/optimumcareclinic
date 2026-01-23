@@ -1,8 +1,8 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Phone, MapPin, Clock } from 'lucide-react';
+import { Phone, MapPin, Clock, Globe } from 'lucide-react';
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
@@ -12,10 +12,13 @@ const Footer = () => {
     }
   };
 
+  const serviceAreaTextEn = "Proudly serving the Rio Grande Valley communities of Pharr, McAllen, Mission, Edinburg, and San Juan.";
+  const serviceAreaTextEs = "Sirviendo orgullosamente a las comunidades del Valle del Río Grande: Pharr, McAllen, Mission, Edinburg y San Juan.";
+
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
           {/* Contact Info */}
           <div className="flex flex-col gap-4">
             <h3 className="text-lg font-semibold text-accent">{t.footer.contactUs}</h3>
@@ -82,6 +85,31 @@ const Footer = () => {
                   <span>Sunday: Closed</span>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Service Area */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-lg font-semibold text-accent flex items-center gap-2">
+              <Globe className="w-5 h-5" />
+              {lang === 'es' ? 'Área de Servicio' : 'Service Area'}
+            </h3>
+            <p className="text-sm text-primary-foreground/80 leading-relaxed">
+              {lang === 'es' ? serviceAreaTextEs : serviceAreaTextEn}
+            </p>
+            {/* Map Embed */}
+            <div className="rounded-lg overflow-hidden h-32 mt-2">
+              <iframe
+                title="Optimum Care Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.8867!2d-98.1847!3d26.1947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDExJzQwLjkiTiA5OMKwMTEnMDQuOSJX!5e0!3m2!1sen!2sus!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="grayscale hover:grayscale-0 transition-all duration-300"
+              />
             </div>
           </div>
         </div>
