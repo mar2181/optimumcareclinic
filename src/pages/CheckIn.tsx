@@ -10,6 +10,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
+import SEOHead from '@/components/SEOHead';
 import {
   Form,
   FormControl,
@@ -126,6 +127,12 @@ const CheckIn = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-background"
     >
+      <SEOHead
+        title="Online Check-In | Optimum Care Pharr"
+        titleEs="Registro en Línea | Optimum Care Pharr"
+        description="Skip the wait with online check-in at Optimum Care Pharr. Fast, convenient digital registration for urgent care and IV therapy."
+        descriptionEs="Evita la espera con el registro en línea en Optimum Care Pharr. Registro digital rápido y conveniente para atención urgente y terapia IV."
+      />
       {/* Header */}
       <div className="bg-primary text-primary-foreground py-6">
         <div className="container mx-auto px-6">

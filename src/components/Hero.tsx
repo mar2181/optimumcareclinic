@@ -76,7 +76,9 @@ const Hero = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                alt="Friendly doctor in modern clinic"
+                alt="Friendly healthcare provider at Optimum Care urgent care clinic in Pharr Texas"
+                width={600}
+                height={500}
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover"
               />
               {/* Overlay gradient */}

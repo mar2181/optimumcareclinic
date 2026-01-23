@@ -54,15 +54,17 @@ const LocationSection = () => {
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Map */}
-          <div className="rounded-2xl overflow-hidden shadow-lg border border-border">
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-border" style={{ minHeight: '300px' }}>
             <iframe
               src={mapsEmbedUrl}
+              width="100%"
+              height="400"
               className="w-full h-64 lg:h-full min-h-[300px]"
-              style={{ border: 0 }}
+              style={{ border: 0, display: 'block' }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Optimum Care Pharr Location"
+              title="Optimum Care urgent care clinic location map in Pharr Texas"
             />
           </div>
 
