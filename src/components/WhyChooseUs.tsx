@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Users, Clock, Calendar, DollarSign, type LucideIcon } from 'lucide-react';
+import { Users, Moon, CalendarCheck, DollarSign, type LucideIcon } from 'lucide-react';
 
 interface TrustItemProps {
   icon: LucideIcon;
@@ -22,8 +22,8 @@ const WhyChooseUs = () => {
 
   const trustItems: Array<{ icon: LucideIcon; title: string; description: string }> = [
     { icon: Users, title: t.whyUs.bilingual.title, description: t.whyUs.bilingual.desc },
-    { icon: Clock, title: t.whyUs.noWait.title, description: t.whyUs.noWait.desc },
-    { icon: Calendar, title: t.whyUs.saturday.title, description: t.whyUs.saturday.desc },
+    { icon: Moon, title: t.whyUs.afterHours.title, description: t.whyUs.afterHours.desc },
+    { icon: CalendarCheck, title: t.whyUs.sameDay.title, description: t.whyUs.sameDay.desc },
     { icon: DollarSign, title: t.whyUs.affordable.title, description: t.whyUs.affordable.desc },
   ];
 

@@ -17,32 +17,24 @@ export const translations = {
     },
     // Services
     services: {
-      title: "Comprehensive Care",
-      subtitle: "Quality healthcare services for the whole family",
-      urgentCare: {
-        title: "Urgent Care",
+      title: "Comprehensive Family Care",
+      subtitle: "Quality healthcare services for the whole family, available after hours",
+      sameDayVisits: {
+        title: "Same-Day Sick Visits",
         items: {
-          flu: { title: "Flu & Fever", desc: "Quick diagnosis and treatment for common illnesses" },
-          injuries: { title: "Minor Injuries", desc: "Sprains, strains, and minor wound care" },
-          xrays: { title: "X-Rays", desc: "On-site digital imaging with fast results" },
-          lab: { title: "Lab Testing", desc: "Comprehensive blood work and diagnostics" },
+          fluCold: { title: "Flu & Cold", desc: "Fever, cough, sore throat, and respiratory infections" },
+          infections: { title: "Infections", desc: "UTIs, ear infections, strep, and skin infections" },
+          stomach: { title: "Stomach Issues", desc: "Nausea, vomiting, diarrhea, and abdominal pain" },
+          allergies: { title: "Allergies", desc: "Seasonal allergies, allergic reactions, and rashes" },
         },
       },
-      womensWellness: {
-        title: "Women's Wellness",
+      preventiveChronic: {
+        title: "Preventive & Chronic Care",
         items: {
-          hormone: { title: "Hormone Therapy", desc: "Balanced hormones for optimal health" },
-          iv: { title: "IV Nutrition", desc: "Vitamin infusions for energy and immunity" },
-          weightLoss: { title: "Weight Loss", desc: "Medical weight management programs" },
-          aesthetics: { title: "Aesthetics", desc: "Rejuvenating treatments for radiant skin" },
-        },
-      },
-      mensHealth: {
-        title: "Men's Health",
-        items: {
-          trt: { title: "TRT (Testosterone)", desc: "Hormone optimization for vitality" },
-          hair: { title: "Hair Restoration", desc: "Advanced treatments for hair regrowth" },
-          performance: { title: "Performance IVs", desc: "Athletic recovery and enhancement" },
+          physicals: { title: "Annual Physicals", desc: "Comprehensive wellness exams for all ages" },
+          chronic: { title: "Chronic Care", desc: "Diabetes, hypertension, and asthma management" },
+          immunizations: { title: "Immunizations", desc: "Flu shots, vaccines, and travel immunizations" },
+          procedures: { title: "Minor Procedures", desc: "Wound care, stitches, splints, and ear wax removal" },
         },
       },
     },
@@ -56,8 +48,8 @@ export const translations = {
     whyUs: {
       title: "Why Choose Optimum Care?",
       bilingual: { title: "Bilingual Staff", desc: "Fluent in English & Spanish" },
-      noWait: { title: "No Wait Times", desc: "Be seen in 15 minutes or less" },
-      saturday: { title: "Open Saturdays", desc: "Convenient weekend hours" },
+      afterHours: { title: "After-Hours Access", desc: "Open when other clinics are closed" },
+      sameDay: { title: "Same-Day Appointments", desc: "No referrals needed" },
       affordable: { title: "Affordable Care", desc: "Cash prices, no surprises" },
     },
     // Pricing
@@ -68,10 +60,11 @@ export const translations = {
       items: {
         visit: { name: "Office Visit", price: "$135" },
         physical: { name: "Sports Physical", price: "$45" },
-        iv: { name: "IV Therapy", price: "$120", note: "Starting at" },
-        laceration: { name: "Laceration Repair", price: "+$100" },
+        annualPhysical: { name: "Annual Physical", price: "$175" },
         flu: { name: "Flu Test & Treatment", price: "$95" },
-        xray: { name: "X-Ray (per area)", price: "$75" },
+        chronic: { name: "Chronic Care Visit", price: "$110" },
+        procedure: { name: "Minor Procedure", price: "+$75" },
+        iv: { name: "IV Therapy", price: "$120", note: "Starting at" },
       },
       disclaimer: "Prices shown are for self-pay patients. Final cost may vary based on complexity.",
     },
@@ -86,10 +79,11 @@ export const translations = {
       symptomLabel: "Reason for Visit",
       symptomPlaceholder: "Select your reason",
       symptoms: {
-        fluCold: "Flu / Cold",
-        painInjury: "Pain / Injury",
-        wellnessIv: "Wellness / IV Therapy",
-        pediatric: "Pediatric Visit",
+        sickVisit: "Sick Visit (cold, flu, infection)",
+        chronicCare: "Chronic Care (diabetes, BP, asthma)",
+        preventive: "Preventive (physical, vaccines)",
+        procedure: "Minor Procedure (wound, stitches)",
+        ivWellness: "IV Therapy / Wellness",
       },
       cashPayLabel: "I understand this is a Cash-Pay clinic. Payment is due at time of service.",
       submitButton: "Check In Now",
@@ -111,8 +105,8 @@ export const translations = {
       backToHub: "Back to Health Hub",
       categories: {
         all: "All Topics",
-        men: "Men's Health",
-        women: "Women's Health",
+        preventive: "Preventive Care",
+        chronic: "Chronic Conditions",
         family: "Family Health",
       },
       noArticles: "No articles found.",
@@ -127,35 +121,35 @@ export const translations = {
       about: "About Us",
       hours: "Hours",
       hoursDetail: {
-        weekdays: "Mon - Fri: 8am - 8pm",
-        saturday: "Saturday: 9am - 5pm",
-        sunday: "Sunday: 10am - 4pm",
+        weekdays: "Mon - Fri: 5pm - 10pm",
+        saturday: "Saturday: 5pm - 10pm",
+        sunday: "Sunday: 5pm - 10pm",
       },
       rights: "All rights reserved.",
       subscribe: {
         title: "Stay Updated",
         placeholder: "Enter your email",
         button: "Subscribe",
-      note: "Get health tips and clinic updates",
+        note: "Get health tips and clinic updates",
+      },
+    },
+    // IV Builder
+    ivBuilder: {
+      title: "Wellness Add-On: IV Therapy",
+      subtitle: "Boost your visit with vitamin infusions for energy, immunity, and recovery",
+      step1: "Choose Your Base Treatment",
+      step2: "Add Boosters (Optional)",
+      summary: {
+        title: "Your Custom Drip",
+        empty: "Select a base treatment to get started",
+        base: "Base Treatment",
+        addons: "Boosters",
+        total: "Total",
+        book: "Book Appointment",
+        reset: "Start Over",
+      },
     },
   },
-  // IV Builder
-  ivBuilder: {
-    title: "Build Your Custom IV Therapy",
-    subtitle: "Select your base treatment and add boosters for a personalized wellness experience",
-    step1: "Choose Your Base Treatment",
-    step2: "Add Boosters (Optional)",
-    summary: {
-      title: "Your Custom Drip",
-      empty: "Select a base treatment to get started",
-      base: "Base Treatment",
-      addons: "Boosters",
-      total: "Total",
-      book: "Book Appointment",
-      reset: "Start Over",
-    },
-  },
-},
   es: {
     // Navbar
     nav: {
@@ -180,32 +174,24 @@ export const translations = {
     },
     // Services
     services: {
-      title: "Cuidado Integral",
-      subtitle: "Servicios de salud de calidad para toda la familia",
-      urgentCare: {
-        title: "Atención de Urgencias",
+      title: "Atención Familiar Integral",
+      subtitle: "Servicios de salud de calidad para toda la familia, disponibles fuera de horario",
+      sameDayVisits: {
+        title: "Visitas de Enfermedad",
         items: {
-          flu: { title: "Gripe y Fiebre", desc: "Diagnóstico y tratamiento rápido" },
-          injuries: { title: "Lesiones Menores", desc: "Esguinces y cuidado de heridas" },
-          xrays: { title: "Rayos X", desc: "Imágenes digitales con resultados rápidos" },
-          lab: { title: "Pruebas de Laboratorio", desc: "Análisis de sangre completos" },
+          fluCold: { title: "Gripe y Resfriado", desc: "Fiebre, tos, dolor de garganta e infecciones respiratorias" },
+          infections: { title: "Infecciones", desc: "Infecciones urinarias, de oído, faringitis y de piel" },
+          stomach: { title: "Problemas Estomacales", desc: "Náuseas, vómitos, diarrea y dolor abdominal" },
+          allergies: { title: "Alergias", desc: "Alergias estacionales, reacciones alérgicas y erupciones" },
         },
       },
-      womensWellness: {
-        title: "Bienestar Femenino",
+      preventiveChronic: {
+        title: "Cuidado Preventivo y Crónico",
         items: {
-          hormone: { title: "Terapia Hormonal", desc: "Hormonas balanceadas para su salud" },
-          iv: { title: "Nutrición IV", desc: "Infusiones de vitaminas para energía" },
-          weightLoss: { title: "Pérdida de Peso", desc: "Programas médicos de control de peso" },
-          aesthetics: { title: "Estética", desc: "Tratamientos rejuvenecedores" },
-        },
-      },
-      mensHealth: {
-        title: "Salud Masculina",
-        items: {
-          trt: { title: "TRT (Testosterona)", desc: "Optimización hormonal para vitalidad" },
-          hair: { title: "Restauración Capilar", desc: "Tratamientos avanzados para el cabello" },
-          performance: { title: "IVs de Rendimiento", desc: "Recuperación y mejora atlética" },
+          physicals: { title: "Físicos Anuales", desc: "Exámenes completos de bienestar para todas las edades" },
+          chronic: { title: "Cuidado Crónico", desc: "Manejo de diabetes, hipertensión y asma" },
+          immunizations: { title: "Vacunas", desc: "Vacunas contra la gripe, inmunizaciones y para viajes" },
+          procedures: { title: "Procedimientos Menores", desc: "Cuidado de heridas, suturas, férulas y limpieza de oídos" },
         },
       },
     },
@@ -213,8 +199,8 @@ export const translations = {
     whyUs: {
       title: "¿Por Qué Elegirnos?",
       bilingual: { title: "Personal Bilingüe", desc: "Hablamos inglés y español" },
-      noWait: { title: "Sin Tiempos de Espera", desc: "Atención en 15 minutos o menos" },
-      saturday: { title: "Abierto los Sábados", desc: "Horarios convenientes de fin de semana" },
+      afterHours: { title: "Horario Nocturno", desc: "Abierto cuando otras clínicas están cerradas" },
+      sameDay: { title: "Citas el Mismo Día", desc: "Sin necesidad de referidos" },
       affordable: { title: "Cuidado Económico", desc: "Precios en efectivo, sin sorpresas" },
     },
     // Pricing
@@ -225,10 +211,11 @@ export const translations = {
       items: {
         visit: { name: "Visita de Oficina", price: "$135" },
         physical: { name: "Físico Deportivo", price: "$45" },
-        iv: { name: "Terapia IV", price: "$120", note: "Desde" },
-        laceration: { name: "Reparación de Heridas", price: "+$100" },
+        annualPhysical: { name: "Físico Anual", price: "$175" },
         flu: { name: "Prueba y Tratamiento de Gripe", price: "$95" },
-        xray: { name: "Rayos X (por área)", price: "$75" },
+        chronic: { name: "Visita de Cuidado Crónico", price: "$110" },
+        procedure: { name: "Procedimiento Menor", price: "+$75" },
+        iv: { name: "Terapia IV", price: "$120", note: "Desde" },
       },
       disclaimer: "Los precios son para pacientes que pagan en efectivo. El costo final puede variar.",
     },
@@ -243,10 +230,11 @@ export const translations = {
       symptomLabel: "Razón de la Visita",
       symptomPlaceholder: "Seleccione su razón",
       symptoms: {
-        fluCold: "Gripe / Resfriado",
-        painInjury: "Dolor / Lesión",
-        wellnessIv: "Bienestar / Terapia IV",
-        pediatric: "Visita Pediátrica",
+        sickVisit: "Visita por Enfermedad (gripe, resfriado, infección)",
+        chronicCare: "Cuidado Crónico (diabetes, presión, asma)",
+        preventive: "Preventivo (físico, vacunas)",
+        procedure: "Procedimiento Menor (herida, suturas)",
+        ivWellness: "Terapia IV / Bienestar",
       },
       cashPayLabel: "Entiendo que esta es una clínica de pago en efectivo. El pago se debe al momento del servicio.",
       submitButton: "Registrarse Ahora",
@@ -268,8 +256,8 @@ export const translations = {
       backToHub: "Volver al Centro de Salud",
       categories: {
         all: "Todos los Temas",
-        men: "Salud Masculina",
-        women: "Salud Femenina",
+        preventive: "Cuidado Preventivo",
+        chronic: "Condiciones Crónicas",
         family: "Salud Familiar",
       },
       noArticles: "No se encontraron artículos.",
@@ -284,35 +272,35 @@ export const translations = {
       about: "Nosotros",
       hours: "Horario",
       hoursDetail: {
-        weekdays: "Lun - Vie: 8am - 8pm",
-        saturday: "Sábado: 9am - 5pm",
-        sunday: "Domingo: 10am - 4pm",
+        weekdays: "Lun - Vie: 5pm - 10pm",
+        saturday: "Sábado: 5pm - 10pm",
+        sunday: "Domingo: 5pm - 10pm",
       },
       rights: "Todos los derechos reservados.",
       subscribe: {
         title: "Mantente Informado",
         placeholder: "Ingresa tu correo",
         button: "Suscribirse",
-      note: "Recibe consejos de salud y novedades",
+        note: "Recibe consejos de salud y novedades",
+      },
+    },
+    // IV Builder
+    ivBuilder: {
+      title: "Complemento de Bienestar: Terapia IV",
+      subtitle: "Mejora tu visita con infusiones de vitaminas para energía, inmunidad y recuperación",
+      step1: "Elige Tu Tratamiento Base",
+      step2: "Añade Potenciadores (Opcional)",
+      summary: {
+        title: "Tu Infusión Personalizada",
+        empty: "Selecciona un tratamiento base para comenzar",
+        base: "Tratamiento Base",
+        addons: "Potenciadores",
+        total: "Total",
+        book: "Reservar Cita",
+        reset: "Empezar de Nuevo",
+      },
     },
   },
-  // IV Builder
-  ivBuilder: {
-    title: "Crea Tu Terapia IV Personalizada",
-    subtitle: "Selecciona tu tratamiento base y añade potenciadores para una experiencia de bienestar personalizada",
-    step1: "Elige Tu Tratamiento Base",
-    step2: "Añade Potenciadores (Opcional)",
-    summary: {
-      title: "Tu Infusión Personalizada",
-      empty: "Selecciona un tratamiento base para comenzar",
-      base: "Tratamiento Base",
-      addons: "Potenciadores",
-      total: "Total",
-      book: "Reservar Cita",
-      reset: "Empezar de Nuevo",
-    },
-  },
-},
 } as const;
 
 export type Language = keyof typeof translations;

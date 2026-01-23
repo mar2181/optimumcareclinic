@@ -28,16 +28,19 @@ const PricingRow = ({ name, price, note, isEven }: PricingRowProps) => (
 );
 
 const PricingTable = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const pricingItems = [
     { name: t.pricing.items.visit.name, price: t.pricing.items.visit.price },
     { name: t.pricing.items.physical.name, price: t.pricing.items.physical.price },
+    { name: t.pricing.items.annualPhysical.name, price: t.pricing.items.annualPhysical.price },
     { name: t.pricing.items.flu.name, price: t.pricing.items.flu.price },
-    { name: t.pricing.items.xray.name, price: t.pricing.items.xray.price },
+    { name: t.pricing.items.chronic.name, price: t.pricing.items.chronic.price },
+    { name: t.pricing.items.procedure.name, price: t.pricing.items.procedure.price },
     { name: t.pricing.items.iv.name, price: t.pricing.items.iv.price, note: t.pricing.startingAt },
-    { name: t.pricing.items.laceration.name, price: t.pricing.items.laceration.price },
   ];
+
+  const headerTitle = lang === 'es' ? 'Menú de Precios' : 'Self-Pay Price Menu';
 
   return (
     <section id="pricing" className="py-16 md:py-24 bg-background">
@@ -59,7 +62,7 @@ const PricingTable = () => {
             {/* Header */}
             <div className="bg-accent/20 p-6 text-center border-b border-border/30">
               <h3 className="text-xl font-bold text-accent">
-                Self-Pay Price Menu
+                {headerTitle}
               </h3>
             </div>
 

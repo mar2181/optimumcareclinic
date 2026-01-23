@@ -1,16 +1,13 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { 
   Thermometer, 
-  Bandage, 
-  Scan, 
-  TestTube,
+  Bug, 
+  Salad,
+  Flower2,
   Heart,
-  Droplets,
-  Scale,
-  Sparkles,
-  Dumbbell,
+  Activity,
+  Syringe,
   Scissors,
-  Zap,
   type LucideIcon
 } from 'lucide-react';
 
@@ -18,20 +15,20 @@ interface ServiceCardProps {
   icon: LucideIcon;
   title: string;
   description: string;
-  variant: 'urgent' | 'wellness';
+  variant: 'sameDay' | 'preventive';
 }
 
 const ServiceCard = ({ icon: Icon, title, description, variant }: ServiceCardProps) => {
-  const isUrgent = variant === 'urgent';
+  const isSameDay = variant === 'sameDay';
   
   return (
     <div className="group glass-card glass-card-hover p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer">
       <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors ${
-        isUrgent 
+        isSameDay 
           ? 'bg-foreground/10 group-hover:bg-foreground/15' 
           : 'bg-accent/20 group-hover:bg-accent/30'
       }`}>
-        <Icon className={`w-6 h-6 ${isUrgent ? 'text-foreground' : 'text-accent'}`} />
+        <Icon className={`w-6 h-6 ${isSameDay ? 'text-foreground' : 'text-accent'}`} />
       </div>
       <h4 className="font-semibold text-foreground mb-2">{title}</h4>
       <p className="text-sm text-muted-foreground">{description}</p>
@@ -42,17 +39,17 @@ const ServiceCard = ({ icon: Icon, title, description, variant }: ServiceCardPro
 interface ServiceCategoryProps {
   title: string;
   services: Array<{ icon: LucideIcon; title: string; desc: string }>;
-  variant: 'urgent' | 'wellness';
+  variant: 'sameDay' | 'preventive';
 }
 
 const ServiceCategory = ({ title, services, variant }: ServiceCategoryProps) => {
-  const isUrgent = variant === 'urgent';
+  const isSameDay = variant === 'sameDay';
   
   return (
     <div className="flex flex-col gap-6">
-        <div className="flex items-center gap-3">
-        <div className={`w-1 h-8 rounded-full ${isUrgent ? 'bg-foreground' : 'bg-accent'}`} />
-        <h3 className={`text-xl font-bold ${isUrgent ? 'text-foreground' : 'text-accent'}`}>
+      <div className="flex items-center gap-3">
+        <div className={`w-1 h-8 rounded-full ${isSameDay ? 'bg-foreground' : 'bg-accent'}`} />
+        <h3 className={`text-xl font-bold ${isSameDay ? 'text-foreground' : 'text-accent'}`}>
           {title}
         </h3>
       </div>
@@ -74,24 +71,18 @@ const ServiceCategory = ({ title, services, variant }: ServiceCategoryProps) => 
 const ServiceGrid = () => {
   const { t } = useLanguage();
 
-  const urgentCareServices = [
-    { icon: Thermometer, title: t.services.urgentCare.items.flu.title, desc: t.services.urgentCare.items.flu.desc },
-    { icon: Bandage, title: t.services.urgentCare.items.injuries.title, desc: t.services.urgentCare.items.injuries.desc },
-    { icon: Scan, title: t.services.urgentCare.items.xrays.title, desc: t.services.urgentCare.items.xrays.desc },
-    { icon: TestTube, title: t.services.urgentCare.items.lab.title, desc: t.services.urgentCare.items.lab.desc },
+  const sameDayServices = [
+    { icon: Thermometer, title: t.services.sameDayVisits.items.fluCold.title, desc: t.services.sameDayVisits.items.fluCold.desc },
+    { icon: Bug, title: t.services.sameDayVisits.items.infections.title, desc: t.services.sameDayVisits.items.infections.desc },
+    { icon: Salad, title: t.services.sameDayVisits.items.stomach.title, desc: t.services.sameDayVisits.items.stomach.desc },
+    { icon: Flower2, title: t.services.sameDayVisits.items.allergies.title, desc: t.services.sameDayVisits.items.allergies.desc },
   ];
 
-  const womensWellnessServices = [
-    { icon: Heart, title: t.services.womensWellness.items.hormone.title, desc: t.services.womensWellness.items.hormone.desc },
-    { icon: Droplets, title: t.services.womensWellness.items.iv.title, desc: t.services.womensWellness.items.iv.desc },
-    { icon: Scale, title: t.services.womensWellness.items.weightLoss.title, desc: t.services.womensWellness.items.weightLoss.desc },
-    { icon: Sparkles, title: t.services.womensWellness.items.aesthetics.title, desc: t.services.womensWellness.items.aesthetics.desc },
-  ];
-
-  const mensHealthServices = [
-    { icon: Dumbbell, title: t.services.mensHealth.items.trt.title, desc: t.services.mensHealth.items.trt.desc },
-    { icon: Scissors, title: t.services.mensHealth.items.hair.title, desc: t.services.mensHealth.items.hair.desc },
-    { icon: Zap, title: t.services.mensHealth.items.performance.title, desc: t.services.mensHealth.items.performance.desc },
+  const preventiveServices = [
+    { icon: Heart, title: t.services.preventiveChronic.items.physicals.title, desc: t.services.preventiveChronic.items.physicals.desc },
+    { icon: Activity, title: t.services.preventiveChronic.items.chronic.title, desc: t.services.preventiveChronic.items.chronic.desc },
+    { icon: Syringe, title: t.services.preventiveChronic.items.immunizations.title, desc: t.services.preventiveChronic.items.immunizations.desc },
+    { icon: Scissors, title: t.services.preventiveChronic.items.procedures.title, desc: t.services.preventiveChronic.items.procedures.desc },
   ];
 
   return (
@@ -107,22 +98,17 @@ const ServiceGrid = () => {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        {/* Services Grid - 2 columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           <ServiceCategory
-            title={t.services.urgentCare.title}
-            services={urgentCareServices}
-            variant="urgent"
+            title={t.services.sameDayVisits.title}
+            services={sameDayServices}
+            variant="sameDay"
           />
           <ServiceCategory
-            title={t.services.womensWellness.title}
-            services={womensWellnessServices}
-            variant="wellness"
-          />
-          <ServiceCategory
-            title={t.services.mensHealth.title}
-            services={mensHealthServices}
-            variant="wellness"
+            title={t.services.preventiveChronic.title}
+            services={preventiveServices}
+            variant="preventive"
           />
         </div>
       </div>
