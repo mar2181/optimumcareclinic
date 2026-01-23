@@ -10,7 +10,7 @@ interface PricingRowProps {
 
 const PricingRow = ({ name, price, note, isEven }: PricingRowProps) => (
   <div className={`flex items-center justify-between py-4 px-6 rounded-xl transition-colors ${
-    isEven ? 'bg-secondary' : 'bg-background'
+    isEven ? 'bg-muted/50' : 'bg-transparent'
   }`}>
     <div className="flex items-center gap-3">
       <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
@@ -22,7 +22,7 @@ const PricingRow = ({ name, price, note, isEven }: PricingRowProps) => (
       {note && (
         <span className="text-xs text-muted-foreground mr-2">{note}</span>
       )}
-      <span className="font-bold text-lg text-primary">{price}</span>
+      <span className="font-bold text-lg text-accent">{price}</span>
     </div>
   </div>
 );
@@ -55,10 +55,10 @@ const PricingTable = () => {
 
         {/* Pricing Card */}
         <div className="max-w-2xl mx-auto">
-          <div className="bg-card rounded-2xl border border-border shadow-lg overflow-hidden">
+          <div className="glass-card overflow-hidden">
             {/* Header */}
-            <div className="bg-primary p-6 text-center">
-              <h3 className="text-xl font-bold text-primary-foreground">
+            <div className="bg-accent/20 p-6 text-center border-b border-border/30">
+              <h3 className="text-xl font-bold text-accent">
                 Self-Pay Price Menu
               </h3>
             </div>

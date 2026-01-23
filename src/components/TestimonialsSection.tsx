@@ -25,7 +25,7 @@ const TestimonialCard = ({ testimonial, lang }: { testimonial: Testimonial; lang
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.3 }}
-      className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-border/50 relative"
+      className="glass-card p-8 shadow-lg relative"
     >
       {/* Quote Icon */}
       <div className="absolute -top-4 left-8">
@@ -74,7 +74,7 @@ const TestimonialCard = ({ testimonial, lang }: { testimonial: Testimonial; lang
 };
 
 const TestimonialSkeleton = () => (
-  <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-border/50">
+  <div className="glass-card p-8 shadow-lg">
     <div className="flex gap-1 mb-4">
       {Array.from({ length: 5 }).map((_, i) => (
         <Skeleton key={i} className="h-5 w-5 rounded" />
@@ -126,7 +126,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-muted/30 overflow-hidden">
+    <section className="py-16 md:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div 

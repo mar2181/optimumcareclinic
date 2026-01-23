@@ -25,13 +25,13 @@ const ServiceCard = ({ icon: Icon, title, description, variant }: ServiceCardPro
   const isUrgent = variant === 'urgent';
   
   return (
-    <div className="group bg-card p-6 rounded-xl border border-border hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer">
+    <div className="group glass-card glass-card-hover p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer">
       <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors ${
         isUrgent 
-          ? 'bg-primary/10 group-hover:bg-primary/20' 
+          ? 'bg-foreground/10 group-hover:bg-foreground/15' 
           : 'bg-accent/20 group-hover:bg-accent/30'
       }`}>
-        <Icon className={`w-6 h-6 ${isUrgent ? 'text-primary' : 'text-accent'}`} />
+        <Icon className={`w-6 h-6 ${isUrgent ? 'text-foreground' : 'text-accent'}`} />
       </div>
       <h4 className="font-semibold text-foreground mb-2">{title}</h4>
       <p className="text-sm text-muted-foreground">{description}</p>
@@ -50,9 +50,9 @@ const ServiceCategory = ({ title, services, variant }: ServiceCategoryProps) => 
   
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-center gap-3">
-        <div className={`w-1 h-8 rounded-full ${isUrgent ? 'bg-primary' : 'bg-accent'}`} />
-        <h3 className={`text-xl font-bold ${isUrgent ? 'text-primary' : 'text-accent'}`}>
+        <div className="flex items-center gap-3">
+        <div className={`w-1 h-8 rounded-full ${isUrgent ? 'bg-foreground' : 'bg-accent'}`} />
+        <h3 className={`text-xl font-bold ${isUrgent ? 'text-foreground' : 'text-accent'}`}>
           {title}
         </h3>
       </div>
@@ -95,7 +95,7 @@ const ServiceGrid = () => {
   ];
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-secondary">
+    <section id="services" className="py-16 md:py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">

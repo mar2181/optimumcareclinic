@@ -29,7 +29,7 @@ const TrustBadges = () => {
   const { lang } = useLanguage();
 
   return (
-    <section className="py-8 bg-primary/5 border-y border-border">
+    <section className="py-8 bg-secondary/50 border-y border-border/30">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {trustItems.map((item, index) => {
@@ -41,10 +41,10 @@ const TrustBadges = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
-                className="flex flex-col items-center text-center gap-3"
+                className="glass-card glass-card-hover flex flex-col items-center text-center gap-3 p-4"
               >
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Icon className="h-6 w-6 text-primary" />
+                <div className="h-12 w-12 rounded-full bg-accent/15 flex items-center justify-center">
+                  <Icon className="h-6 w-6 text-accent" />
                 </div>
                 <span className="text-sm font-medium text-foreground">
                   {lang === 'es' ? item.labelEs : item.labelEn}
