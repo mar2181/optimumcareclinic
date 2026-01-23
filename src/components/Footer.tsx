@@ -86,8 +86,29 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Newsletter Subscribe */}
+        <div className="mt-10 pt-8 border-t border-primary-foreground/10">
+          <div className="max-w-md mx-auto text-center">
+            <h3 className="text-lg font-semibold text-accent mb-2">{t.footer.subscribe.title}</h3>
+            <p className="text-sm text-primary-foreground/70 mb-4">{t.footer.subscribe.note}</p>
+            <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder={t.footer.subscribe.placeholder}
+                className="flex-1 px-4 py-2 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent"
+              />
+              <button
+                type="submit"
+                className="px-6 py-2 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-accent/90 transition-colors"
+              >
+                {t.footer.subscribe.button}
+              </button>
+            </form>
+          </div>
+        </div>
+
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-primary-foreground/10">
+        <div className="mt-10 pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Logo */}
             <div className="flex items-center gap-2">

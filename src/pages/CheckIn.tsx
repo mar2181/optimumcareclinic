@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { motion } from 'framer-motion';
 import { CheckCircle, ClipboardList, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -82,9 +83,19 @@ const CheckIn = () => {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-6">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="min-h-screen bg-background flex items-center justify-center p-6"
+      >
         <div className="w-full max-w-md">
-          <div className="bg-card rounded-2xl shadow-xl border border-border p-8 text-center animate-fade-in">
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.1 }}
+            className="bg-card rounded-2xl shadow-xl border border-border p-8 text-center"
+          >
             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center">
               <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
@@ -102,14 +113,19 @@ const CheckIn = () => {
               <ArrowLeft className="w-4 h-4" />
               {t.checkIn.backHome}
             </Button>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="min-h-screen bg-background"
+    >
       {/* Header */}
       <div className="bg-primary text-primary-foreground py-6">
         <div className="container mx-auto px-6">
@@ -249,7 +265,7 @@ const CheckIn = () => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

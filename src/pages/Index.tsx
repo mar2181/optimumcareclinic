@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import ServiceGrid from '@/components/ServiceGrid';
@@ -9,7 +10,12 @@ import FloatingCheckInButton from '@/components/FloatingCheckInButton';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="min-h-screen flex flex-col"
+    >
       <Navbar />
       <main className="flex-1">
         <Hero />
@@ -20,7 +26,7 @@ const Index = () => {
       </main>
       <Footer />
       <FloatingCheckInButton />
-    </div>
+    </motion.div>
   );
 };
 

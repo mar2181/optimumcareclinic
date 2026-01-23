@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
@@ -24,6 +25,28 @@ const Navbar = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     handleNavClick();
+  };
+
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      height: 0,
+      transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] as const },
+    },
+    open: {
+      opacity: 1,
+      height: 'auto',
+      transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] as const },
+    },
+  };
+
+  const itemVariants = {
+    closed: { opacity: 0, x: -20 },
+    open: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: { delay: i * 0.05, duration: 0.2 },
+    }),
   };
 
   return (
@@ -74,6 +97,12 @@ const Navbar = () => {
             >
               {t.nav.pricing}
             </a>
+            <a 
+              href="/resources"
+              className="text-foreground/80 hover:text-foreground transition-colors font-medium"
+            >
+              {t.nav.resources}
+            </a>
 
             <Button asChild className="bg-primary hover:bg-navy-light text-primary-foreground gap-2">
               <a href="tel:+19564674226">
@@ -94,53 +123,76 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
-              {/* Wait Time Display */}
-              <div className="flex justify-center py-2">
-                <WaitTimeDisplay />
-              </div>
-              
-              {/* Language Toggle */}
-              <div className="flex items-center justify-center gap-3 py-2">
-                <span className={lang === 'en' ? 'font-semibold text-foreground' : 'text-muted-foreground'}>
-                  EN
-                </span>
-                <Switch
-                  checked={lang === 'es'}
-                  onCheckedChange={toggleLanguage}
-                  className="data-[state=checked]:bg-accent"
-                />
-                <span className={lang === 'es' ? 'font-semibold text-foreground' : 'text-muted-foreground'}>
-                  ES
-                </span>
-              </div>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
+              className="md:hidden overflow-hidden border-t border-border"
+            >
+              <div className="flex flex-col gap-4 py-4">
+                {/* Wait Time Display */}
+                <motion.div custom={0} variants={itemVariants} className="flex justify-center py-2">
+                  <WaitTimeDisplay />
+                </motion.div>
+                
+                {/* Language Toggle */}
+                <motion.div custom={1} variants={itemVariants} className="flex items-center justify-center gap-3 py-2">
+                  <span className={lang === 'en' ? 'font-semibold text-foreground' : 'text-muted-foreground'}>
+                    EN
+                  </span>
+                  <Switch
+                    checked={lang === 'es'}
+                    onCheckedChange={toggleLanguage}
+                    className="data-[state=checked]:bg-accent"
+                  />
+                  <span className={lang === 'es' ? 'font-semibold text-foreground' : 'text-muted-foreground'}>
+                    ES
+                  </span>
+                </motion.div>
 
-              <a
-                href="#services"
-                onClick={(e) => scrollToSection(e, 'services')}
-                className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
-              >
-                {t.nav.services}
-              </a>
-              <a
-                href="#pricing"
-                onClick={(e) => scrollToSection(e, 'pricing')}
-                className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
-              >
-                {t.nav.pricing}
-              </a>
+                <motion.a
+                  custom={2}
+                  variants={itemVariants}
+                  href="#services"
+                  onClick={(e) => scrollToSection(e, 'services')}
+                  className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
+                >
+                  {t.nav.services}
+                </motion.a>
+                <motion.a
+                  custom={3}
+                  variants={itemVariants}
+                  href="#pricing"
+                  onClick={(e) => scrollToSection(e, 'pricing')}
+                  className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
+                >
+                  {t.nav.pricing}
+                </motion.a>
+                <motion.a
+                  custom={4}
+                  variants={itemVariants}
+                  href="/resources"
+                  onClick={handleNavClick}
+                  className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
+                >
+                  {t.nav.resources}
+                </motion.a>
 
-              <Button asChild className="bg-primary hover:bg-navy-light text-primary-foreground gap-2 w-full">
-                <a href="tel:+19564674226">
-                  <Phone className="w-4 h-4" />
-                  {t.nav.callNow}
-                </a>
-              </Button>
-            </div>
-          </div>
-        )}
+                <motion.div custom={5} variants={itemVariants}>
+                  <Button asChild className="bg-primary hover:bg-navy-light text-primary-foreground gap-2 w-full">
+                    <a href="tel:+19564674226">
+                      <Phone className="w-4 h-4" />
+                      {t.nav.callNow}
+                    </a>
+                  </Button>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );

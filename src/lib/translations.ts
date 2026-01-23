@@ -4,6 +4,7 @@ export const translations = {
     nav: {
       services: "Services",
       pricing: "Pricing",
+      resources: "Health Hub",
       callNow: "Call Now",
     },
     // Hero
@@ -96,6 +97,21 @@ export const translations = {
       fabLabel: "Check In Online",
       fabText: "Check In",
     },
+    // Resources / Health Hub
+    resources: {
+      title: "Health Hub",
+      subtitle: "Expert health tips and resources for the Rio Grande Valley community",
+      readMore: "Read More",
+      backToHub: "Back to Health Hub",
+      categories: {
+        all: "All Topics",
+        men: "Men's Health",
+        women: "Women's Health",
+        family: "Family Health",
+      },
+      noArticles: "No articles found.",
+      loading: "Loading articles...",
+    },
     // Footer
     footer: {
       contactUs: "Contact Us",
@@ -110,6 +126,12 @@ export const translations = {
         sunday: "Sunday: 10am - 4pm",
       },
       rights: "All rights reserved.",
+      subscribe: {
+        title: "Stay Updated",
+        placeholder: "Enter your email",
+        button: "Subscribe",
+        note: "Get health tips and clinic updates",
+      },
     },
   },
   es: {
@@ -117,6 +139,7 @@ export const translations = {
     nav: {
       services: "Servicios",
       pricing: "Precios",
+      resources: "Centro de Salud",
       callNow: "Llámenos",
     },
     // Hero
@@ -209,6 +232,21 @@ export const translations = {
       fabLabel: "Registrarse en Línea",
       fabText: "Registro",
     },
+    // Resources / Health Hub
+    resources: {
+      title: "Centro de Salud",
+      subtitle: "Consejos de salud y recursos para la comunidad del Valle del Río Grande",
+      readMore: "Leer Más",
+      backToHub: "Volver al Centro de Salud",
+      categories: {
+        all: "Todos los Temas",
+        men: "Salud Masculina",
+        women: "Salud Femenina",
+        family: "Salud Familiar",
+      },
+      noArticles: "No se encontraron artículos.",
+      loading: "Cargando artículos...",
+    },
     // Footer
     footer: {
       contactUs: "Contáctenos",
@@ -223,6 +261,12 @@ export const translations = {
         sunday: "Domingo: 10am - 4pm",
       },
       rights: "Todos los derechos reservados.",
+      subscribe: {
+        title: "Mantente Informado",
+        placeholder: "Ingresa tu correo",
+        button: "Suscribirse",
+        note: "Recibe consejos de salud y novedades",
+      },
     },
   },
 } as const;
