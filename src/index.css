@@ -151,4 +151,290 @@ body {
       transform: scale(1.05);
     }
   }
+
+  /* NEW: Animated gradient background */
+  .animated-gradient-bg {
+    background: linear-gradient(
+      -45deg,
+      hsl(var(--navy)),
+      hsl(var(--navy-light)),
+      hsl(222 47% 15%),
+      hsl(var(--navy))
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* NEW: Glow button effect */
+  .glow-button {
+    position: relative;
+    z-index: 1;
+  }
+
+  .glow-button::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    filter: blur(12px);
+    transition: opacity 0.3s ease;
+  }
+
+  .glow-button:hover::before {
+    opacity: 0.6;
+  }
+
+  .glow-button-always::before {
+    opacity: 0.4;
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% {
+      opacity: 0.3;
+      filter: blur(12px);
+    }
+    50% {
+      opacity: 0.6;
+      filter: blur(16px);
+    }
+  }
+
+  /* NEW: Shimmer text effect */
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--gold)) 0%,
+      hsl(var(--gold-light)) 50%,
+      hsl(var(--gold)) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* NEW: Border glow for cards */
+  .border-glow {
+    position: relative;
+  }
+
+  .border-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--gold) / 0.3), transparent, hsl(var(--gold) / 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .border-glow:hover::before {
+    opacity: 1;
+  }
+
+  /* NEW: Floating particle container */
+  .particles-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: hsl(var(--gold) / 0.3);
+    border-radius: 50%;
+    animation: particleFloat 10s linear infinite;
+  }
+
+  @keyframes particleFloat {
+    0% {
+      transform: translateY(100vh) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) translateX(20px);
+      opacity: 0;
+    }
+  }
+
+  /* NEW: 3D tilt effect base */
+  .tilt-card {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+  }
+
+  .tilt-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-5px);
+  }
+
+  /* NEW: Icon bounce animation */
+  .icon-bounce {
+    animation: iconBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes iconBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  /* NEW: Stagger delay utilities */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+
+  /* NEW: Gradient mesh background */
+  .gradient-mesh {
+    background: 
+      radial-gradient(at 40% 20%, hsl(var(--gold) / 0.15) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsl(var(--navy-light)) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, hsl(var(--gold) / 0.1) 0px, transparent 50%),
+      radial-gradient(at 80% 50%, hsl(var(--primary)) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsl(var(--gold) / 0.08) 0px, transparent 50%);
+  }
+
+  /* NEW: Floating animation for FAB */
+  .float-bob {
+    animation: floatBob 3s ease-in-out infinite;
+  }
+
+  @keyframes floatBob {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  /* NEW: Attention pulse */
+  .attention-pulse {
+    animation: attentionPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes attentionPulse {
+    0%, 85%, 100% {
+      transform: scale(1);
+      box-shadow: 0 10px 25px -5px hsl(var(--gold) / 0.3);
+    }
+    90% {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px -5px hsl(var(--gold) / 0.5);
+    }
+    95% {
+      transform: scale(1);
+    }
+  }
+
+  /* NEW: Section title underline animation */
+  .title-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .title-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+    border-radius: 2px;
+  }
+
+  /* NEW: Card shine effect on hover */
+  .card-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 40%,
+      hsl(var(--gold) / 0.1) 50%,
+      transparent 60%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .card-shine:hover::after {
+    transform: translateX(100%);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .floating-shape,
+  .floating-shape-slow,
+  .floating-shape-delayed,
+  .pulse-glow,
+  .animated-gradient-bg,
+  .shimmer-text,
+  .particle,
+  .icon-bounce,
+  .float-bob,
+  .attention-pulse {
+    animation: none;
+  }
+  
+  .glow-button::before,
+  .glow-button-always::before {
+    animation: none;
+    opacity: 0.3;
+  }
 }

@@ -11,6 +11,7 @@ import PricingTable from '@/components/PricingTable';
 import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
 import FloatingCheckInButton from '@/components/FloatingCheckInButton';
+import SectionDivider from '@/components/SectionDivider';
 
 const Index = () => {
   return (
@@ -29,13 +30,21 @@ const Index = () => {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <SectionDivider variant="wave" fillClassName="fill-secondary/50" />
         <TrustBadges />
+        <SectionDivider variant="curve" fillClassName="fill-secondary/30" />
         <ServiceGrid />
+        <SectionDivider variant="layered" fillClassName="fill-secondary/50" />
         <WhyChooseUs />
+        <SectionDivider variant="wave" flip fillClassName="fill-background" />
         <TestimonialsSection />
+        <SectionDivider variant="dots" />
         <IVBuilderSection />
+        <SectionDivider variant="curve" fillClassName="fill-background" />
         <PricingTable />
+        <SectionDivider variant="wave" fillClassName="fill-secondary/30" />
         <LocationSection />
+        <SectionDivider variant="angular" fillClassName="fill-primary" />
       </main>
       <Footer />
       <FloatingCheckInButton />

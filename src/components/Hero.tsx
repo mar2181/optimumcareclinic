@@ -34,6 +34,35 @@ const useCounter = (end: number, duration: number = 2000) => {
   return { count, start: () => setHasStarted(true) };
 };
 
+// Floating particles component
+const FloatingParticles = () => {
+  const particles = Array.from({ length: 15 }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    delay: Math.random() * 10,
+    duration: 10 + Math.random() * 10,
+    size: 2 + Math.random() * 4,
+  }));
+
+  return (
+    <div className="particles-container hidden md:block">
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className="particle"
+          style={{
+            left: particle.left,
+            width: particle.size,
+            height: particle.size,
+            animationDelay: `${particle.delay}s`,
+            animationDuration: `${particle.duration}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 // Stats card component
 const StatCard = ({ icon: Icon, value, label, delay }: { 
   icon: React.ElementType; 
@@ -42,10 +71,10 @@ const StatCard = ({ icon: Icon, value, label, delay }: {
   delay: number;
 }) => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay, duration: 0.5 }}
-    className="glass-card glass-card-hover p-4 flex items-center gap-3 cursor-default"
+    initial={{ opacity: 0, y: 20, scale: 0.9 }}
+    animate={{ opacity: 1, y: 0, scale: 1 }}
+    transition={{ delay, duration: 0.5, type: "spring", stiffness: 100 }}
+    className="glass-card glass-card-hover border-glow card-shine p-4 flex items-center gap-3 cursor-default"
   >
     <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center flex-shrink-0">
       <Icon className="w-5 h-5 text-accent" />
@@ -101,17 +130,30 @@ const Hero = () => {
   const c = content[lang];
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden animated-gradient-bg">
       {/* Animated Background Shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Large gradient orb - top right */}
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-accent/10 blur-3xl floating-shape" />
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl floating-shape" 
+        />
         
         {/* Secondary orb - bottom left */}
-        <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-primary/30 blur-3xl floating-shape-slow" />
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+          className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-primary/30 blur-3xl floating-shape-slow" 
+        />
         
         {/* Accent orb - center right */}
-        <div className="absolute top-1/2 right-1/4 w-48 h-48 rounded-full bg-gold/5 blur-2xl floating-shape-delayed" />
+        <div className="absolute top-1/2 right-1/4 w-56 h-56 rounded-full bg-gold/8 blur-2xl floating-shape-delayed" />
+        
+        {/* Gradient mesh overlay */}
+        <div className="absolute inset-0 gradient-mesh opacity-50" />
         
         {/* Geometric lines */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
@@ -122,6 +164,9 @@ const Hero = () => {
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
+
+        {/* Floating Particles */}
+        <FloatingParticles />
       </div>
 
       <div className="container mx-auto px-6 py-16 md:py-20 relative z-10">
@@ -135,7 +180,7 @@ const Hero = () => {
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 glass-card-gold px-4 py-2 w-fit"
             >
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse-ring" />
               <span className="text-sm font-medium text-accent">{c.badge}</span>
             </motion.div>
 
@@ -148,7 +193,7 @@ const Hero = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 <span className="text-foreground">{c.headline}</span>
                 <br />
-                <span className="text-gradient-gold">{c.headlineAccent}</span>
+                <span className="shimmer-text">{c.headlineAccent}</span>
               </h1>
             </motion.div>
 
@@ -162,7 +207,7 @@ const Hero = () => {
               {c.subhead}
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTAs with glow effect */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -172,7 +217,7 @@ const Hero = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-accent hover:bg-gold-light text-accent-foreground font-semibold gap-2 px-8 py-6 text-lg rounded-xl shadow-lg shadow-accent/20 transition-all hover:shadow-xl hover:shadow-accent/30 hover:scale-[1.02]"
+                className="glow-button glow-button-always bg-accent hover:bg-gold-light text-accent-foreground font-semibold gap-2 px-8 py-6 text-lg rounded-xl shadow-lg shadow-accent/20 transition-all hover:shadow-xl hover:shadow-accent/30 hover:scale-[1.02]"
               >
                 <Link to="/check-in">
                   <ClipboardPen className="w-5 h-5" />
@@ -182,7 +227,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-foreground/20 text-foreground hover:bg-foreground/10 hover:border-foreground/30 font-semibold px-8 py-6 text-lg rounded-xl transition-all backdrop-blur-sm"
+                className="glow-button border-2 border-foreground/20 text-foreground hover:bg-foreground/10 hover:border-foreground/30 font-semibold px-8 py-6 text-lg rounded-xl transition-all backdrop-blur-sm"
                 onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 {t.hero.viewPrices}
@@ -198,10 +243,16 @@ const Hero = () => {
               className="flex flex-wrap gap-6 pt-4"
             >
               {c.trust.map((item, index) => (
-                <div key={index} className="flex items-center gap-2 text-muted-foreground">
+                <motion.div 
+                  key={index} 
+                  className="flex items-center gap-2 text-muted-foreground"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
+                >
                   <div className="w-2 h-2 rounded-full bg-accent" />
                   <span className="text-sm">{item}</span>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           </div>
@@ -249,14 +300,14 @@ const Hero = () => {
                 />
               </div>
 
-              {/* Rating card - top right */}
+              {/* Rating card - top right with enhanced styling */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -top-4 -right-4 md:-right-8 glass-card p-4 flex items-center gap-2"
+                className="absolute -top-4 -right-4 md:-right-8 glass-card border-glow p-4 flex items-center gap-2"
               >
-                <Star className="w-5 h-5 text-accent fill-accent" />
+                <Star className="w-5 h-5 text-accent fill-accent animate-bounce-gentle" />
                 <span className="text-xl font-bold text-foreground">4.9</span>
                 <span className="text-xs text-muted-foreground">{c.stats.rating}</span>
               </motion.div>
