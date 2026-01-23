@@ -9,7 +9,7 @@ import AddonCard from './AddonCard';
 import BuilderSummary from './BuilderSummary';
 
 const TreatmentSkeleton = () => (
-  <div className="p-6 rounded-xl bg-card shadow-sm">
+  <div className="p-6 rounded-xl glass-card">
     <Skeleton className="h-6 w-32 mb-3" />
     <Skeleton className="h-10 w-20 mb-3" />
     <Skeleton className="h-16 w-full mb-4" />
@@ -22,7 +22,7 @@ const TreatmentSkeleton = () => (
 );
 
 const AddonSkeleton = () => (
-  <div className="p-4 rounded-xl bg-card shadow-sm">
+  <div className="p-4 rounded-xl glass-card">
     <div className="flex items-center justify-between">
       <div>
         <Skeleton className="h-5 w-24 mb-2" />
@@ -86,7 +86,7 @@ const IVBuilderSection = () => {
   };
 
   return (
-    <section id="iv-builder" className="py-16 md:py-24 bg-muted/30">
+    <section id="iv-builder" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -105,7 +105,7 @@ const IVBuilderSection = () => {
             {/* Step 1: Base Selection */}
             <div>
               <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <span className="h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
+                <span className="h-8 w-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center text-sm font-bold">
                   1
                 </span>
                 {t.ivBuilder.step1}
@@ -134,7 +134,7 @@ const IVBuilderSection = () => {
             {/* Step 2: Boosters */}
             <div>
               <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <span className="h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
+                <span className="h-8 w-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center text-sm font-bold">
                   2
                 </span>
                 {t.ivBuilder.step2}

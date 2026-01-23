@@ -14,9 +14,9 @@ const TreatmentCard = ({ treatment, isSelected, onSelect }: TreatmentCardProps) 
     <button
       onClick={() => onSelect(treatment)}
       className={cn(
-        "w-full text-left p-6 rounded-xl bg-card shadow-sm transition-all duration-200",
-        "hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
-        isSelected && "ring-2 ring-primary shadow-lg"
+        "w-full text-left p-6 rounded-xl transition-all duration-200 glass-card glass-card-hover",
+        "focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background",
+        isSelected && "ring-2 ring-accent shadow-lg"
       )}
     >
       <div className="flex items-start justify-between gap-4">
@@ -24,13 +24,13 @@ const TreatmentCard = ({ treatment, isSelected, onSelect }: TreatmentCardProps) 
           <div className="flex items-center gap-3 mb-2">
             <h3 className="text-xl font-semibold text-foreground">{treatment.name}</h3>
             {isSelected && (
-              <Badge className="bg-primary text-primary-foreground">
+              <Badge className="bg-accent text-accent-foreground">
                 Selected
               </Badge>
             )}
           </div>
           
-          <p className="text-3xl font-bold text-primary mb-3">
+          <p className="text-3xl font-bold text-accent mb-3">
             ${treatment.base_price}
           </p>
           
@@ -46,7 +46,7 @@ const TreatmentCard = ({ treatment, isSelected, onSelect }: TreatmentCardProps) 
           <ul className="space-y-2">
             {treatment.benefits.map((benefit, index) => (
               <li key={index} className="flex items-center gap-2 text-sm">
-                <Check className="h-4 w-4 text-primary flex-shrink-0" />
+                <Check className="h-4 w-4 text-accent flex-shrink-0" />
                 <span className="text-foreground">{benefit}</span>
               </li>
             ))}

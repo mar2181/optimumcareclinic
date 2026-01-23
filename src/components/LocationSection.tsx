@@ -39,7 +39,7 @@ const LocationSection = () => {
   const mapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.7!2d-98.1847!3d26.1947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDExJzQxLjAiTiA5OMKwMTEnMDQuOSJX!5e0!3m2!1sen!2sus!4v1234567890";
 
   return (
-    <section id="location" className="py-16 md:py-24 bg-secondary">
+    <section id="location" className="py-16 md:py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
@@ -54,7 +54,7 @@ const LocationSection = () => {
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Map */}
-          <div className="rounded-2xl overflow-hidden shadow-lg border border-border" style={{ minHeight: '300px' }}>
+          <div className="glass-card overflow-hidden" style={{ minHeight: '300px' }}>
             <iframe
               src={mapsEmbedUrl}
               width="100%"
@@ -75,7 +75,7 @@ const LocationSection = () => {
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-start gap-4 p-6 bg-card rounded-xl border border-border hover:border-accent transition-colors"
+              className="group glass-card glass-card-hover flex items-start gap-4 p-6 hover:border-accent/30"
             >
               <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/30 transition-colors">
                 <MapPin className="w-6 h-6 text-accent" />
@@ -89,19 +89,19 @@ const LocationSection = () => {
             {/* Phone */}
             <a
               href="tel:+19564674226"
-              className="group flex items-start gap-4 p-6 bg-card rounded-xl border border-border hover:border-primary transition-colors"
+              className="group glass-card glass-card-hover flex items-start gap-4 p-6 hover:border-foreground/20"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                <Phone className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center flex-shrink-0 group-hover:bg-foreground/15 transition-colors">
+                <Phone className="w-6 h-6 text-foreground" />
               </div>
               <div>
                 <p className="font-semibold text-foreground mb-1">{phone}</p>
-                <span className="text-sm text-primary font-medium">{t.callUs} →</span>
+                <span className="text-sm text-foreground/70 font-medium">{t.callUs} →</span>
               </div>
             </a>
 
             {/* Hours */}
-            <div className="flex items-start gap-4 p-6 bg-card rounded-xl border border-border">
+            <div className="glass-card flex items-start gap-4 p-6">
               <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
                 <Clock className="w-6 h-6 text-muted-foreground" />
               </div>
@@ -131,7 +131,7 @@ const LocationSection = () => {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-2 border-primary text-foreground hover:bg-primary hover:text-primary-foreground font-semibold rounded-xl flex-1"
+                className="border-2 border-foreground/20 text-foreground hover:bg-foreground/10 font-semibold rounded-xl flex-1"
               >
                 <a href={mapsUrl} target="_blank" rel="noopener noreferrer">
                   <MapPin className="w-5 h-5" />

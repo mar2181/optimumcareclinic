@@ -25,11 +25,11 @@ const BuilderSummary = ({
   const hasSelection = selectedBase !== null;
 
   return (
-    <Card className="shadow-lg rounded-xl border-0 bg-card">
+    <Card className="shadow-lg rounded-xl border-0 glass-card">
       <CardHeader className="pb-4">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-            <Droplets className="h-5 w-5 text-primary" />
+          <div className="h-10 w-10 rounded-full bg-accent/20 flex items-center justify-center">
+            <Droplets className="h-5 w-5 text-accent" />
           </div>
           <CardTitle className="text-xl">{t.ivBuilder.summary.title}</CardTitle>
         </div>
@@ -73,14 +73,14 @@ const BuilderSummary = ({
             {/* Total */}
             <div className="flex justify-between items-center pt-2">
               <span className="text-lg font-semibold text-foreground">{t.ivBuilder.summary.total}</span>
-              <span className="text-3xl font-bold text-primary">${totalPrice}</span>
+              <span className="text-3xl font-bold text-accent">${totalPrice}</span>
             </div>
 
             {/* Actions */}
             <div className="space-y-3 pt-4">
               <Button 
                 onClick={onBook}
-                className="w-full h-12 text-lg font-semibold"
+                className="w-full h-12 text-lg font-semibold bg-accent hover:bg-gold-light text-accent-foreground"
                 disabled={!hasSelection}
               >
                 {t.ivBuilder.summary.book}

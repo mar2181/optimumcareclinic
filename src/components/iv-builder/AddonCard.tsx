@@ -15,10 +15,10 @@ const AddonCard = ({ addon, isSelected, onToggle }: AddonCardProps) => {
       onClick={() => onToggle(addon)}
       className={cn(
         "w-full text-left p-4 rounded-xl transition-all duration-200",
-        "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+        "focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background",
         isSelected 
-          ? "bg-primary/10 border-2 border-primary shadow-md" 
-          : "bg-card border-2 border-transparent shadow-sm hover:shadow-md"
+          ? "glass-card-gold ring-2 ring-accent/50 shadow-md" 
+          : "glass-card glass-card-hover"
       )}
     >
       <div className="flex items-center justify-between">
@@ -29,13 +29,13 @@ const AddonCard = ({ addon, isSelected, onToggle }: AddonCardProps) => {
               {addon.category}
             </Badge>
           </div>
-          <p className="text-lg font-bold text-primary">+${addon.price}</p>
+          <p className="text-lg font-bold text-accent">+${addon.price}</p>
         </div>
         
         <div className={cn(
           "h-8 w-8 rounded-full flex items-center justify-center transition-colors",
           isSelected 
-            ? "bg-primary text-primary-foreground" 
+            ? "bg-accent text-accent-foreground" 
             : "bg-muted text-muted-foreground"
         )}>
           {isSelected ? (

@@ -8,42 +8,42 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Background & Foreground */
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    /* Dark Navy Background Theme */
+    --background: 222 47% 11%;
+    --foreground: 0 0% 98%;
 
-    /* Navy Primary - Medical Trust */
-    --primary: 222 47% 11%;
-    --primary-foreground: 0 0% 100%;
+    /* Navy Primary - Now lighter for contrast on dark bg */
+    --primary: 222 47% 20%;
+    --primary-foreground: 0 0% 98%;
 
-    /* Gold Accent - Premium Wellness */
+    /* Gold Accent - Premium Wellness (unchanged, pops on dark) */
     --accent: 43 74% 52%;
     --accent-foreground: 222 47% 11%;
 
-    /* Secondary - Soft backgrounds */
-    --secondary: 210 40% 98%;
-    --secondary-foreground: 222 47% 11%;
+    /* Secondary - Slightly lighter navy */
+    --secondary: 222 47% 14%;
+    --secondary-foreground: 0 0% 98%;
 
     /* Muted elements */
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 222 47% 18%;
+    --muted-foreground: 215 20% 65%;
 
-    /* Cards */
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    /* Cards - Glass-morphism friendly */
+    --card: 222 47% 16%;
+    --card-foreground: 0 0% 98%;
 
     /* Popovers */
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 222 47% 14%;
+    --popover-foreground: 0 0% 98%;
 
     /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Borders & Inputs */
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 222 47% 11%;
+    /* Borders & Inputs - Subtle on dark */
+    --border: 222 30% 25%;
+    --input: 222 30% 25%;
+    --ring: 43 74% 52%;
 
     --radius: 0.75rem;
 
@@ -52,7 +52,11 @@ All colors MUST be HSL.
     --gold-light: 43 74% 62%;
     --navy: 222 47% 11%;
     --navy-light: 222 47% 20%;
-    --slate-soft: 210 40% 98%;
+    --slate-soft: 222 47% 14%;
+    
+    /* Glass-morphism tokens */
+    --glass-bg: 0 0% 100%;
+    --glass-border: 0 0% 100%;
   }
 }
 
@@ -75,5 +79,76 @@ body {
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Glass-morphism utility classes */
+@layer components {
+  .glass-card {
+    background: hsl(var(--glass-bg) / 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--glass-border) / 0.1);
+    border-radius: 1rem;
+  }
+
+  .glass-card-hover:hover {
+    background: hsl(var(--glass-bg) / 0.08);
+    border-color: hsl(var(--glass-border) / 0.15);
+  }
+
+  .glass-card-gold {
+    background: hsl(var(--gold) / 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--gold) / 0.2);
+    border-radius: 1rem;
+  }
+
+  /* Gradient text utility */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated background shapes */
+  .floating-shape {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-shape-slow {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .floating-shape-delayed {
+    animation: float 7s ease-in-out infinite;
+    animation-delay: -3s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(5deg);
+    }
+  }
+
+  /* Pulse glow animation */
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.05);
+    }
   }
 }
