@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import { LogOut, Loader2, ShieldAlert } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import QueueManager from '@/components/admin/QueueManager';
 import WaitTimeControl from '@/components/admin/WaitTimeControl';
+import ArticleForm from '@/components/admin/ArticleForm';
 
 const Admin = () => {
   const { user, loading, isAdmin, signOut } = useAuth();
@@ -84,22 +86,40 @@ const Admin = () => {
 
       {/* Main Content */}
       <main className="container mx-auto px-6 py-6">
-        <div className="grid lg:grid-cols-[1fr_320px] gap-6">
-          <QueueManager />
-          <div className="space-y-6">
-            <WaitTimeControl />
-            
-            {/* Quick Stats */}
-            <div className="bg-background rounded-lg border border-border p-4">
-              <h3 className="font-semibold text-sm text-muted-foreground mb-3">Quick Actions</h3>
-              <div className="space-y-2">
-                <Button variant="outline" className="w-full justify-start" onClick={() => navigate('/')}>
-                  View Public Website
-                </Button>
+        <Tabs defaultValue="queue" className="space-y-6">
+          <TabsList>
+            <TabsTrigger value="queue">Patient Queue</TabsTrigger>
+            <TabsTrigger value="content">Content</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="queue">
+            <div className="grid lg:grid-cols-[1fr_320px] gap-6">
+              <QueueManager />
+              <div className="space-y-6">
+                <WaitTimeControl />
+                
+                {/* Quick Actions */}
+                <div className="bg-background rounded-lg border border-border p-4">
+                  <h3 className="font-semibold text-sm text-muted-foreground mb-3">Quick Actions</h3>
+                  <div className="space-y-2">
+                    <Button variant="outline" className="w-full justify-start" onClick={() => navigate('/')}>
+                      View Public Website
+                    </Button>
+                    <Button variant="outline" className="w-full justify-start" onClick={() => navigate('/resources')}>
+                      View Health Hub
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </TabsContent>
+
+          <TabsContent value="content">
+            <div className="max-w-2xl">
+              <ArticleForm />
+            </div>
+          </TabsContent>
+        </Tabs>
       </main>
     </div>
   );
