@@ -37,6 +37,15 @@ export const translations = {
           procedures: { title: "Minor Procedures", desc: "Wound care, stitches, splints, and ear wax removal" },
         },
       },
+      employment: {
+        title: "Employment Testing",
+        subtitle: "After-hours when other clinics are closed",
+        items: {
+          drugTest: { title: "Drug Testing", desc: "DOT & non-DOT urine drug screens for employment" },
+          physical: { title: "Pre-Employment Physical", desc: "Complete physical exams for job requirements" },
+          dotPhysical: { title: "DOT Physical", desc: "CDL and commercial driver medical certification" },
+        },
+      },
     },
     // Testimonials
     testimonials: {
@@ -61,6 +70,9 @@ export const translations = {
         visit: { name: "Office Visit", price: "$135" },
         physical: { name: "Sports Physical", price: "$45" },
         annualPhysical: { name: "Annual Physical", price: "$175" },
+        employmentPhysical: { name: "Employment Physical", price: "$75" },
+        drugTest: { name: "Drug Test (Urine)", price: "$55" },
+        dotPhysical: { name: "DOT Physical", price: "$125" },
         flu: { name: "Flu Test & Treatment", price: "$95" },
         chronic: { name: "Chronic Care Visit", price: "$110" },
         procedure: { name: "Minor Procedure", price: "+$75" },
@@ -82,6 +94,7 @@ export const translations = {
         sickVisit: "Sick Visit (cold, flu, infection)",
         chronicCare: "Chronic Care (diabetes, BP, asthma)",
         preventive: "Preventive (physical, vaccines)",
+        employmentTesting: "Employment (drug test, DOT physical)",
         procedure: "Minor Procedure (wound, stitches)",
         ivWellness: "IV Therapy / Wellness",
       },
@@ -194,6 +207,15 @@ export const translations = {
           procedures: { title: "Procedimientos Menores", desc: "Cuidado de heridas, suturas, férulas y limpieza de oídos" },
         },
       },
+      employment: {
+        title: "Pruebas de Empleo",
+        subtitle: "Horario nocturno cuando otras clínicas están cerradas",
+        items: {
+          drugTest: { title: "Prueba de Drogas", desc: "Exámenes de orina DOT y no-DOT para empleo" },
+          physical: { title: "Físico Pre-Empleo", desc: "Exámenes físicos completos para requisitos laborales" },
+          dotPhysical: { title: "Físico DOT", desc: "Certificación médica para conductores comerciales CDL" },
+        },
+      },
     },
     // Why Choose Us
     whyUs: {
@@ -212,6 +234,9 @@ export const translations = {
         visit: { name: "Visita de Oficina", price: "$135" },
         physical: { name: "Físico Deportivo", price: "$45" },
         annualPhysical: { name: "Físico Anual", price: "$175" },
+        employmentPhysical: { name: "Físico de Empleo", price: "$75" },
+        drugTest: { name: "Prueba de Drogas (Orina)", price: "$55" },
+        dotPhysical: { name: "Físico DOT", price: "$125" },
         flu: { name: "Prueba y Tratamiento de Gripe", price: "$95" },
         chronic: { name: "Visita de Cuidado Crónico", price: "$110" },
         procedure: { name: "Procedimiento Menor", price: "+$75" },
@@ -233,6 +258,7 @@ export const translations = {
         sickVisit: "Visita por Enfermedad (gripe, resfriado, infección)",
         chronicCare: "Cuidado Crónico (diabetes, presión, asma)",
         preventive: "Preventivo (físico, vacunas)",
+        employmentTesting: "Empleo (prueba de drogas, físico DOT)",
         procedure: "Procedimiento Menor (herida, suturas)",
         ivWellness: "Terapia IV / Bienestar",
       },

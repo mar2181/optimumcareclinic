@@ -57,6 +57,7 @@ const CheckIn = () => {
     { value: 'sick_visit', label: t.checkIn.symptoms.sickVisit },
     { value: 'chronic_care', label: t.checkIn.symptoms.chronicCare },
     { value: 'preventive', label: t.checkIn.symptoms.preventive },
+    { value: 'employment_testing', label: t.checkIn.symptoms.employmentTesting },
     { value: 'procedure', label: t.checkIn.symptoms.procedure },
     { value: 'iv_wellness', label: t.checkIn.symptoms.ivWellness },
   ];
