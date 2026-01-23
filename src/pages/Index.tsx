@@ -5,6 +5,7 @@ import WhyChooseUs from '@/components/WhyChooseUs';
 import PricingTable from '@/components/PricingTable';
 import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
+import FloatingCheckInButton from '@/components/FloatingCheckInButton';
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
         <LocationSection />
       </main>
       <Footer />
+      <FloatingCheckInButton />
     </div>
   );
 };

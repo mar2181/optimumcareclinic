@@ -12,6 +12,7 @@ export const translations = {
       subhead: "Walk-ins welcome. High-quality medical care & wellness for the whole family.",
       viewPrices: "View Prices",
       ourServices: "Our Services",
+      checkInOnline: "Check In Online",
     },
     // Services
     services: {
@@ -67,6 +68,34 @@ export const translations = {
       },
       disclaimer: "Prices shown are for self-pay patients. Final cost may vary based on complexity.",
     },
+    // Check In
+    checkIn: {
+      title: "Digital Check-In",
+      subtitle: "Skip the wait. Check in from your phone.",
+      nameLabel: "Full Name",
+      namePlaceholder: "Enter your full name",
+      phoneLabel: "Phone Number",
+      phonePlaceholder: "(956) 555-1234",
+      symptomLabel: "Reason for Visit",
+      symptomPlaceholder: "Select your reason",
+      symptoms: {
+        fluCold: "Flu / Cold",
+        painInjury: "Pain / Injury",
+        wellnessIv: "Wellness / IV Therapy",
+        pediatric: "Pediatric Visit",
+      },
+      cashPayLabel: "I understand this is a Cash-Pay clinic. Payment is due at time of service.",
+      submitButton: "Check In Now",
+      submitting: "Checking in...",
+      successTitle: "You're Checked In!",
+      successMessage: "Please have a seat. We will call your name shortly.",
+      successToast: "Successfully checked in!",
+      errorToast: "Check-in failed. Please try again.",
+      backHome: "Back to Home",
+      privacyNote: "Your information is secure and only used for your visit today.",
+      fabLabel: "Check In Online",
+      fabText: "Check In",
+    },
     // Footer
     footer: {
       contactUs: "Contact Us",
@@ -96,6 +125,7 @@ export const translations = {
       subhead: "Bienvenidos sin cita. Atención médica de alta calidad para toda la familia.",
       viewPrices: "Ver Precios",
       ourServices: "Nuestros Servicios",
+      checkInOnline: "Registrarse en Línea",
     },
     // Services
     services: {
@@ -150,6 +180,34 @@ export const translations = {
         xray: { name: "Rayos X (por área)", price: "$75" },
       },
       disclaimer: "Los precios son para pacientes que pagan en efectivo. El costo final puede variar.",
+    },
+    // Check In
+    checkIn: {
+      title: "Registro Digital",
+      subtitle: "Evite la espera. Regístrese desde su teléfono.",
+      nameLabel: "Nombre Completo",
+      namePlaceholder: "Ingrese su nombre completo",
+      phoneLabel: "Número de Teléfono",
+      phonePlaceholder: "(956) 555-1234",
+      symptomLabel: "Razón de la Visita",
+      symptomPlaceholder: "Seleccione su razón",
+      symptoms: {
+        fluCold: "Gripe / Resfriado",
+        painInjury: "Dolor / Lesión",
+        wellnessIv: "Bienestar / Terapia IV",
+        pediatric: "Visita Pediátrica",
+      },
+      cashPayLabel: "Entiendo que esta es una clínica de pago en efectivo. El pago se debe al momento del servicio.",
+      submitButton: "Registrarse Ahora",
+      submitting: "Registrando...",
+      successTitle: "¡Estás Registrado!",
+      successMessage: "Por favor tome asiento. Llamaremos su nombre pronto.",
+      successToast: "¡Registro exitoso!",
+      errorToast: "Error al registrarse. Por favor intente de nuevo.",
+      backHome: "Volver al Inicio",
+      privacyNote: "Su información es segura y solo se usa para su visita de hoy.",
+      fabLabel: "Registrarse en Línea",
+      fabText: "Registro",
     },
     // Footer
     footer: {
