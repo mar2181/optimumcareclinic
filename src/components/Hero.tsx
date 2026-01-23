@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Stethoscope } from 'lucide-react';
+import { ArrowRight, Stethoscope, ClipboardPen } from 'lucide-react';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -33,18 +34,23 @@ const Hero = () => {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button
+                asChild
                 size="lg"
                 className="bg-accent hover:bg-gold-light text-accent-foreground font-semibold gap-2 px-8 py-6 text-lg rounded-xl shadow-lg shadow-accent/20 transition-all hover:shadow-xl hover:shadow-accent/30"
               >
-                {t.hero.viewPrices}
-                <ArrowRight className="w-5 h-5" />
+                <Link to="/check-in">
+                  <ClipboardPen className="w-5 h-5" />
+                  {t.hero.checkInOnline}
+                </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-2 border-primary text-foreground hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl transition-all"
+                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                {t.hero.ourServices}
+                {t.hero.viewPrices}
+                <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
 

@@ -14,7 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      patient_queue: {
+        Row: {
+          created_at: string
+          full_name: string
+          id: string
+          is_seen: boolean
+          language_pref: string
+          phone_number: string
+          symptom_category: string
+        }
+        Insert: {
+          created_at?: string
+          full_name: string
+          id?: string
+          is_seen?: boolean
+          language_pref?: string
+          phone_number: string
+          symptom_category: string
+        }
+        Update: {
+          created_at?: string
+          full_name?: string
+          id?: string
+          is_seen?: boolean
+          language_pref?: string
+          phone_number?: string
+          symptom_category?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
