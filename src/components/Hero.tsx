@@ -170,7 +170,7 @@ const Hero = () => {
       </div>
 
       {/* ========== MOBILE LAYOUT ========== */}
-      <div className="md:hidden w-full flex flex-col px-4 pt-4 pb-8 relative z-10">
+      <div className="md:hidden w-full flex flex-col px-4 pt-16 pb-24 relative z-10">
         {/* Mobile Hero Image - Large rounded */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
