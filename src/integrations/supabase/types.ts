@@ -77,6 +77,60 @@ export type Database = {
         }
         Relationships: []
       }
+      iv_addons: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          name: string
+          price: number
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          id?: string
+          name: string
+          price: number
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          name?: string
+          price?: number
+        }
+        Relationships: []
+      }
+      iv_treatments: {
+        Row: {
+          base_price: number
+          benefits: string[]
+          created_at: string
+          description: string
+          duration_min: number
+          id: string
+          name: string
+        }
+        Insert: {
+          base_price: number
+          benefits?: string[]
+          created_at?: string
+          description: string
+          duration_min?: number
+          id?: string
+          name: string
+        }
+        Update: {
+          base_price?: number
+          benefits?: string[]
+          created_at?: string
+          description?: string
+          duration_min?: number
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
       patient_queue: {
         Row: {
           created_at: string

@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import ServiceGrid from '@/components/ServiceGrid';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import PricingTable from '@/components/PricingTable';
+import IVBuilderSection from '@/components/iv-builder/IVBuilderSection';
 import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
 import FloatingCheckInButton from '@/components/FloatingCheckInButton';
@@ -21,6 +22,7 @@ const Index = () => {
         <Hero />
         <ServiceGrid />
         <WhyChooseUs />
+        <IVBuilderSection />
         <PricingTable />
         <LocationSection />
       </main>
