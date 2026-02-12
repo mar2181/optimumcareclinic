@@ -30,18 +30,11 @@ const PricingRow = ({ name, price, note, isEven }: PricingRowProps) => (
 const PricingTable = () => {
   const { t, lang } = useLanguage();
 
-  const pricingItems = [
-    { name: t.pricing.items.visit.name, price: t.pricing.items.visit.price },
-    { name: t.pricing.items.physical.name, price: t.pricing.items.physical.price },
-    { name: t.pricing.items.annualPhysical.name, price: t.pricing.items.annualPhysical.price },
-    { name: t.pricing.items.employmentPhysical.name, price: t.pricing.items.employmentPhysical.price },
-    { name: t.pricing.items.drugTest.name, price: t.pricing.items.drugTest.price },
-    { name: t.pricing.items.dotPhysical.name, price: t.pricing.items.dotPhysical.price },
-    { name: t.pricing.items.flu.name, price: t.pricing.items.flu.price },
-    { name: t.pricing.items.chronic.name, price: t.pricing.items.chronic.price },
-    { name: t.pricing.items.procedure.name, price: t.pricing.items.procedure.price },
-    { name: t.pricing.items.iv.name, price: t.pricing.items.iv.price, note: t.pricing.startingAt },
-  ];
+  const pricingItems = Object.values(t.pricing.items).map((item) => ({
+    name: item.name,
+    price: item.price,
+    note: 'note' in item ? (item as any).note : undefined,
+  }));
 
   const headerTitle = lang === 'es' ? 'Menú de Precios' : 'Self-Pay Price Menu';
 
