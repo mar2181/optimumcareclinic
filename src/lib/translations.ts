@@ -17,34 +17,17 @@ export const translations = {
     },
     // Services
     services: {
-      title: "Comprehensive Family Care",
-      subtitle: "Quality healthcare services for the whole family, available after hours",
-      sameDayVisits: {
-        title: "Same-Day Sick Visits",
-        items: {
-          fluCold: { title: "Flu & Cold", desc: "Fever, cough, sore throat, and respiratory infections" },
-          infections: { title: "Infections", desc: "UTIs, ear infections, strep, and skin infections" },
-          stomach: { title: "Stomach Issues", desc: "Nausea, vomiting, diarrhea, and abdominal pain" },
-          allergies: { title: "Allergies", desc: "Seasonal allergies, allergic reactions, and rashes" },
-        },
-      },
-      preventiveChronic: {
-        title: "Preventive & Chronic Care",
-        items: {
-          physicals: { title: "Annual Physicals", desc: "Comprehensive wellness exams for all ages" },
-          chronic: { title: "Chronic Care", desc: "Diabetes, hypertension, and asthma management" },
-          immunizations: { title: "Immunizations", desc: "Flu shots, vaccines, and travel immunizations" },
-          procedures: { title: "Minor Procedures", desc: "Wound care, stitches, splints, and ear wax removal" },
-        },
-      },
-      employment: {
-        title: "Employment Testing",
-        subtitle: "After-hours when other clinics are closed",
-        items: {
-          drugTest: { title: "Drug Testing", desc: "DOT & non-DOT urine drug screens for employment" },
-          physical: { title: "Pre-Employment Physical", desc: "Complete physical exams for job requirements" },
-          dotPhysical: { title: "DOT Physical", desc: "CDL and commercial driver medical certification" },
-        },
+      title: "Our Services",
+      subtitle: "Quality healthcare services available after hours, Monday to Sunday, 5PM to 10PM",
+      items: {
+        medicalConsultation: { title: "Medical Consultation", desc: "Comprehensive medical evaluations and consultations for all ages" },
+        sickVisit: { title: "Sick Visit", desc: "Walk-in care for illness, fever, cough, and general discomfort" },
+        medicationRefills: { title: "Medication Refills", desc: "Convenient prescription refills when your regular doctor is unavailable" },
+        rapidTesting: { title: "Rapid Testing", desc: "Quick results for Flu, Covid, and Strep testing" },
+        urinalysis: { title: "Urinalysis", desc: "Urine testing for infections, kidney function, and more" },
+        injections: { title: "Injections", desc: "Therapeutic and preventive injections administered by our staff" },
+        procedures: { title: "Procedures", desc: "Ear lavage, wound care, and other minor in-office procedures" },
+        chronicCare: { title: "Chronic Condition Management", desc: "Ongoing care for diabetes, hypertension, and other chronic conditions" },
       },
     },
     // Testimonials
@@ -187,34 +170,17 @@ export const translations = {
     },
     // Services
     services: {
-      title: "Atención Familiar Integral",
-      subtitle: "Servicios de salud de calidad para toda la familia, disponibles fuera de horario",
-      sameDayVisits: {
-        title: "Visitas de Enfermedad",
-        items: {
-          fluCold: { title: "Gripe y Resfriado", desc: "Fiebre, tos, dolor de garganta e infecciones respiratorias" },
-          infections: { title: "Infecciones", desc: "Infecciones urinarias, de oído, faringitis y de piel" },
-          stomach: { title: "Problemas Estomacales", desc: "Náuseas, vómitos, diarrea y dolor abdominal" },
-          allergies: { title: "Alergias", desc: "Alergias estacionales, reacciones alérgicas y erupciones" },
-        },
-      },
-      preventiveChronic: {
-        title: "Cuidado Preventivo y Crónico",
-        items: {
-          physicals: { title: "Físicos Anuales", desc: "Exámenes completos de bienestar para todas las edades" },
-          chronic: { title: "Cuidado Crónico", desc: "Manejo de diabetes, hipertensión y asma" },
-          immunizations: { title: "Vacunas", desc: "Vacunas contra la gripe, inmunizaciones y para viajes" },
-          procedures: { title: "Procedimientos Menores", desc: "Cuidado de heridas, suturas, férulas y limpieza de oídos" },
-        },
-      },
-      employment: {
-        title: "Pruebas de Empleo",
-        subtitle: "Horario nocturno cuando otras clínicas están cerradas",
-        items: {
-          drugTest: { title: "Prueba de Drogas", desc: "Exámenes de orina DOT y no-DOT para empleo" },
-          physical: { title: "Físico Pre-Empleo", desc: "Exámenes físicos completos para requisitos laborales" },
-          dotPhysical: { title: "Físico DOT", desc: "Certificación médica para conductores comerciales CDL" },
-        },
+      title: "Nuestros Servicios",
+      subtitle: "Servicios de salud de calidad disponibles fuera de horario, Lunes a Domingo, 5PM a 10PM",
+      items: {
+        medicalConsultation: { title: "Consulta Médica", desc: "Evaluaciones y consultas médicas completas para todas las edades" },
+        sickVisit: { title: "Visita por Enfermedad", desc: "Atención sin cita para enfermedades, fiebre, tos y malestar general" },
+        medicationRefills: { title: "Recetas Médicas", desc: "Renovación de recetas cuando su doctor regular no está disponible" },
+        rapidTesting: { title: "Pruebas Rápidas", desc: "Resultados rápidos para pruebas de Gripe, Covid y Estreptococo" },
+        urinalysis: { title: "Análisis de Orina", desc: "Pruebas de orina para infecciones, función renal y más" },
+        injections: { title: "Inyecciones", desc: "Inyecciones terapéuticas y preventivas administradas por nuestro personal" },
+        procedures: { title: "Procedimientos", desc: "Lavado de oídos, cuidado de heridas y otros procedimientos menores" },
+        chronicCare: { title: "Manejo de Condiciones Crónicas", desc: "Cuidado continuo para diabetes, hipertensión y otras condiciones crónicas" },
       },
     },
     // Why Choose Us
