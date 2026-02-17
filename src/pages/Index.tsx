@@ -23,8 +23,8 @@ const Index = () => {
       className="min-h-screen flex flex-col"
     >
       <SEOHead
-        title="Optimum Care Pharr | After-Hours Family Clinic"
-        titleEs="Optimum Care Pharr | Clínica Familiar Nocturna"
+        title="Optimum Health & Wellness Clinic | After-Hours Family Clinic"
+        titleEs="Optimum Health & Wellness Clinic | Clínica Familiar Nocturna"
         description="After-hours family medicine in the Rio Grande Valley. Open 5pm-10pm daily. Same-day sick visits, chronic care, and preventive services for the whole family in Pharr, Texas."
         descriptionEs="Medicina familiar nocturna en el Valle del Río Grande. Abierto 5pm-10pm todos los días. Visitas de enfermedad el mismo día, cuidado crónico y servicios preventivos para toda la familia en Pharr, Texas."
       />

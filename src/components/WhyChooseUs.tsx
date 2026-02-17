@@ -42,8 +42,8 @@ const WhyChooseUs = () => {
   ];
 
   const teamImageAlt = lang === 'es' 
-    ? 'Equipo médico diverso y amigable de Optimum Care' 
-    : 'Friendly diverse medical team at Optimum Care';
+    ? 'Equipo médico diverso y amigable de Optimum Health & Wellness Clinic' 
+    : 'Friendly diverse medical team at Optimum Health & Wellness Clinic';
 
   return (
     <section className="py-12 md:py-20 bg-secondary/50 relative overflow-hidden">

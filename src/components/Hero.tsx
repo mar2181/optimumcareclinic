@@ -181,8 +181,8 @@ const Hero = () => {
           <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/40">
             <img
               src={heroImage}
-              alt="Friendly family doctor examining a child with mother present at Optimum Care after-hours clinic in Pharr Texas"
-              className="w-full h-[340px] object-cover"
+               alt="Friendly family doctor examining a child with mother present at Optimum Health & Wellness Clinic in Pharr Texas"
+               className="w-full h-[340px] object-cover"
             />
             {/* Subtle gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
@@ -338,7 +338,7 @@ const Hero = () => {
               >
                 <img
                   src={heroImage}
-                  alt="Friendly family doctor examining a child with mother present at Optimum Care after-hours clinic in Pharr Texas"
+                  alt="Friendly family doctor examining a child with mother present at Optimum Health & Wellness Clinic in Pharr Texas"
                   width={600}
                   height={700}
                   className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"

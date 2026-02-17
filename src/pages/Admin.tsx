@@ -67,7 +67,7 @@ const Admin = () => {
               <span className="text-primary-foreground font-bold text-lg">O</span>
             </div>
             <div>
-              <h1 className="font-bold text-foreground">Optimum Care</h1>
+              <h1 className="font-bold text-foreground">Optimum Health</h1>
               <p className="text-xs text-muted-foreground">Staff Dashboard</p>
             </div>
           </div>

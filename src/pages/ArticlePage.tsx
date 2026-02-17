@@ -244,14 +244,14 @@ const ArticlePage = () => {
             Ready to Visit Us?
           </h3>
           <p className="text-muted-foreground mb-4">
-            Walk-ins welcome at Optimum Care Pharr. No appointment needed.
+            Walk-ins welcome at Optimum Health & Wellness Clinic. No appointment needed.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button asChild>
               <Link to="/check-in">{t.hero.checkInOnline}</Link>
             </Button>
             <Button asChild variant="outline">
-              <a href="tel:+19564674226">Call (956) 467-4226</a>
+              <a href="tel:+19566273258">Call (956) 627-3258</a>
             </Button>
           </div>
         </motion.div>

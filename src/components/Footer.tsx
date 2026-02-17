@@ -24,20 +24,20 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-accent">{t.footer.contactUs}</h3>
             <div className="flex flex-col gap-3">
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=1106+W+Sam+Houston+Blvd+Pharr+TX+78577"
+                href="https://www.google.com/maps/dir/?api=1&destination=3912+N+Jackson+Rd+Pharr+TX+78577"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 text-primary-foreground/80 hover:text-accent transition-colors"
               >
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>1106 W Sam Houston Blvd, Pharr, TX 78577</span>
+                <span>3912 N Jackson Rd, Pharr, TX 78577</span>
               </a>
               <a
-                href="tel:+19564674226"
+                href="tel:+19566273258"
                 className="flex items-center gap-3 text-primary-foreground/80 hover:text-accent transition-colors"
               >
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                <span>(956) 467-4226</span>
+                <span>(956) 627-3258</span>
               </a>
             </div>
           </div>
@@ -100,7 +100,7 @@ const Footer = () => {
             {/* Map Embed */}
             <div className="rounded-lg overflow-hidden h-32 mt-2" style={{ width: '100%', minHeight: '128px' }}>
               <iframe
-                title="Optimum Care clinic location in Pharr Texas serving the Rio Grande Valley"
+                title="Optimum Health & Wellness Clinic location in Pharr Texas serving the Rio Grande Valley"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.8867!2d-98.1847!3d26.1947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDExJzQwLjkiTiA5OMKwMTEnMDQuOSJX!5e0!3m2!1sen!2sus!4v1234567890"
                 width="100%"
                 height="128"
@@ -144,11 +144,11 @@ const Footer = () => {
                 <span className="text-accent-foreground font-bold">O</span>
               </div>
               <span className="text-lg font-bold">
-                Optimum <span className="text-accent">Care</span>
+                Optimum <span className="text-accent">Health</span>
               </span>
             </div>
             <p className="text-sm text-primary-foreground/60">
-              © {new Date().getFullYear()} Optimum Care Pharr. {t.footer.rights}
+              © {new Date().getFullYear()} Optimum Health & Wellness Clinic. {t.footer.rights}
             </p>
           </div>
 

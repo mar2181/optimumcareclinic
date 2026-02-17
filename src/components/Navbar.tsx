@@ -59,7 +59,7 @@ const Navbar = () => {
               <span className="text-primary-foreground font-bold text-lg">O</span>
             </div>
             <span className="text-xl font-bold text-foreground">
-              Optimum <span className="text-accent">Care</span>
+              Optimum <span className="text-accent">Health</span>
             </span>
           </a>
 
@@ -105,7 +105,7 @@ const Navbar = () => {
             </a>
 
             <Button asChild className="bg-primary hover:bg-navy-light text-primary-foreground gap-2">
-              <a href="tel:+19564674226">
+              <a href="tel:+19566273258">
                 <Phone className="w-4 h-4" />
                 {t.nav.callNow}
               </a>
@@ -183,7 +183,7 @@ const Navbar = () => {
 
                 <motion.div custom={5} variants={itemVariants}>
                   <Button asChild className="bg-primary hover:bg-navy-light text-primary-foreground gap-2 w-full">
-                    <a href="tel:+19564674226">
+                    <a href="tel:+19566273258">
                       <Phone className="w-4 h-4" />
                       {t.nav.callNow}
                     </a>

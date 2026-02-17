@@ -38,7 +38,7 @@ export const translations = {
     },
     // Why Choose Us
     whyUs: {
-      title: "Why Choose Optimum Care?",
+      title: "Why Choose Us?",
       bilingual: { title: "Bilingual Staff", desc: "Fluent in English & Spanish" },
       afterHours: { title: "After-Hours Access", desc: "Open when other clinics are closed" },
       sameDay: { title: "Same-Day Appointments", desc: "No referrals needed" },
@@ -109,7 +109,7 @@ export const translations = {
     // Footer
     footer: {
       contactUs: "Contact Us",
-      address: "123 N Cage Blvd, Pharr, TX 78577",
+      address: "3912 N Jackson Rd, Pharr, TX 78577",
       quickLinks: "Quick Links",
       home: "Home",
       about: "About Us",
@@ -254,7 +254,7 @@ export const translations = {
     // Footer
     footer: {
       contactUs: "Contáctenos",
-      address: "123 N Cage Blvd, Pharr, TX 78577",
+      address: "3912 N Jackson Rd, Pharr, TX 78577",
       quickLinks: "Enlaces Rápidos",
       home: "Inicio",
       about: "Nosotros",
