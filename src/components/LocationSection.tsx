@@ -33,8 +33,8 @@ const LocationSection = () => {
   };
 
   const t = content[lang];
-  const address = "1106 W Sam Houston Blvd, Pharr, TX 78577";
-  const phone = "(956) 467-4226";
+  const address = "3912 N Jackson Rd, Pharr, TX 78577";
+  const phone = "(956) 627-3258";
   const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
   const mapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.7!2d-98.1847!3d26.1947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDExJzQxLjAiTiA5OMKwMTEnMDQuOSJX!5e0!3m2!1sen!2sus!4v1234567890";
 
@@ -64,7 +64,7 @@ const LocationSection = () => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Optimum Care urgent care clinic location map in Pharr Texas"
+              title="Optimum Health & Wellness Clinic location map in Pharr Texas"
             />
           </div>
 
@@ -88,7 +88,7 @@ const LocationSection = () => {
 
             {/* Phone */}
             <a
-              href="tel:+19564674226"
+              href="tel:+19566273258"
               className="group glass-card glass-card-hover flex items-start gap-4 p-6 hover:border-foreground/20"
             >
               <div className="w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center flex-shrink-0 group-hover:bg-foreground/15 transition-colors">
@@ -122,7 +122,7 @@ const LocationSection = () => {
                 size="lg"
                 className="bg-accent hover:bg-gold-light text-accent-foreground font-semibold gap-2 rounded-xl flex-1"
               >
-                <a href="tel:+19564674226">
+                <a href="tel:+19566273258">
                   <Phone className="w-5 h-5" />
                   {t.callUs}
                 </a>

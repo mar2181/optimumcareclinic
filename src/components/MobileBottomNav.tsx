@@ -103,7 +103,7 @@ const MobileBottomNav = () => {
                 <span className="font-medium text-foreground">Resources</span>
               </Link>
               <a
-                href="tel:+19565551234"
+                href="tel:+19566273258"
                 className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-foreground/5 transition-colors"
               >
                 <div className="w-10 h-10 rounded-full bg-foreground/10 flex items-center justify-center">
