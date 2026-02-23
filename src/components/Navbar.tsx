@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
-import WaitTimeDisplay from '@/components/WaitTimeDisplay';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,8 +65,6 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {/* Wait Time Display */}
-            <WaitTimeDisplay />
             
             {/* Language Toggle */}
             <div className="flex items-center gap-2 text-sm">
@@ -133,10 +131,7 @@ const Navbar = () => {
               className="md:hidden overflow-hidden border-t border-border"
             >
               <div className="flex flex-col gap-4 py-4">
-                {/* Wait Time Display */}
-                <motion.div custom={0} variants={itemVariants} className="flex justify-center py-2">
-                  <WaitTimeDisplay />
-                </motion.div>
+                
                 
                 {/* Language Toggle */}
                 <motion.div custom={1} variants={itemVariants} className="flex items-center justify-center gap-3 py-2">
