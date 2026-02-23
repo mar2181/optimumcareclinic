@@ -1,64 +1,48 @@
 
 
-## Align Website to Official Flyer
+## Hero Redesign: Full-Screen Cinematic Image with Text Overlay
 
-Based on the flyer image, here is everything that needs to change to match the official clinic information exactly.
+Transform the current split-layout hero into an immersive, full-screen image hero with bold text overlaid on a cinematic gradient -- like a movie poster for the clinic.
 
-### What the Flyer Says (Source of Truth)
+### What Changes
 
-- **Name**: Optimum Health & Wellness Clinic / "Cash Night Clinic"
-- **Address**: 3912 N Jackson Rd, Pharr, TX 78577
-- **Phone**: (956) 627-3258
-- **Hours**: Open Monday to Sunday, 5PM to 10PM
-- **Services** (exactly 8): Medical Consultation, Sick Visit, Medication Refills, Rapid Testing (Flu/Covid/Strep), Urinalysis, Injections, Procedures (ear lavage/wound care), Chronic Condition Management (diabetes, hypertension)
-- **Payment**: Private Pay Only. No Insurances.
+**Desktop Layout (complete redesign)**
+- The hero image (`hero-family-doctor.jpg`) fills the entire section edge-to-edge as a background image
+- A dramatic multi-layer gradient overlay (bottom-to-top and left-to-right) darkens the image so white/gold text pops
+- All content (badge, headline, subtitle, CTAs, trust indicators) is centered-left over the image
+- The floating stat cards (5000+ Patients, 10+ Years, 4.9 Rating) reposition as a horizontal row at the bottom of the hero, sitting on a glass-morphism bar
+- Remove the grid/two-column layout, diagonal clip-path, and geometric SVG grid
+- Keep the animated gradient orbs and particles as subtle background texture behind the image overlay
 
----
+**Mobile Layout (adjusted)**
+- Image fills the full viewport height behind all content (no separate image + card layout)
+- Stronger bottom gradient so the text card area blends seamlessly over the image
+- Content card becomes semi-transparent, overlaid at the bottom of the screen
+- More dramatic, immersive feel compared to the current stacked approach
 
-### Changes Needed (File by File)
+**Animations (enhanced)**
+- Headline fades up with a slight blur-to-sharp effect (cinematic reveal)
+- CTAs slide in from the bottom with a spring bounce
+- Stats bar slides up from below the fold
+- Subtle Ken Burns (slow zoom) effect on the background image for a living, breathing feel
 
-#### 1. LocationSection.tsx -- FIX WRONG HOURS
-The location section currently shows **"Mon-Fri: 7am-5pm, Sat: 8am-12pm, Sun: Closed"** which is completely wrong. Will update to Mon-Sun: 5pm-10pm to match the flyer.
+**What stays the same**
+- All text content (headline, subhead, badge, trust indicators, CTAs)
+- Bilingual support (EN/ES)
+- Animated counters for stats
+- Gold accent color scheme and shimmer text effect
+- All button links and scroll behaviors
 
-#### 2. CheckIn.tsx -- FIX WRONG CLINIC NAME IN SEO
-The check-in page SEO title says **"Optimum Care Pharr"** instead of "Optimum Health & Wellness Clinic". Will correct this.
+### Technical Details
 
-#### 3. Remove IV Therapy Section from Index.tsx
-The IV Builder section is **not on the flyer**. Will remove `<IVBuilderSection />` and its divider from the homepage.
+Only one file changes: `src/components/Hero.tsx`
 
-#### 4. translations.ts -- Remove Non-Flyer Services from Check-In
-The check-in symptom options include **"Preventive (physical, vaccines)"**, **"Employment (drug test, DOT physical)"**, and **"IV Therapy / Wellness"** which are not on the flyer. Will remove these and replace with the 8 flyer services as check-in options.
+Key structural changes:
+- Replace the two-column `grid` layout with a single full-width container
+- Set `heroImage` as a CSS `background-image` with `object-cover` sizing on the section
+- Add layered gradient overlays using `absolute` positioned divs
+- Reposition stat cards into a horizontal flex row at the bottom
+- Add `@keyframes kenBurns` for the slow background zoom (or use framer-motion scale)
+- Mobile layout switches from image-then-card to a single full-bleed image with overlaid content
 
-#### 5. Hero.tsx -- Remove "Preventive Services" Mention
-The hero subhead mentions "preventive services" which is not a listed flyer service. Will adjust the wording to reference only the services on the flyer.
-
-#### 6. AboutUs.tsx -- Remove "Immunizations" Mention
-The About Us page mentions "immunizations" which is not on the flyer. Will update to reference only flyer-approved services.
-
-#### 7. Footer SEO Keywords
-The footer SEO keywords mention "Pediatric Care" -- will update to match only flyer services.
-
----
-
-### What Is Already Correct (No Changes Needed)
-- Clinic name in Navbar, Footer copyright, and SEO defaults
-- Phone number (956) 627-3258 and tel: links everywhere
-- Address 3912 N Jackson Rd, Pharr, TX 78577
-- Footer hours in translations.ts (already Mon-Sun 5pm-10pm)
-- The 8 services in ServiceGrid and PricingTable
-- "Private pay only. No insurances." disclaimer
-
----
-
-### Technical Summary
-
-| File | Change |
-|------|--------|
-| `src/components/LocationSection.tsx` | Fix hours from 7am-5pm to Mon-Sun 5pm-10pm |
-| `src/pages/CheckIn.tsx` | Fix SEO title from "Optimum Care Pharr" to "Optimum Health & Wellness Clinic" |
-| `src/pages/Index.tsx` | Remove IVBuilderSection import and usage |
-| `src/lib/translations.ts` | Remove non-flyer symptom options (preventive, employment_testing, iv_wellness); align check-in reasons to the 8 flyer services |
-| `src/components/Hero.tsx` | Remove "preventive services" from subhead copy |
-| `src/pages/AboutUs.tsx` | Remove "immunizations" reference |
-| `src/components/Footer.tsx` | Update SEO keywords to remove "Pediatric Care" |
-
+No changes needed to `index.css`, `Index.tsx`, or any other files.
