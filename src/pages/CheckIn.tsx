@@ -54,12 +54,14 @@ const CheckIn = () => {
   });
 
   const symptomOptions = [
+    { value: 'medical_consultation', label: t.checkIn.symptoms.medicalConsultation },
     { value: 'sick_visit', label: t.checkIn.symptoms.sickVisit },
-    { value: 'chronic_care', label: t.checkIn.symptoms.chronicCare },
-    { value: 'preventive', label: t.checkIn.symptoms.preventive },
-    { value: 'employment_testing', label: t.checkIn.symptoms.employmentTesting },
+    { value: 'medication_refills', label: t.checkIn.symptoms.medicationRefills },
+    { value: 'rapid_testing', label: t.checkIn.symptoms.rapidTesting },
+    { value: 'urinalysis', label: t.checkIn.symptoms.urinalysis },
+    { value: 'injections', label: t.checkIn.symptoms.injections },
     { value: 'procedure', label: t.checkIn.symptoms.procedure },
-    { value: 'iv_wellness', label: t.checkIn.symptoms.ivWellness },
+    { value: 'chronic_care', label: t.checkIn.symptoms.chronicCare },
   ];
 
   const onSubmit = async (data: CheckInFormData) => {
@@ -130,10 +132,10 @@ const CheckIn = () => {
       className="min-h-screen bg-background"
     >
       <SEOHead
-        title="Online Check-In | Optimum Care Pharr"
-        titleEs="Registro en Línea | Optimum Care Pharr"
-        description="Skip the wait with online check-in at Optimum Care Pharr. Fast, convenient digital registration for after-hours family medicine."
-        descriptionEs="Evita la espera con el registro en línea en Optimum Care Pharr. Registro digital rápido y conveniente para medicina familiar nocturna."
+        title="Online Check-In | Optimum Health & Wellness Clinic"
+        titleEs="Registro en Línea | Optimum Health & Wellness Clinic"
+        description="Skip the wait with online check-in at Optimum Health & Wellness Clinic. Fast, convenient digital registration for after-hours family medicine."
+        descriptionEs="Evita la espera con el registro en línea en Optimum Health & Wellness Clinic. Registro digital rápido y conveniente para medicina familiar nocturna."
       />
       {/* Header */}
       <div className="bg-primary text-primary-foreground py-6">

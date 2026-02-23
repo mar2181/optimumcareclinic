@@ -63,7 +63,7 @@ const AboutUs = () => {
               <div className="bg-card rounded-2xl p-8 border border-border">
                 <h2 className="text-2xl font-bold text-foreground mb-4">Why Choose Us</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Our bilingual team provides personalized, walk-in friendly care for the whole family. From sick visits and immunizations to chronic care management, we're here to serve you with warmth and professionalism.
+                  Our bilingual team provides personalized, walk-in friendly care for the whole family. From sick visits and medication refills to chronic care management, we're here to serve you with warmth and professionalism.
                 </p>
               </div>
             </motion.div>

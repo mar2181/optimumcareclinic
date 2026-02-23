@@ -13,9 +13,9 @@ const LocationSection = () => {
       callUs: "Call Us",
       hours: "Hours of Operation",
       hoursDetail: {
-        weekdays: "Monday - Friday: 7am - 5pm",
-        saturday: "Saturday: 8am - 12pm",
-        sunday: "Sunday: Closed",
+        weekdays: "Monday - Sunday: 5pm - 10pm",
+        saturday: "",
+        sunday: "",
       },
     },
     es: {
@@ -25,9 +25,9 @@ const LocationSection = () => {
       callUs: "Llámenos",
       hours: "Horario de Atención",
       hoursDetail: {
-        weekdays: "Lunes - Viernes: 7am - 5pm",
-        saturday: "Sábado: 8am - 12pm",
-        sunday: "Domingo: Cerrado",
+        weekdays: "Lunes - Domingo: 5pm - 10pm",
+        saturday: "",
+        sunday: "",
       },
     },
   };
@@ -109,8 +109,6 @@ const LocationSection = () => {
                 <p className="font-semibold text-foreground mb-2">{t.hours}</p>
                 <div className="text-sm text-muted-foreground space-y-1">
                   <p>{t.hoursDetail.weekdays}</p>
-                  <p>{t.hoursDetail.saturday}</p>
-                  <p>{t.hoursDetail.sunday}</p>
                 </div>
               </div>
             </div>
