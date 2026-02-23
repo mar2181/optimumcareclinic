@@ -244,33 +244,6 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Stats bar - glass-morphism at bottom */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.6, type: "spring", stiffness: 100 }}
-          className="w-full backdrop-blur-xl bg-white/5 border-t border-white/10"
-        >
-          <div className="container mx-auto px-5 md:px-8 py-3 md:py-4 flex justify-around md:justify-center md:gap-12">
-            <StatCard
-              icon={Users}
-              value={`${patientsCounter.count.toLocaleString()}+`}
-              label={c.stats.patients}
-            />
-            <div className="hidden md:block w-px h-12 bg-white/10 self-center" />
-            <StatCard
-              icon={Clock}
-              value={`${yearsCounter.count}+`}
-              label={c.stats.years}
-            />
-            <div className="hidden md:block w-px h-12 bg-white/10 self-center" />
-            <StatCard
-              icon={Star}
-              value="4.9"
-              label={c.stats.rating}
-            />
-          </div>
-        </motion.div>
       </div>
     </section>
   );
