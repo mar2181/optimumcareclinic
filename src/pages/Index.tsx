@@ -6,7 +6,7 @@ import TrustBadges from '@/components/TrustBadges';
 import ServiceGrid from '@/components/ServiceGrid';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import TestimonialsSection from '@/components/TestimonialsSection';
-import IVBuilderSection from '@/components/iv-builder/IVBuilderSection';
+
 import PricingTable from '@/components/PricingTable';
 import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
@@ -40,8 +40,6 @@ const Index = () => {
         <SectionDivider variant="wave" flip fillClassName="fill-background" />
         <TestimonialsSection />
         <SectionDivider variant="dots" />
-        <IVBuilderSection />
-        <SectionDivider variant="curve" fillClassName="fill-background" />
         <PricingTable />
         <SectionDivider variant="wave" fillClassName="fill-secondary/30" />
         <LocationSection />

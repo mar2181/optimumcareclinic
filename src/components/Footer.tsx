@@ -154,7 +154,7 @@ const Footer = () => {
 
           {/* SEO Keywords */}
           <p className="mt-6 text-xs text-primary-foreground/40 text-center">
-            After-Hours Doctor Pharr | Family Clinic McAllen | Evening Clinic Texas | Pediatric Care Rio Grande Valley | Same-Day Doctor RGV | Family Medicine South Texas | Walk-in Clinic Pharr | After Hours Care McAllen
+            After-Hours Doctor Pharr | Family Clinic McAllen | Evening Clinic Texas | Cash Pay Clinic RGV | Same-Day Doctor RGV | Family Medicine South Texas | Walk-in Clinic Pharr | After Hours Care McAllen
           </p>
         </div>
       </div>
