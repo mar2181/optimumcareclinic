@@ -11,8 +11,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({
-  title = 'Optimum Health & Wellness Clinic | After-Hours Family Clinic',
-  titleEs = 'Optimum Health & Wellness Clinic | Clínica Familiar Nocturna',
+  title = 'Optimum Wellness Foundation | After-Hours Family Clinic',
+  titleEs = 'Optimum Wellness Foundation | Clínica Familiar Nocturna',
   description = 'After-hours cash clinic in Pharr, TX. Open nightly 5pm-10pm, 7 days a week. Walk-in sick visits, chronic care management, and family medicine — no insurance needed.',
   descriptionEs = 'Clínica nocturna de pago en efectivo en Pharr, TX. Abierta todas las noches de 5pm a 10pm, 7 días a la semana. Visitas por enfermedad, manejo de condiciones crónicas y medicina familiar — sin seguro médico.',
   canonicalUrl,
@@ -22,7 +22,7 @@ const SEOHead = ({
 
   const currentTitle = lang === 'es' ? titleEs : title;
   const currentDescription = lang === 'es' ? descriptionEs : description;
-  const siteName = lang === 'es' ? 'Optimum Health & Wellness Clinic' : 'Optimum Health & Wellness Clinic';
+  const siteName = lang === 'es' ? 'Optimum Wellness Foundation' : 'Optimum Wellness Foundation';
 
   return (
     <Helmet>
@@ -32,7 +32,7 @@ const SEOHead = ({
       {/* Primary Meta Tags */}
       <title>{currentTitle}</title>
       <meta name="description" content={currentDescription} />
-      <meta name="author" content="Optimum Health & Wellness Clinic" />
+      <meta name="author" content="Optimum Wellness Foundation" />
 
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}

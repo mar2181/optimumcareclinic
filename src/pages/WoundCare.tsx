@@ -105,8 +105,8 @@ const WoundCare = () => {
       className="min-h-screen flex flex-col"
     >
       <SEOHead
-        title="Wound Care Services | Optimum Health & Wellness Clinic"
-        titleEs="Cuidado de Heridas | Optimum Health & Wellness Clinic"
+        title="Wound Care Services | Optimum Wellness Foundation"
+        titleEs="Cuidado de Heridas | Optimum Wellness Foundation"
         description="Professional wound care in Pharr, TX. Walk-in wound treatment available 5pm-10pm daily. Minor cuts, lacerations, burns, and more. No insurance needed."
         descriptionEs="Cuidado profesional de heridas en Pharr, TX. Tratamiento de heridas sin cita de 5pm a 10pm. Cortadas, laceraciones, quemaduras y más. Sin seguro médico."
       />
@@ -123,7 +123,7 @@ const WoundCare = () => {
           >
             <img
               src={woundCareHero}
-              alt="Hispanic doctor providing professional wound care treatment at Optimum Health & Wellness Clinic"
+              alt="Hispanic doctor providing professional wound care treatment at Optimum Wellness Foundation"
               className="w-full h-full object-cover"
             />
           </motion.div>

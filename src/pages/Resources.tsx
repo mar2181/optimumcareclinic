@@ -82,8 +82,8 @@ const Resources = () => {
       className="min-h-screen bg-background"
     >
       <SEOHead
-        title="Health Hub | Optimum Health & Wellness Clinic"
-        titleEs="Centro de Salud | Optimum Health & Wellness Clinic"
+        title="Health Hub | Optimum Wellness Foundation"
+        titleEs="Centro de Salud | Optimum Wellness Foundation"
         description="Expert health tips and wellness resources for the Rio Grande Valley community. Men's health, women's wellness, and family care articles."
         descriptionEs="Consejos de salud y recursos de bienestar para la comunidad del Valle del Río Grande. Artículos de salud masculina, femenina y familiar."
       />
@@ -164,7 +164,7 @@ const Resources = () => {
                       {article.image_url ? (
                         <img
                           src={article.image_url}
-                          alt={`${article.title} - health article from Optimum Health & Wellness Clinic`}
+                          alt={`${article.title} - health article from Optimum Wellness Foundation`}
                           width={400}
                           height={192}
                           loading="lazy"
