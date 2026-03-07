@@ -94,7 +94,7 @@ const Hero = () => {
       badge: "After-Hours Family Medicine",
       headline: "Your Family Doctor.",
       headlineAccent: "After Hours.",
-      subhead: "Comprehensive family medicine from 5pm-10pm, when your regular doctor's office is closed. Same-day sick visits, chronic care management, and more for the whole family.",
+      subhead: "Open 5pm–10pm, 7 days a week. Walk-in family medicine when your regular doctor's office is closed. Sick visits, chronic care, and more — no insurance needed.",
       stats: {
         patients: "Patients Served",
         years: "Years Experience",
@@ -106,7 +106,7 @@ const Hero = () => {
       badge: "Medicina Familiar Nocturna",
       headline: "Tu Médico Familiar.",
       headlineAccent: "Después del Horario.",
-      subhead: "Medicina familiar integral de 5pm a 10pm, cuando el consultorio de tu médico regular está cerrado. Visitas de enfermedad el mismo día, manejo de condiciones crónicas y más para toda la familia.",
+      subhead: "Abierto de 5pm a 10pm, los 7 días de la semana. Medicina familiar sin cita cuando el consultorio de tu médico está cerrado. Visitas por enfermedad, cuidado crónico y más — sin seguro médico.",
       stats: {
         patients: "Pacientes Atendidos",
         years: "Años de Experiencia",
