@@ -194,33 +194,6 @@ const Hero = () => {
             {c.subhead}
           </motion.p>
 
-          {/* CTAs - slide in from bottom */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6, type: "spring", stiffness: 120 }}
-            className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="glow-button glow-button-always bg-accent hover:bg-gold-light text-accent-foreground font-semibold gap-2 px-8 py-6 text-base md:text-lg rounded-xl shadow-lg shadow-accent/20 transition-all hover:shadow-xl hover:shadow-accent/30 hover:scale-[1.02]"
-            >
-              <Link to="/check-in">
-                <ClipboardPen className="w-5 h-5" />
-                {t.hero.checkInOnline}
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="glow-button border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-semibold px-8 py-6 text-base md:text-lg rounded-xl transition-all backdrop-blur-sm"
-              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              {t.hero.viewPrices}
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-          </motion.div>
 
           {/* Trust indicators */}
           <motion.div
