@@ -91,7 +91,7 @@ const AdminLogin = () => {
           </div>
           <CardTitle className="text-2xl font-bold">Staff Login</CardTitle>
           <CardDescription>
-            Access the Optimum Care admin dashboard
+            Access the Optimum Health & Wellness Clinic admin dashboard
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -101,7 +101,7 @@ const AdminLogin = () => {
               <Input
                 id="email"
                 type="email"
-                placeholder="staff@optimumcare.com"
+                placeholder="staff@optimumhealthwellness.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={isLoading}
