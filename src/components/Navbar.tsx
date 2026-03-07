@@ -82,8 +82,7 @@ const Navbar = () => {
             </div>
 
             <a 
-              href="#services" 
-              onClick={(e) => scrollToSection(e, 'services')}
+              href="/services"
               className="text-foreground/80 hover:text-foreground transition-colors font-medium"
             >
               {t.nav.services}
@@ -144,8 +143,8 @@ const Navbar = () => {
                 <motion.a
                   custom={2}
                   variants={itemVariants}
-                  href="#services"
-                  onClick={(e) => scrollToSection(e, 'services')}
+                  href="/services"
+                  onClick={handleNavClick}
                   className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
                 >
                   {t.nav.services}
