@@ -1,6 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
-import { Stethoscope, Thermometer, Pill, FlaskConical, TestTube, Syringe, Scissors, HeartPulse } from 'lucide-react';
+import { Stethoscope, Thermometer, Pill, FlaskConical, TestTube, Syringe, Scissors, HeartPulse, Bandage } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import serviceMedicalConsultation from '@/assets/service-medical-consultation.jpg';
 import serviceSickVisitNew from '@/assets/service-sick-visit-new.jpg';
 import serviceMedicationRefills from '@/assets/service-medication-refills.jpg';
@@ -9,8 +10,9 @@ import serviceUrinalysis from '@/assets/service-urinalysis.jpg';
 import serviceInjections from '@/assets/service-injections.jpg';
 import serviceProcedures from '@/assets/service-procedures.jpg';
 import serviceChronicCareNew from '@/assets/service-chronic-care-new.jpg';
+import serviceWoundCare from '@/assets/service-wound-care.jpg';
 
-const serviceIcons = [Stethoscope, Thermometer, Pill, FlaskConical, TestTube, Syringe, Scissors, HeartPulse];
+const serviceIcons = [Stethoscope, Thermometer, Pill, FlaskConical, TestTube, Syringe, Scissors, HeartPulse, Bandage];
 const serviceImages = [
   serviceMedicalConsultation,
   serviceSickVisitNew,
@@ -20,7 +22,9 @@ const serviceImages = [
   serviceInjections,
   serviceProcedures,
   serviceChronicCareNew,
+  serviceWoundCare,
 ];
+const serviceLinks: (string | null)[] = [null, null, null, null, null, null, null, null, '/wound-care'];
 
 const ServiceGrid = () => {
   const { t } = useLanguage();
@@ -56,39 +60,59 @@ const ServiceGrid = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((service, index) => {
             const Icon = serviceIcons[index];
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08, duration: 0.5, type: "spring", stiffness: 100 }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group glass-card glass-card-hover border-glow card-shine overflow-hidden cursor-default"
-              >
-                {/* Image */}
-                <div className="relative h-40 overflow-hidden">
-                  <img
-                    src={serviceImages[index]}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-                  <div className="absolute bottom-3 left-3 w-10 h-10 rounded-xl bg-accent/90 flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-accent-foreground" />
+              const link = serviceLinks[index];
+              const cardContent = (
+                <>
+                  {/* Image */}
+                  <div className="relative h-40 overflow-hidden">
+                    <img
+                      src={serviceImages[index]}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                    <div className="absolute bottom-3 left-3 w-10 h-10 rounded-xl bg-accent/90 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-accent-foreground" />
+                    </div>
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-5">
-                  <h4 className="font-semibold text-foreground mb-2 text-lg group-hover:text-accent transition-colors duration-300">
-                    {service.title}
-                  </h4>
-                  <p className="text-sm text-muted-foreground">{service.desc}</p>
-                </div>
-              </motion.div>
-            );
+                  {/* Content */}
+                  <div className="p-5">
+                    <h4 className="font-semibold text-foreground mb-2 text-lg group-hover:text-accent transition-colors duration-300">
+                      {service.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">{service.desc}</p>
+                    {link && (
+                      <span className="inline-block mt-3 text-sm font-medium text-accent hover:underline">
+                        {lang === 'es' ? 'Más información →' : 'Learn more →'}
+                      </span>
+                    )}
+                  </div>
+                </>
+              );
+
+              const wrapperClass = "group glass-card glass-card-hover border-glow card-shine overflow-hidden cursor-default";
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08, duration: 0.5, type: "spring", stiffness: 100 }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className={wrapperClass}
+                >
+                  {link ? (
+                    <Link to={link} className="block">
+                      {cardContent}
+                    </Link>
+                  ) : (
+                    cardContent
+                  )}
+                </motion.div>
+              );
           })}
         </div>
       </div>

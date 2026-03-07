@@ -28,6 +28,7 @@ export const translations = {
         injections: { title: "Injections", desc: "Therapeutic and preventive injections administered by our staff" },
         procedures: { title: "Procedures", desc: "Ear lavage, wound care, and other minor in-office procedures" },
         chronicCare: { title: "Chronic Condition Management", desc: "Ongoing care for diabetes, hypertension, and other chronic conditions" },
+        woundCare: { title: "Wound Care", desc: "Professional wound cleaning, treatment, and dressing for cuts, scrapes, and minor injuries" },
       },
     },
     // Testimonials
@@ -181,6 +182,7 @@ export const translations = {
         injections: { title: "Inyecciones", desc: "Inyecciones terapéuticas y preventivas administradas por nuestro personal" },
         procedures: { title: "Procedimientos", desc: "Lavado de oídos, cuidado de heridas y otros procedimientos menores" },
         chronicCare: { title: "Manejo de Condiciones Crónicas", desc: "Cuidado continuo para diabetes, hipertensión y otras condiciones crónicas" },
+        woundCare: { title: "Cuidado de Heridas", desc: "Limpieza, tratamiento y vendaje profesional para cortadas, raspaduras y lesiones menores" },
       },
     },
     // Why Choose Us
