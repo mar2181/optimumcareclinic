@@ -15,6 +15,7 @@ import ArticlePage from "./pages/ArticlePage";
 import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
 import WoundCare from "./pages/WoundCare";
+import Services from "./pages/Services";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Index />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/check-in" element={<CheckIn />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/admin-login" element={<AdminLogin />} />
