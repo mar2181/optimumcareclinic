@@ -59,7 +59,7 @@ const Navbar = () => {
               <span className="text-primary-foreground font-bold text-lg">O</span>
             </div>
             <span className="text-xl font-bold text-foreground">
-              Optimum <span className="text-accent">Wellness</span>
+              Optimum Wellness <span className="text-accent">Foundation</span>
             </span>
           </a>
 
