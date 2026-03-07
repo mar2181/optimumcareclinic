@@ -27,7 +27,7 @@ const serviceImages = [
 const serviceLinks: (string | null)[] = [null, null, null, null, null, null, null, null, '/wound-care'];
 
 const ServiceGrid = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const items = Object.values(t.services.items);
 
   return (
