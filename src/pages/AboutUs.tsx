@@ -9,8 +9,8 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Us | Optimum Health & Wellness Clinic</title>
-        <meta name="description" content="Meet the dedicated team at Optimum Health & Wellness Clinic in Pharr, TX. Learn about our mission to provide quality after-hours healthcare." />
+        <title>About Us | Optimum Wellness Foundation</title>
+        <meta name="description" content="Meet the dedicated team at Optimum Wellness Foundation in Pharr, TX. Learn about our mission to provide quality after-hours healthcare." />
       </Helmet>
 
       <Navbar />
@@ -29,7 +29,7 @@ const AboutUs = () => {
                 About <span className="text-accent">Our Team</span>
               </h1>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                At Optimum Health & Wellness Clinic, we're a family-oriented team committed to providing compassionate, quality after-hours healthcare to the Pharr community.
+                At Optimum Wellness Foundation, we're a family-oriented team committed to providing compassionate, quality after-hours healthcare to the Pharr community.
               </p>
             </motion.div>
 
@@ -42,7 +42,7 @@ const AboutUs = () => {
             >
               <img
                 src={teamPhoto}
-                alt="The Optimum Health & Wellness Clinic team"
+                alt="The Optimum Wellness Foundation team"
                 className="w-full h-auto object-cover"
               />
             </motion.div>

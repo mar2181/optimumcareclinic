@@ -23,8 +23,8 @@ const Index = () => {
       className="min-h-screen flex flex-col"
     >
       <SEOHead
-        title="Optimum Health & Wellness Clinic | After-Hours Family Clinic"
-        titleEs="Optimum Health & Wellness Clinic | Clínica Familiar Nocturna"
+        title="Optimum Wellness Foundation | After-Hours Family Clinic"
+        titleEs="Optimum Wellness Foundation | Clínica Familiar Nocturna"
         description="After-hours cash clinic in Pharr, TX. Open nightly 5pm-10pm, 7 days a week. Walk-in sick visits, chronic care management, and family medicine — no insurance needed."
         descriptionEs="Clínica nocturna de pago en efectivo en Pharr, TX. Abierta todas las noches de 5pm a 10pm, 7 días a la semana. Visitas por enfermedad, manejo de condiciones crónicas y medicina familiar — sin seguro médico."
       />

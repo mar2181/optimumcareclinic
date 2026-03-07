@@ -132,10 +132,10 @@ const CheckIn = () => {
       className="min-h-screen bg-background"
     >
       <SEOHead
-        title="Online Check-In | Optimum Health & Wellness Clinic"
-        titleEs="Registro en Línea | Optimum Health & Wellness Clinic"
-        description="Skip the wait with online check-in at Optimum Health & Wellness Clinic. Fast, convenient digital registration for after-hours family medicine."
-        descriptionEs="Evita la espera con el registro en línea en Optimum Health & Wellness Clinic. Registro digital rápido y conveniente para medicina familiar nocturna."
+        title="Online Check-In | Optimum Wellness Foundation"
+        titleEs="Registro en Línea | Optimum Wellness Foundation"
+        description="Skip the wait with online check-in at Optimum Wellness Foundation. Fast, convenient digital registration for after-hours family medicine."
+        descriptionEs="Evita la espera con el registro en línea en Optimum Wellness Foundation. Registro digital rápido y conveniente para medicina familiar nocturna."
       />
       {/* Header */}
       <div className="bg-primary text-primary-foreground py-6">

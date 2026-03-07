@@ -100,7 +100,7 @@ const Footer = () => {
             {/* Map Embed */}
             <div className="rounded-lg overflow-hidden h-32 mt-2" style={{ width: '100%', minHeight: '128px' }}>
               <iframe
-                title="Optimum Health & Wellness Clinic location in Pharr Texas serving the Rio Grande Valley"
+                title="Optimum Wellness Foundation location in Pharr Texas serving the Rio Grande Valley"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.8867!2d-98.1847!3d26.1947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDExJzQwLjkiTiA5OMKwMTEnMDQuOSJX!5e0!3m2!1sen!2sus!4v1234567890"
                 width="100%"
                 height="128"
@@ -144,11 +144,11 @@ const Footer = () => {
                 <span className="text-accent-foreground font-bold">O</span>
               </div>
               <span className="text-lg font-bold">
-                Optimum <span className="text-accent">Health</span>
+                Optimum <span className="text-accent">Wellness</span>
               </span>
             </div>
             <p className="text-sm text-primary-foreground/60">
-              © {new Date().getFullYear()} Optimum Health & Wellness Clinic. {t.footer.rights}
+              © {new Date().getFullYear()} Optimum Wellness Foundation. {t.footer.rights}
             </p>
           </div>
 
