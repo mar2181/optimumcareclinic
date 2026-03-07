@@ -10,7 +10,7 @@ export const translations = {
     // Hero
     hero: {
       headline: "Affordable Urgent Care. No Insurance Needed.",
-      subhead: "Walk-ins welcome. High-quality medical care & wellness for the whole family.",
+      subhead: "Your after-hours cash clinic, open nightly 5pm–10pm. Walk-ins welcome for sick visits, chronic care, and more — no insurance needed.",
       viewPrices: "View Prices",
       ourServices: "Our Services",
       checkInOnline: "Check In Online",
@@ -163,7 +163,7 @@ export const translations = {
     // Hero
     hero: {
       headline: "Atención Médica Económica. Sin Seguro.",
-      subhead: "Bienvenidos sin cita. Atención médica de alta calidad para toda la familia.",
+      subhead: "Su clínica nocturna de pago en efectivo, abierta todas las noches de 5pm a 10pm. Sin cita previa para visitas por enfermedad, cuidado crónico y más — sin seguro médico.",
       viewPrices: "Ver Precios",
       ourServices: "Nuestros Servicios",
       checkInOnline: "Registrarse en Línea",
