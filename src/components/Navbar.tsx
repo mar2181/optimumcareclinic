@@ -89,13 +89,6 @@ const Navbar = () => {
               {t.nav.services}
             </a>
             <a 
-              href="#pricing" 
-              onClick={(e) => scrollToSection(e, 'pricing')}
-              className="text-foreground/80 hover:text-foreground transition-colors font-medium"
-            >
-              {t.nav.pricing}
-            </a>
-            <a 
               href="/resources"
               className="text-foreground/80 hover:text-foreground transition-colors font-medium"
             >
@@ -156,15 +149,6 @@ const Navbar = () => {
                   className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
                 >
                   {t.nav.services}
-                </motion.a>
-                <motion.a
-                  custom={3}
-                  variants={itemVariants}
-                  href="#pricing"
-                  onClick={(e) => scrollToSection(e, 'pricing')}
-                  className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
-                >
-                  {t.nav.pricing}
                 </motion.a>
                 <motion.a
                   custom={4}
