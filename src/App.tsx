@@ -14,6 +14,7 @@ import Resources from "./pages/Resources";
 import ArticlePage from "./pages/ArticlePage";
 import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
+import WoundCare from "./pages/WoundCare";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const AnimatedRoutes = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/resources/:slug" element={<ArticlePage />} />
+        <Route path="/wound-care" element={<WoundCare />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
