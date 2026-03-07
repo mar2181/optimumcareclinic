@@ -22,16 +22,16 @@ interface Article {
   created_at: string;
 }
 
-const categoryIcons = {
-  men: Heart,
-  women: Heart,
+const categoryIcons: Record<string, any> = {
   family: Users,
+  preventive: Heart,
+  chronic: Heart,
 };
 
-const categoryColors = {
-  men: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-  women: 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200',
+const categoryColors: Record<string, string> = {
   family: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+  preventive: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
+  chronic: 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200',
 };
 
 const Resources = () => {
@@ -115,7 +115,7 @@ const Resources = () => {
           transition={{ delay: 0.2 }}
           className="flex flex-wrap justify-center gap-2 mb-10"
         >
-          {['all', 'men', 'women', 'family'].map((cat) => (
+          {['all', 'preventive', 'chronic', 'family'].map((cat) => (
             <Button
               key={cat}
               variant={activeCategory === cat ? 'default' : 'outline'}
