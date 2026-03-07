@@ -13,8 +13,8 @@ interface SEOHeadProps {
 const SEOHead = ({
   title = 'Optimum Health & Wellness Clinic | After-Hours Family Clinic',
   titleEs = 'Optimum Health & Wellness Clinic | Clínica Familiar Nocturna',
-  description = 'After-hours family medicine in the Rio Grande Valley. Open 5pm-10pm daily. Same-day sick visits, chronic care, and preventive services for the whole family in Pharr, Texas.',
-  descriptionEs = 'Medicina familiar nocturna en el Valle del Río Grande. Abierto 5pm-10pm todos los días. Visitas de enfermedad el mismo día, cuidado crónico y servicios preventivos para toda la familia en Pharr, Texas.',
+  description = 'After-hours cash clinic in Pharr, TX. Open nightly 5pm-10pm, 7 days a week. Walk-in sick visits, chronic care management, and family medicine — no insurance needed.',
+  descriptionEs = 'Clínica nocturna de pago en efectivo en Pharr, TX. Abierta todas las noches de 5pm a 10pm, 7 días a la semana. Visitas por enfermedad, manejo de condiciones crónicas y medicina familiar — sin seguro médico.',
   canonicalUrl,
   ogImage = 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
 }: SEOHeadProps) => {
