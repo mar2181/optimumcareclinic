@@ -9,8 +9,8 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Us | Optimum Wellness Foundation</title>
-        <meta name="description" content="Meet the dedicated team at Optimum Wellness Foundation in Pharr, TX. Learn about our mission to provide quality after-hours healthcare." />
+        <title>About Us | Optimum Health and Wellness Clinic</title>
+        <meta name="description" content="Meet the dedicated team at Optimum Health and Wellness Clinic in Pharr, TX. Learn about our mission to provide quality after-hours healthcare." />
       </Helmet>
 
       <Navbar />
