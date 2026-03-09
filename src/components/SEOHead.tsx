@@ -22,7 +22,7 @@ const SEOHead = ({
 
   const currentTitle = lang === 'es' ? titleEs : title;
   const currentDescription = lang === 'es' ? descriptionEs : description;
-  const siteName = lang === 'es' ? 'Optimum Wellness Foundation' : 'Optimum Wellness Foundation';
+  const siteName = lang === 'es' ? 'Optimum Health and Wellness Clinic' : 'Optimum Health and Wellness Clinic';
 
   return (
     <Helmet>
