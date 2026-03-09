@@ -29,7 +29,7 @@ const AboutUs = () => {
                 About <span className="text-accent">Our Team</span>
               </h1>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                At Optimum Wellness Foundation, we're a family-oriented team committed to providing compassionate, quality after-hours healthcare to the Pharr community.
+                At Optimum Health and Wellness Clinic, we're a family-oriented team committed to providing compassionate, quality after-hours healthcare to the Pharr community.
               </p>
             </motion.div>
 
