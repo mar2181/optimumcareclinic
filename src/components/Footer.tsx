@@ -144,17 +144,17 @@ const Footer = () => {
                 <span className="text-accent-foreground font-bold">O</span>
               </div>
               <span className="text-lg font-bold">
-                Optimum <span className="text-accent">Wellness</span>
+                Optimum Health & <span className="text-accent">Wellness Clinic</span>
               </span>
             </div>
             <p className="text-sm text-primary-foreground/60">
-              © {new Date().getFullYear()} Optimum Wellness Foundation. {t.footer.rights}
+              © {new Date().getFullYear()} Optimum Health and Wellness Clinic. {t.footer.rights}
             </p>
           </div>
 
           {/* SEO Keywords */}
           <p className="mt-6 text-xs text-primary-foreground/40 text-center">
-            After-Hours Doctor Pharr | Family Clinic McAllen | Evening Clinic Texas | Cash Pay Clinic RGV | Same-Day Doctor RGV | Family Medicine South Texas | Walk-in Clinic Pharr | After Hours Care McAllen
+            Optimum Health and Wellness Clinic | After-Hours Doctor Pharr | Family Clinic McAllen | Evening Clinic Texas | Cash Pay Clinic RGV | Same-Day Doctor RGV | Family Medicine South Texas | Walk-in Clinic Pharr | After Hours Care McAllen
           </p>
         </div>
       </div>

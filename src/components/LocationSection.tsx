@@ -64,7 +64,7 @@ const LocationSection = () => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Optimum Wellness Foundation location map in Pharr Texas"
+              title="Optimum Health and Wellness Clinic location map in Pharr Texas"
             />
           </div>
 

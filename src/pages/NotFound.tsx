@@ -18,13 +18,13 @@ const NotFound = () => {
       title: "Page Not Found",
       message: "Oops! The page you're looking for doesn't exist or has been moved.",
       backHome: "Back to Home",
-      seoTitle: "Page Not Found | Optimum Wellness Foundation",
+      seoTitle: "Page Not Found | Optimum Health and Wellness Clinic",
     },
     es: {
       title: "Página No Encontrada",
       message: "¡Ups! La página que buscas no existe o ha sido movida.",
       backHome: "Volver al Inicio",
-      seoTitle: "Página No Encontrada | Optimum Wellness Foundation",
+      seoTitle: "Página No Encontrada | Optimum Health and Wellness Clinic",
     },
   };
 

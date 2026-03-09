@@ -244,7 +244,7 @@ const ArticlePage = () => {
             Ready to Visit Us?
           </h3>
           <p className="text-muted-foreground mb-4">
-            Walk-ins welcome at Optimum Wellness Foundation. No appointment needed.
+            Walk-ins welcome at Optimum Health and Wellness Clinic. No appointment needed.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button asChild>

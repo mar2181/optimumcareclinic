@@ -129,7 +129,7 @@ const Hero = () => {
       >
         <img
           src={heroImage}
-          alt="Friendly family doctor examining a child with mother present at Optimum Wellness Foundation in Pharr Texas"
+          alt="Friendly family doctor examining a child with mother present at Optimum Health and Wellness Clinic in Pharr Texas"
           className="w-full h-full object-cover"
         />
       </motion.div>
