@@ -144,7 +144,7 @@ const Footer = () => {
                 <span className="text-accent-foreground font-bold">O</span>
               </div>
               <span className="text-lg font-bold">
-                Optimum <span className="text-accent">Wellness</span>
+                Optimum Health & <span className="text-accent">Wellness Clinic</span>
               </span>
             </div>
             <p className="text-sm text-primary-foreground/60">
