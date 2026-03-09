@@ -32,7 +32,7 @@ const SEOHead = ({
       {/* Primary Meta Tags */}
       <title>{currentTitle}</title>
       <meta name="description" content={currentDescription} />
-      <meta name="author" content="Optimum Wellness Foundation" />
+      <meta name="author" content="Optimum Health and Wellness Clinic" />
 
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}

@@ -91,7 +91,7 @@ const AdminLogin = () => {
           </div>
           <CardTitle className="text-2xl font-bold">Staff Login</CardTitle>
           <CardDescription>
-            Access the Optimum Wellness Foundation admin dashboard
+            Access the Optimum Health and Wellness Clinic admin dashboard
           </CardDescription>
         </CardHeader>
         <CardContent>

@@ -42,7 +42,7 @@ const AboutUs = () => {
             >
               <img
                 src={teamPhoto}
-                alt="The Optimum Wellness Foundation team"
+                alt="The Optimum Health and Wellness Clinic team"
                 className="w-full h-auto object-cover"
               />
             </motion.div>
