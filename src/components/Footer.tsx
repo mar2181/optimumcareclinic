@@ -148,7 +148,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-sm text-primary-foreground/60">
-              © {new Date().getFullYear()} Optimum Wellness Foundation. {t.footer.rights}
+              © {new Date().getFullYear()} Optimum Health and Wellness Clinic. {t.footer.rights}
             </p>
           </div>
 
