@@ -91,28 +91,28 @@ const Hero = () => {
 
   const content = {
     en: {
-      badge: "After-Hours Family Medicine",
+      badge: "After-Hours Cash Clinic",
       headline: "Your Family Doctor.",
       headlineAccent: "After Hours.",
-      subhead: "Open 5pm–10pm, 7 days a week. Walk-in family medicine when your regular doctor's office is closed. Sick visits, chronic care, and more — no insurance needed.",
+      subhead: "We're a cash-pay clinic — no insurance, no hassle. Open 5pm–10pm, 7 days a week. Walk-in sick visits, chronic care, medication refills, and more at affordable flat rates.",
       stats: {
         patients: "Patients Served",
         years: "Years Experience",
         rating: "Patient Rating",
       },
-      trust: ["Open 5pm-10pm", "Bilingual Staff", "Family-Focused Care"],
+      trust: ["Cash-Pay Only", "Open 5pm-10pm", "Bilingual Staff"],
     },
     es: {
-      badge: "Medicina Familiar Nocturna",
+      badge: "Clínica Nocturna de Pago en Efectivo",
       headline: "Tu Médico Familiar.",
       headlineAccent: "Después del Horario.",
-      subhead: "Abierto de 5pm a 10pm, los 7 días de la semana. Medicina familiar sin cita cuando el consultorio de tu médico está cerrado. Visitas por enfermedad, cuidado crónico y más — sin seguro médico.",
+      subhead: "Somos una clínica de pago en efectivo — sin seguro, sin complicaciones. Abierto de 5pm a 10pm, los 7 días de la semana. Visitas por enfermedad, cuidado crónico, recetas médicas y más a precios accesibles.",
       stats: {
         patients: "Pacientes Atendidos",
         years: "Años de Experiencia",
         rating: "Calificación",
       },
-      trust: ["Abierto 5pm-10pm", "Personal Bilingüe", "Enfoque Familiar"],
+      trust: ["Solo Efectivo", "Abierto 5pm-10pm", "Personal Bilingüe"],
     },
   };
 
