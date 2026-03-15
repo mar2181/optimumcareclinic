@@ -82,18 +82,18 @@ const Navbar = () => {
               </span>
             </div>
 
-            <a 
-              href="/services"
+            <Link 
+              to="/services"
               className="text-foreground/80 hover:text-foreground transition-colors font-medium"
             >
               {t.nav.services}
-            </a>
-            <a 
-              href="/resources"
+            </Link>
+            <Link 
+              to="/resources"
               className="text-foreground/80 hover:text-foreground transition-colors font-medium"
             >
               {t.nav.resources}
-            </a>
+            </Link>
 
             <Button asChild className="bg-primary hover:bg-navy-light text-primary-foreground gap-2">
               <a href="tel:+19566273258">
