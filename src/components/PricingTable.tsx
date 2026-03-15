@@ -1,90 +1,65 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Check, Info } from 'lucide-react';
-
-interface PricingRowProps {
-  name: string;
-  price: string;
-  note?: string;
-  isEven: boolean;
-}
-
-const PricingRow = ({ name, price, note, isEven }: PricingRowProps) => (
-  <div className={`flex items-center justify-between py-4 px-6 rounded-xl transition-colors ${
-    isEven ? 'bg-muted/50' : 'bg-transparent'
-  }`}>
-    <div className="flex items-center gap-3">
-      <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-        <Check className="w-4 h-4 text-accent" />
-      </div>
-      <span className="font-medium text-foreground">{name}</span>
-    </div>
-    <div className="text-right">
-      {note && (
-        <span className="text-xs text-muted-foreground mr-2">{note}</span>
-      )}
-      <span className="font-bold text-lg text-accent">{price}</span>
-    </div>
-  </div>
-);
+import { DollarSign, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const PricingTable = () => {
-  const { t, lang } = useLanguage();
+  const { lang } = useLanguage();
 
-  const pricingItems = Object.values(t.pricing.items).map((item) => ({
-    name: item.name,
-    price: item.price,
-    note: 'note' in item ? (item as any).note : undefined,
-  }));
+  const content = {
+    en: {
+      title: "Simple, Transparent Pricing",
+      price: "$70",
+      label: "per visit",
+      description: "One flat rate for your visit — no hidden fees, no insurance needed. Just quality care at a price you can afford.",
+      cta: "View All Services",
+    },
+    es: {
+      title: "Precios Simples y Transparentes",
+      price: "$70",
+      label: "por visita",
+      description: "Una tarifa fija por tu visita — sin cargos ocultos, sin seguro necesario. Solo atención de calidad a un precio accesible.",
+      cta: "Ver Todos los Servicios",
+    },
+  };
 
-  const headerTitle = lang === 'es' ? 'Menú de Precios' : 'Self-Pay Price Menu';
+  const c = content[lang];
 
   return (
     <section id="pricing" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            {t.pricing.title}
-          </h2>
-          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent-foreground px-4 py-2 rounded-full">
-            <Check className="w-5 h-5 text-accent" />
-            <span className="font-medium">{t.pricing.subtitle}</span>
-          </div>
-        </div>
+        <div className="max-w-2xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8">
+              {c.title}
+            </h2>
 
-        {/* Pricing Card */}
-        <div className="max-w-2xl mx-auto">
-          <div className="glass-card overflow-hidden">
-            {/* Header */}
-            <div className="bg-accent/20 p-6 text-center border-b border-border/30">
-              <h3 className="text-xl font-bold text-accent">
-                {headerTitle}
-              </h3>
-            </div>
-
-            {/* Pricing List */}
-            <div className="p-4 md:p-6 space-y-2">
-              {pricingItems.map((item, index) => (
-                <PricingRow
-                  key={index}
-                  name={item.name}
-                  price={item.price}
-                  note={item.note}
-                  isEven={index % 2 === 0}
-                />
-              ))}
-            </div>
-
-            {/* Disclaimer */}
-            <div className="px-6 pb-6">
-              <div className="flex items-start gap-3 p-4 bg-muted rounded-xl">
-                <Info className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-muted-foreground">
-                  {t.pricing.disclaimer}
-                </p>
+            {/* Price callout */}
+            <div className="glass-card p-8 md:p-12 inline-flex flex-col items-center gap-4">
+              <div className="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center">
+                <DollarSign className="w-8 h-8 text-accent" />
               </div>
+              <div>
+                <span className="text-6xl md:text-7xl font-bold text-accent">{c.price}</span>
+                <span className="text-xl text-muted-foreground ml-2">{c.label}</span>
+              </div>
+              <p className="text-muted-foreground max-w-md leading-relaxed">
+                {c.description}
+              </p>
+              <Button asChild className="mt-4 bg-accent hover:bg-accent/90 text-accent-foreground gap-2">
+                <Link to="/services">
+                  {c.cta}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
