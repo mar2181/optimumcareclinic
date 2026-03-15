@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -81,18 +82,18 @@ const Navbar = () => {
               </span>
             </div>
 
-            <a 
-              href="/services"
+            <Link 
+              to="/services"
               className="text-foreground/80 hover:text-foreground transition-colors font-medium"
             >
               {t.nav.services}
-            </a>
-            <a 
-              href="/resources"
+            </Link>
+            <Link 
+              to="/resources"
               className="text-foreground/80 hover:text-foreground transition-colors font-medium"
             >
               {t.nav.resources}
-            </a>
+            </Link>
 
             <Button asChild className="bg-primary hover:bg-navy-light text-primary-foreground gap-2">
               <a href="tel:+19566273258">
@@ -140,24 +141,24 @@ const Navbar = () => {
                   </span>
                 </motion.div>
 
-                <motion.a
-                  custom={2}
-                  variants={itemVariants}
-                  href="/services"
-                  onClick={handleNavClick}
-                  className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
-                >
-                  {t.nav.services}
-                </motion.a>
-                <motion.a
-                  custom={4}
-                  variants={itemVariants}
-                  href="/resources"
-                  onClick={handleNavClick}
-                  className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
-                >
-                  {t.nav.resources}
-                </motion.a>
+                <motion.div custom={2} variants={itemVariants}>
+                  <Link
+                    to="/services"
+                    onClick={handleNavClick}
+                    className="block text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
+                  >
+                    {t.nav.services}
+                  </Link>
+                </motion.div>
+                <motion.div custom={4} variants={itemVariants}>
+                  <Link
+                    to="/resources"
+                    onClick={handleNavClick}
+                    className="block text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
+                  >
+                    {t.nav.resources}
+                  </Link>
+                </motion.div>
 
                 <motion.div custom={5} variants={itemVariants}>
                   <Button asChild className="bg-primary hover:bg-navy-light text-primary-foreground gap-2 w-full">
