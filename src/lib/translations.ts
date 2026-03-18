@@ -22,7 +22,7 @@ export const translations = {
       items: {
         medicalConsultation: { title: "Medical Consultation", desc: "Comprehensive medical evaluations and consultations for all ages" },
         sickVisit: { title: "Sick Visit", desc: "Walk-in care for illness, fever, cough, and general discomfort" },
-        medicationRefills: { title: "Medication Refills", desc: "Convenient prescription refills when your regular doctor is unavailable" },
+        medicationRefills: { title: "Medication Refills", desc: "Convenient prescription refills when your regular physician is unavailable" },
         rapidTesting: { title: "Rapid Testing", desc: "Quick results for Flu, Covid, and Strep testing" },
         urinalysis: { title: "Urinalysis", desc: "Urine testing for infections, kidney function, and more" },
         injections: { title: "Injections", desc: "Therapeutic and preventive injections administered by our staff" },
@@ -176,7 +176,7 @@ export const translations = {
       items: {
         medicalConsultation: { title: "Consulta Médica", desc: "Evaluaciones y consultas médicas completas para todas las edades" },
         sickVisit: { title: "Visita por Enfermedad", desc: "Atención sin cita para enfermedades, fiebre, tos y malestar general" },
-        medicationRefills: { title: "Recetas Médicas", desc: "Renovación de recetas cuando su doctor regular no está disponible" },
+        medicationRefills: { title: "Recetas Médicas", desc: "Renovación de recetas cuando su médico regular no está disponible" },
         rapidTesting: { title: "Pruebas Rápidas", desc: "Resultados rápidos para pruebas de Gripe, Covid y Estreptococo" },
         urinalysis: { title: "Análisis de Orina", desc: "Pruebas de orina para infecciones, función renal y más" },
         injections: { title: "Inyecciones", desc: "Inyecciones terapéuticas y preventivas administradas por nuestro personal" },

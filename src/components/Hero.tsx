@@ -92,7 +92,7 @@ const Hero = () => {
   const content = {
     en: {
       badge: "After-Hours Cash Clinic",
-      headline: "Your Family Doctor.",
+      headline: "Your Family Physician.",
       headlineAccent: "After Hours.",
       subhead: "We're a cash-pay clinic — no insurance, no hassle. Open 5pm–10pm, 7 days a week. Walk-in sick visits, chronic care, medication refills, and more at affordable flat rates.",
       stats: {
@@ -129,7 +129,7 @@ const Hero = () => {
       >
         <img
           src={heroImage}
-          alt="Friendly family doctor examining a child with mother present at Optimum Health and Wellness Clinic in Pharr Texas"
+          alt="Friendly family physician examining a child with mother present at Optimum Health and Wellness Clinic in Pharr Texas"
           className="w-full h-full object-cover"
         />
       </motion.div>
