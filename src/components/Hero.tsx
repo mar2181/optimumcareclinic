@@ -92,7 +92,7 @@ const Hero = () => {
   const content = {
     en: {
       badge: "After-Hours Cash Clinic",
-      headline: "Your Family Doctor.",
+      headline: "Your Family Physician.",
       headlineAccent: "After Hours.",
       subhead: "We're a cash-pay clinic — no insurance, no hassle. Open 5pm–10pm, 7 days a week. Walk-in sick visits, chronic care, medication refills, and more at affordable flat rates.",
       stats: {
