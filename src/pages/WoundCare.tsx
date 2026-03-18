@@ -123,7 +123,7 @@ const WoundCare = () => {
           >
             <img
               src={woundCareHero}
-              alt="Hispanic doctor providing professional wound care treatment at Optimum Health and Wellness Clinic"
+              alt="Hispanic physician providing professional wound care treatment at Optimum Health and Wellness Clinic"
               className="w-full h-full object-cover"
             />
           </motion.div>
