@@ -41,7 +41,7 @@ const content = {
       },
       {
         title: "Medication Refills",
-        desc: "Need a prescription refill but your regular doctor's office is closed? We can help with routine medication refills to keep you on track.",
+        desc: "Need a prescription refill but your regular physician's office is closed? We can help with routine medication refills to keep you on track.",
         price: "$75",
         image: serviceMedicationRefills,
         icon: Pill,

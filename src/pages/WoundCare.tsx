@@ -282,7 +282,7 @@ const WoundCare = () => {
               >
                 <img
                   src={woundCareTreatment}
-                  alt="Hispanic doctor treating a wound on a young patient"
+                  alt="Hispanic physician treating a wound on a young patient"
                   className="w-full h-auto object-cover rounded-2xl"
                   loading="lazy"
                 />
