@@ -251,9 +251,6 @@ const Services = () => {
                       <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-accent/90 flex items-center justify-center">
                         <Icon className="w-6 h-6 text-accent-foreground" />
                       </div>
-                      <div className="absolute bottom-4 right-4 bg-white/90 dark:bg-card/90 backdrop-blur-sm px-4 py-2 rounded-xl">
-                        <span className="text-lg font-bold text-foreground">{service.price}</span>
-                      </div>
                     </div>
 
                     {/* Content */}
