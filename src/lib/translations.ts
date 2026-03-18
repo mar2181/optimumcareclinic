@@ -22,7 +22,7 @@ export const translations = {
       items: {
         medicalConsultation: { title: "Medical Consultation", desc: "Comprehensive medical evaluations and consultations for all ages" },
         sickVisit: { title: "Sick Visit", desc: "Walk-in care for illness, fever, cough, and general discomfort" },
-        medicationRefills: { title: "Medication Refills", desc: "Convenient prescription refills when your regular doctor is unavailable" },
+        medicationRefills: { title: "Medication Refills", desc: "Convenient prescription refills when your regular physician is unavailable" },
         rapidTesting: { title: "Rapid Testing", desc: "Quick results for Flu, Covid, and Strep testing" },
         urinalysis: { title: "Urinalysis", desc: "Urine testing for infections, kidney function, and more" },
         injections: { title: "Injections", desc: "Therapeutic and preventive injections administered by our staff" },
