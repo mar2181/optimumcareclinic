@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://optimumhealthrx.com/sitemap.xml
+Sitemap: https://optimumhealthandwellnessclinic.com/sitemap.xml
