@@ -94,6 +94,12 @@ const Navbar = () => {
             >
               {t.nav.resources}
             </Link>
+            <Link 
+              to="/blog"
+              className="text-foreground/80 hover:text-foreground transition-colors font-medium"
+            >
+              Blog
+            </Link>
 
             <Button asChild className="bg-primary hover:bg-navy-light text-primary-foreground gap-2">
               <a href="tel:+19566273258">
@@ -159,8 +165,17 @@ const Navbar = () => {
                     {t.nav.resources}
                   </Link>
                 </motion.div>
-
                 <motion.div custom={5} variants={itemVariants}>
+                  <Link
+                    to="/blog"
+                    onClick={handleNavClick}
+                    className="block text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
+                  >
+                    Blog
+                  </Link>
+                </motion.div>
+
+                <motion.div custom={6} variants={itemVariants}>
                   <Button asChild className="bg-primary hover:bg-navy-light text-primary-foreground gap-2 w-full">
                     <a href="tel:+19566273258">
                       <Phone className="w-4 h-4" />
