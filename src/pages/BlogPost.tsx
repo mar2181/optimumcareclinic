@@ -8,8 +8,9 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
-import { ArrowLeft, Calendar, BookOpen } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Phone } from 'lucide-react';
 import { format } from 'date-fns';
+import heroFallback from '@/assets/blog-cash-clinic-pharr.jpg';
 
 interface BlogPost {
   id: string;
@@ -25,7 +26,13 @@ interface BlogPost {
   updated_at: string;
 }
 
-const BlogPost = () => {
+const resolveImage = (url: string | null) => {
+  if (!url) return heroFallback;
+  if (url.startsWith('/src/assets/blog-cash-clinic-pharr')) return heroFallback;
+  return url;
+};
+
+const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
@@ -43,20 +50,21 @@ const BlogPost = () => {
       setLoading(false);
     };
     fetchPost();
+    window.scrollTo({ top: 0 });
   }, [slug]);
 
   const renderContent = (content: string) => {
     return content.split('\n\n').map((paragraph, index) => {
       if (paragraph.startsWith('### ')) {
         return (
-          <h3 key={index} className="text-xl font-semibold text-foreground mt-8 mb-3">
+          <h3 key={index} className="text-xl md:text-2xl font-bold text-foreground mt-10 mb-3 tracking-tight">
             {paragraph.replace('### ', '')}
           </h3>
         );
       }
       if (paragraph.startsWith('## ')) {
         return (
-          <h2 key={index} className="text-2xl font-bold text-foreground mt-10 mb-4">
+          <h2 key={index} className="text-2xl md:text-3xl font-bold text-foreground mt-14 mb-5 tracking-tight">
             {paragraph.replace('## ', '')}
           </h2>
         );
@@ -64,16 +72,19 @@ const BlogPost = () => {
       if (paragraph.includes('\n- ')) {
         const lines = paragraph.split('\n');
         return (
-          <ul key={index} className="list-disc list-inside space-y-2 my-4 text-muted-foreground">
+          <ul key={index} className="space-y-3 my-6 pl-1">
             {lines.map((line, i) => {
               if (line.startsWith('- ')) {
                 const text = line.replace('- ', '');
                 const parts = text.split(/\*\*(.+?)\*\*/g);
                 return (
-                  <li key={i}>
-                    {parts.map((part, j) =>
-                      j % 2 === 1 ? <strong key={j} className="text-foreground">{part}</strong> : part
-                    )}
+                  <li key={i} className="flex gap-3 text-muted-foreground leading-relaxed">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                    <span>
+                      {parts.map((part, j) =>
+                        j % 2 === 1 ? <strong key={j} className="text-foreground font-semibold">{part}</strong> : part
+                      )}
+                    </span>
                   </li>
                 );
               }
@@ -84,9 +95,9 @@ const BlogPost = () => {
       }
       const parts = paragraph.split(/\*\*(.+?)\*\*/g);
       return (
-        <p key={index} className="text-muted-foreground leading-relaxed my-4">
+        <p key={index} className="text-base md:text-lg text-muted-foreground leading-[1.8] my-5">
           {parts.map((part, i) =>
-            i % 2 === 1 ? <strong key={i} className="text-foreground">{part}</strong> : part
+            i % 2 === 1 ? <strong key={i} className="text-foreground font-semibold">{part}</strong> : part
           )}
         </p>
       );
@@ -100,7 +111,7 @@ const BlogPost = () => {
         <main className="container mx-auto px-6 py-12 max-w-3xl">
           <Skeleton className="h-8 w-32 mb-8" />
           <Skeleton className="h-12 w-full mb-4" />
-          <Skeleton className="h-64 w-full mb-8" />
+          <Skeleton className="h-96 w-full mb-8 rounded-2xl" />
         </main>
         <Footer />
       </div>
@@ -126,6 +137,8 @@ const BlogPost = () => {
 
   const url = `https://optimumhealthandwellnessclinic.com/blog/${post.slug}`;
   const description = post.meta_description || post.excerpt || '';
+  const wordCount = post.content.split(/\s+/).length;
+  const minutes = Math.max(2, Math.round(wordCount / 220));
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -136,10 +149,7 @@ const BlogPost = () => {
     datePublished: post.created_at,
     dateModified: post.updated_at,
     author: { '@type': 'Organization', name: post.author_name || 'Optimum Health & Wellness Clinic' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Optimum Health & Wellness Clinic',
-    },
+    publisher: { '@type': 'Organization', name: 'Optimum Health & Wellness Clinic' },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   };
 
@@ -164,66 +174,104 @@ const BlogPost = () => {
 
       <Navbar />
 
-      <main className="container mx-auto px-6 py-12 max-w-3xl">
-        <Button asChild variant="ghost" className="mb-8">
-          <Link to="/blog">
-            <ArrowLeft className="w-4 h-4 mr-2" /> Back to Blog
+      {/* Editorial header */}
+      <article>
+        <header className="container mx-auto px-6 pt-12 pb-10 max-w-3xl">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-10"
+          >
+            <ArrowLeft className="w-4 h-4" /> All articles
           </Link>
-        </Button>
 
-        <header className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
-            {post.title}
-          </h1>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1">
-              <Calendar className="w-4 h-4" />
-              <span>{format(new Date(post.created_at), 'MMMM d, yyyy')}</span>
-            </div>
-            {post.author_name && <span>By {post.author_name}</span>}
-          </div>
           {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-4">
-              {post.tags.map((tag) => (
-                <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {post.tags.slice(0, 3).map((tag) => (
+                <Badge key={tag} variant="secondary" className="text-xs uppercase tracking-wider font-medium">
+                  {tag}
+                </Badge>
               ))}
             </div>
           )}
+
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1] mb-6">
+            {post.title}
+          </h1>
+
+          {post.excerpt && (
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-light">
+              {post.excerpt}
+            </p>
+          )}
+
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground pb-8 border-b border-border">
+            {post.author_name && (
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground text-xs font-bold">
+                  {post.author_name.charAt(0)}
+                </div>
+                <span className="font-medium text-foreground">{post.author_name}</span>
+              </div>
+            )}
+            <span className="flex items-center gap-1.5">
+              <Calendar className="w-3.5 h-3.5" />
+              {format(new Date(post.created_at), 'MMMM d, yyyy')}
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5" />
+              {minutes} min read
+            </span>
+          </div>
         </header>
 
-        <div className="relative h-64 md:h-80 rounded-xl overflow-hidden mb-8 bg-gradient-to-br from-primary/10 to-accent/10">
-          {post.image_url ? (
-            <img src={post.image_url} alt={post.title} className="w-full h-full object-cover" />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <BookOpen className="w-24 h-24 text-primary/30" />
-            </div>
-          )}
-        </div>
-
-        <article className="prose prose-lg max-w-none">
-          {renderContent(post.content)}
-        </article>
-
-        <div className="mt-12 p-6 bg-primary/5 rounded-xl border border-primary/10">
-          <h3 className="text-lg font-semibold text-foreground mb-2">Walk In Tonight</h3>
-          <p className="text-muted-foreground mb-4">
-            Open 5 PM – 10 PM, 7 days a week. Just $70 per visit. No insurance needed.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Button asChild>
-              <Link to="/check-in">Check In Online</Link>
-            </Button>
-            <Button asChild variant="outline">
-              <a href="tel:+19566273258">Call (956) 627-3258</a>
-            </Button>
+        {/* Full-bleed hero image */}
+        <div className="container mx-auto px-6 max-w-5xl mb-12">
+          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-muted shadow-2xl shadow-primary/5">
+            <img
+              src={resolveImage(post.image_url)}
+              alt={post.title}
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
-      </main>
+
+        {/* Body */}
+        <div className="container mx-auto px-6 max-w-3xl">
+          <div className="prose-content">{renderContent(post.content)}</div>
+
+          {/* CTA */}
+          <div className="mt-16 mb-20 relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/80 p-8 md:p-10 text-primary-foreground">
+            <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-accent/20 blur-3xl" />
+            <div className="relative">
+              <p className="text-xs uppercase tracking-widest text-primary-foreground/70 mb-3">
+                Walk in tonight
+              </p>
+              <h3 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight">
+                $70 visits. Open until 10 PM.
+              </h3>
+              <p className="text-primary-foreground/80 mb-6 max-w-md">
+                No insurance required. No appointment needed. Real care from a real physician,
+                seven days a week.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Button asChild size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90">
+                  <Link to="/check-in">Check In Online</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10">
+                  <a href="tel:+19566273258">
+                    <Phone className="w-4 h-4 mr-2" />
+                    (956) 627-3258
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
 
       <Footer />
     </motion.div>
   );
 };
 
-export default BlogPost;
+export default BlogPostPage;

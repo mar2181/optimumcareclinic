@@ -5,11 +5,11 @@ import { Helmet } from 'react-helmet-async';
 import { supabase } from '@/integrations/supabase/client';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Calendar, ArrowRight, BookOpen } from 'lucide-react';
+import { Calendar, ArrowUpRight, BookOpen, Clock } from 'lucide-react';
 import { format } from 'date-fns';
+import heroFallback from '@/assets/blog-cash-clinic-pharr.jpg';
 
 interface BlogPost {
   id: string;
@@ -20,6 +20,17 @@ interface BlogPost {
   tags: string[] | null;
   created_at: string;
 }
+
+const resolveImage = (url: string | null) => {
+  if (!url) return heroFallback;
+  if (url.startsWith('/src/assets/blog-cash-clinic-pharr')) return heroFallback;
+  return url;
+};
+
+const readingTime = (excerpt: string | null) => {
+  // rough estimate based on excerpt presence
+  return excerpt && excerpt.length > 120 ? '5 min read' : '3 min read';
+};
 
 const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -37,6 +48,9 @@ const Blog = () => {
     };
     fetchPosts();
   }, []);
+
+  const featured = posts[0];
+  const rest = posts.slice(1);
 
   return (
     <motion.div
@@ -56,27 +70,39 @@ const Blog = () => {
 
       <Navbar />
 
-      <main className="container mx-auto px-6 py-16 max-w-6xl">
-        <motion.header
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
-          <Badge variant="secondary" className="mb-4">Blog</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Insights from Optimum Health
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Practical guidance on after-hours care, cash-pay savings, and staying healthy
-            in the Rio Grande Valley.
-          </p>
-        </motion.header>
+      {/* Hero band */}
+      <section className="relative overflow-hidden border-b border-border/50 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+        <div className="absolute inset-0 -z-10 opacity-40 [background-image:radial-gradient(hsl(var(--primary)/0.15)_1px,transparent_1px)] [background-size:24px_24px]" />
+        <div className="container mx-auto px-6 py-20 md:py-28 max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-3xl"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold tracking-widest uppercase mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              The Optimum Journal
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight leading-[1.05] mb-6">
+              Honest health,<br />
+              <span className="italic font-light text-accent">straight from the clinic.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+              Stories, guides, and plain-English advice from the team at Optimum Health —
+              built for families across Pharr, McAllen, and the Rio Grande Valley.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
+      <main className="container mx-auto px-6 py-16 max-w-6xl">
         {loading ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <Skeleton key={i} className="h-80 w-full rounded-xl" />
-            ))}
+          <div className="space-y-8">
+            <Skeleton className="h-[400px] w-full rounded-2xl" />
+            <div className="grid md:grid-cols-2 gap-6">
+              <Skeleton className="h-64 rounded-2xl" />
+              <Skeleton className="h-64 rounded-2xl" />
+            </div>
           </div>
         ) : posts.length === 0 ? (
           <div className="text-center py-20">
@@ -84,52 +110,103 @@ const Blog = () => {
             <p className="text-muted-foreground">No posts yet. Check back soon.</p>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.map((post, idx) => (
+          <>
+            {/* Featured post */}
+            {featured && (
               <motion.div
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.08 }}
+                transition={{ delay: 0.1 }}
+                className="mb-16"
               >
-                <Link to={`/blog/${post.slug}`}>
-                  <Card className="h-full overflow-hidden hover:shadow-lg transition-all group">
-                    <div className="relative h-48 bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden">
-                      {post.image_url ? (
-                        <img
-                          src={post.image_url}
-                          alt={post.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <BookOpen className="w-16 h-16 text-primary/30" />
-                        </div>
-                      )}
-                    </div>
-                    <CardContent className="p-6">
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
-                        <Calendar className="w-3 h-3" />
-                        <span>{format(new Date(post.created_at), 'MMM d, yyyy')}</span>
+                <Link to={`/blog/${featured.slug}`} className="group block">
+                  <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-muted">
+                      <img
+                        src={resolveImage(featured.image_url)}
+                        alt={featured.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <Badge className="bg-background/90 text-foreground backdrop-blur-sm border-0">
+                          Featured
+                        </Badge>
                       </div>
-                      <h2 className="text-xl font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-                        {post.title}
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3 text-xs text-muted-foreground uppercase tracking-wider mb-4">
+                        <span className="flex items-center gap-1.5">
+                          <Calendar className="w-3.5 h-3.5" />
+                          {format(new Date(featured.created_at), 'MMM d, yyyy')}
+                        </span>
+                        <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
+                        <span className="flex items-center gap-1.5">
+                          <Clock className="w-3.5 h-3.5" />
+                          {readingTime(featured.excerpt)}
+                        </span>
+                      </div>
+                      <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight group-hover:text-primary transition-colors">
+                        {featured.title}
                       </h2>
-                      {post.excerpt && (
-                        <p className="text-sm text-muted-foreground line-clamp-3 mb-4">
-                          {post.excerpt}
+                      {featured.excerpt && (
+                        <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
+                          {featured.excerpt}
                         </p>
                       )}
-                      <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
-                        Read more <ArrowRight className="w-4 h-4" />
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
+                        Read the article
+                        <ArrowUpRight className="w-4 h-4" />
                       </span>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </Link>
               </motion.div>
-            ))}
-          </div>
+            )}
+
+            {rest.length > 0 && (
+              <>
+                <div className="flex items-center gap-4 mb-8">
+                  <h3 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                    More articles
+                  </h3>
+                  <div className="flex-1 h-px bg-border" />
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {rest.map((post, idx) => (
+                    <motion.div
+                      key={post.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: idx * 0.06 }}
+                    >
+                      <Link to={`/blog/${post.slug}`} className="group block h-full">
+                        <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-muted mb-5">
+                          <img
+                            src={resolveImage(post.image_url)}
+                            alt={post.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-wider mb-3">
+                          <Calendar className="w-3 h-3" />
+                          {format(new Date(post.created_at), 'MMM d, yyyy')}
+                        </div>
+                        <h3 className="text-xl font-bold text-foreground mb-2 leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                          {post.title}
+                        </h3>
+                        {post.excerpt && (
+                          <p className="text-sm text-muted-foreground line-clamp-2">
+                            {post.excerpt}
+                          </p>
+                        )}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+              </>
+            )}
+          </>
         )}
       </main>
 
