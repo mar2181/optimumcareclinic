@@ -86,6 +86,7 @@ const Resources = () => {
         titleEs="Centro de Salud | Optimum Wellness Foundation"
         description="Expert health tips and wellness resources for the Rio Grande Valley community. Men's health, women's wellness, and family care articles."
         descriptionEs="Consejos de salud y recursos de bienestar para la comunidad del Valle del Río Grande. Artículos de salud masculina, femenina y familiar."
+        canonicalUrl="https://optimumhealthandwellnessclinic.com/resources"
       />
       <Navbar />
 

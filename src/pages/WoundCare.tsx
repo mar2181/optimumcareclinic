@@ -109,6 +109,7 @@ const WoundCare = () => {
         titleEs="Cuidado de Heridas | Optimum Health and Wellness Clinic"
         description="Professional wound care in Pharr, TX. Walk-in wound treatment available 5pm-10pm daily. Minor cuts, lacerations, burns, and more. No insurance needed."
         descriptionEs="Cuidado profesional de heridas en Pharr, TX. Tratamiento de heridas sin cita de 5pm a 10pm. Cortadas, laceraciones, quemaduras y más. Sin seguro médico."
+        canonicalUrl="https://optimumhealthandwellnessclinic.com/wound-care"
       />
       <Navbar />
 
