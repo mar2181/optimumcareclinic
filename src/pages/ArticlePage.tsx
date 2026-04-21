@@ -163,6 +163,11 @@ const ArticlePage = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-background"
     >
+      <Helmet>
+        <title>{article.title} | Optimum Health and Wellness Clinic</title>
+        <meta name="description" content={article.excerpt || article.title} />
+        <link rel="canonical" href={`https://optimumhealthandwellnessclinic.com/resources/${article.slug}`} />
+      </Helmet>
       <Navbar />
 
       <main className="container mx-auto px-6 py-12 max-w-3xl">
