@@ -1,68 +1,76 @@
 
 
-## Goal
+## Internal Linking Audit
 
-Make this Lovable project the source of truth for `optimumhealthandwellnessclinic.com` so Google indexes the new content (blog, updated copy, "physician" wording, $70-only pricing) under the correct slugs.
+### What's working well
+- **Navbar** links to `/services`, `/resources`, `/blog` (desktop + mobile)
+- **PricingTable** CTA → `/services`
+- **BlogPost** has back link → `/blog`
+- **ArticlePage** has back link → `/resources`
+- **MobileBottomNav** links to `/resources`
+- Sitemap.xml lists every page
 
-## Slug audit — already aligned
+### Gaps hurting SEO and indexing speed
+1. **Footer Quick Links use `#hash` scrolls** instead of real `<Link>` URLs — Google sees these as one page, not separate pages. No links to `/about`, `/blog`, `/wound-care`, `/services`, `/resources` from the footer.
+2. **Homepage has zero text links to `/blog`, `/about`, `/wound-care`, or `/resources`** outside the navbar. Google heavily weights body-content links over nav links.
+3. **Blog posts are orphaned** — only reachable from `/blog`. No homepage preview, no contextual links from `/services` or `/wound-care`.
+4. **No "related articles" or cross-linking** between blog posts and resources.
+5. **Wound Care page** doesn't link out to `/services`, `/blog`, or `/check-in`.
+6. **Services page** doesn't link to `/wound-care`, `/blog`, or `/check-in` from individual service cards (only the wound-care card on the homepage `ServiceGrid` links).
+7. **Logo uses `<a href="/">`** instead of React Router `<Link>` — causes a full page reload (slower, breaks SPA crawling).
+8. **Blog post body** has only a single CTA to `/check-in`. No links to `/services`, `/wound-care`, or related articles.
 
-Comparing the live sitemap to this project's router, every URL already matches. **No slug changes needed.**
+## The Plan
 
-| Live URL | Lovable Route | Status |
-|---|---|---|
-| `/` | `/` (Index) | Match |
-| `/about` | `/about` (AboutUs) | Match |
-| `/services` | `/services` (Services) | Match |
-| `/resources` | `/resources` (Resources) | Match |
-| `/resources/:slug` | `/resources/:slug` (ArticlePage) | Match |
-| `/check-in` | `/check-in` (CheckIn) | Match |
-| `/wound-care` | `/wound-care` (WoundCare) | Match |
-| `/blog` | `/blog` (Blog) | Match |
-| `/blog/why-choose-cash-clinic-pharr-tx` | `/blog/:slug` (BlogPost) | Match |
+### 1. Fix the Footer (biggest SEO win)
+Replace the `#hash` scroll links with a proper sitemap-style footer:
 
-`public/sitemap.xml` and `public/robots.txt` already point to `https://optimumhealthandwellnessclinic.com/...` — also correct.
+```text
+QUICK LINKS         SERVICES              READ
+- Home (/)          - All Services        - Blog
+- About Us          - Wound Care          - Health Hub
+- Check In          - Sick Visits         - Latest Post
+- Contact           - Chronic Care
+```
 
-## What's actually needed
+Every link a real `<Link to="/...">`. This gives every page an inbound link from every other page — exactly what Google wants.
 
-The reason your live site doesn't show the new changes is that **the custom domain is currently pointing at an older deployment**, not this Lovable project. We need to publish this project and connect the domain.
+### 2. Add a "Latest from the Blog" section to the homepage
+Insert between `WhyChooseUs` and `TestimonialsSection`. Pulls 3 most recent blog posts, each card links to `/blog/:slug`. Bonus: a "View all articles →" link to `/blog`. This is the single biggest fix for getting blog posts indexed quickly.
 
-### Step 1 — Publish this project
-Click **Publish** (top-right). This creates a `.lovable.app` URL with all current changes (new Blog, $70 pricing, "physician" wording, fixed nav).
+### 3. Add a "Related Articles" section to BlogPost.tsx
+Below the CTA card, query 2–3 other blog posts (excluding current). Each links to `/blog/:slug`. Keeps users on-site and creates a link graph between posts.
 
-### Step 2 — Connect the custom domain
-In **Project Settings → Domains**, add `optimumhealthandwellnessclinic.com` and `www.optimumhealthandwellnessclinic.com`. Lovable will give DNS records (A / CNAME) to set at your domain registrar. Once DNS propagates (usually 15 min – 24 hr), the domain serves this project.
+### 4. Add contextual cross-links inside content
+- **Wound Care page**: add a "See all our services" link → `/services` and a "Learn why patients choose us" link → `/blog/why-choose-cash-clinic-pharr-tx`
+- **Services page**: add a "Need wound care?" callout → `/wound-care` and "Read our blog" → `/blog`
+- **Blog post body**: render a small "Related: [Wound Care Services](/wound-care) | [Check In](/check-in)" line inside the article CTA section
 
-### Step 3 — Verify SEO infrastructure (I'll do this in code)
-Once approved, I will:
+### 5. Make every service card clickable on the homepage
+Currently only the wound-care card has a link. Wrap each `ServiceGrid` card in a `<Link to="/services">` (or future per-service slugs) so the homepage funnels traffic into `/services`.
 
-1. **Confirm `public/sitemap.xml` is complete and accurate** — already correct, no edits needed unless you want to add/remove pages.
-2. **Confirm `public/robots.txt` references the correct sitemap URL** — already correct.
-3. **Audit `<SEOHead>` canonical URLs across every page** to ensure each page passes `canonicalUrl="https://optimumhealthandwellnessclinic.com/<path>"` so Google attributes the content to the right URL. Today only some pages do this consistently — I'll standardize all of them.
-4. **Verify BlogPost.tsx canonical + JSON-LD** uses the production domain (already does).
+### 6. Convert Navbar logo `<a href="/">` to `<Link to="/">`
+Small but matters — keeps SPA navigation and avoids full reloads when crawled.
 
-### Step 4 — Re-submit sitemap to Google
-After the domain points at the new build, in **Google Search Console** for `optimumhealthandwellnessclinic.com`, resubmit `https://optimumhealthandwellnessclinic.com/sitemap.xml`. Google will re-crawl and index the new blog post and updated pages within a few days.
+### 7. Add About Us to navigation
+Currently `/about` exists but is **not linked from the navbar**. Add it to desktop + mobile nav and footer. Orphan pages don't rank.
 
-## What I will change in code (Step 3 only)
+### Files to be edited
+- `src/components/Footer.tsx` — rebuild Quick Links column with real `<Link>`s, add Services + Read columns
+- `src/components/Navbar.tsx` — convert logo to `<Link>`, add About Us link
+- `src/components/MobileBottomNav.tsx` — add Blog link
+- `src/components/ServiceGrid.tsx` — wrap each card in `<Link to="/services">`
+- `src/pages/Index.tsx` — insert new `<LatestFromBlog />` section
+- `src/components/LatestFromBlog.tsx` — **NEW** component, queries 3 latest posts
+- `src/pages/BlogPost.tsx` — add Related Articles section + inline contextual links
+- `src/pages/WoundCare.tsx` — add cross-links to `/services` and `/blog`
+- `src/pages/Services.tsx` — add cross-link callout to `/wound-care` and `/blog`
 
-- **`src/pages/Index.tsx`** — add/verify `<SEOHead canonicalUrl="https://optimumhealthandwellnessclinic.com/" />`
-- **`src/pages/AboutUs.tsx`** — set canonical `/about`
-- **`src/pages/Services.tsx`** — set canonical `/services`
-- **`src/pages/Resources.tsx`** — set canonical `/resources`
-- **`src/pages/ArticlePage.tsx`** — set canonical `/resources/<slug>`
-- **`src/pages/CheckIn.tsx`** — set canonical `/check-in`
-- **`src/pages/WoundCare.tsx`** — set canonical `/wound-care`
-- **`src/pages/Blog.tsx`** — set canonical `/blog`
-- **`src/pages/BlogPost.tsx`** — already correct, just verify
+### Expected SEO impact
+- Every page gains 4–8 new inbound internal links → faster Google discovery
+- Blog posts go from orphaned (1 inbound link from `/blog` only) to **5+ inbound links** (homepage, footer, related posts, contextual links)
+- Logo + footer fixes give every page a clean link from every other page
+- Faster indexing of new blog posts (homepage signals freshness to Google)
 
-No database changes. No route renames. No slug edits.
-
-## What you need to do (outside Lovable)
-
-1. Click **Publish** in Lovable.
-2. Go to **Project Settings → Domains**, add `optimumhealthandwellnessclinic.com`, follow DNS instructions.
-3. Wait for DNS propagation.
-4. In Google Search Console, resubmit the sitemap.
-
-Once you approve, I'll make the canonical URL fixes in code so everything is airtight for SEO before you publish.
+No database changes, no schema changes, no slug changes. All routes already exist.
 
