@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Phone, MapPin, Clock, Globe } from 'lucide-react';
 
@@ -46,30 +47,27 @@ const Footer = () => {
           <div className="flex flex-col gap-4">
             <h3 className="text-lg font-semibold text-accent">{t.footer.quickLinks}</h3>
             <div className="flex flex-col gap-3">
-              <a href="/" className="text-primary-foreground/80 hover:text-accent transition-colors">
+              <Link to="/" className="text-primary-foreground/80 hover:text-accent transition-colors">
                 {t.footer.home}
-              </a>
-              <a 
-                href="#services" 
-                onClick={(e) => scrollToSection(e, 'services')}
-                className="text-primary-foreground/80 hover:text-accent transition-colors"
-              >
+              </Link>
+              <Link to="/about" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                {lang === 'es' ? 'Nosotros' : 'About Us'}
+              </Link>
+              <Link to="/services" className="text-primary-foreground/80 hover:text-accent transition-colors">
                 {t.nav.services}
-              </a>
-              <a 
-                href="#pricing" 
-                onClick={(e) => scrollToSection(e, 'pricing')}
-                className="text-primary-foreground/80 hover:text-accent transition-colors"
-              >
-                {t.nav.pricing}
-              </a>
-              <a 
-                href="#location" 
-                onClick={(e) => scrollToSection(e, 'location')}
-                className="text-primary-foreground/80 hover:text-accent transition-colors"
-              >
-                {t.footer.contactUs}
-              </a>
+              </Link>
+              <Link to="/wound-care" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                {lang === 'es' ? 'Cuidado de Heridas' : 'Wound Care'}
+              </Link>
+              <Link to="/check-in" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                {lang === 'es' ? 'Registro en Línea' : 'Online Check-In'}
+              </Link>
+              <Link to="/blog" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                Blog
+              </Link>
+              <Link to="/resources" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                {t.nav.resources}
+              </Link>
             </div>
           </div>
 
