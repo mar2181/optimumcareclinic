@@ -35,6 +35,7 @@ const resolveImage = (url: string | null) => {
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
+  const [related, setRelated] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -46,7 +47,17 @@ const BlogPostPage = () => {
         .eq('slug', slug)
         .eq('published', true)
         .maybeSingle();
-      if (data) setPost(data);
+      if (data) {
+        setPost(data);
+        const { data: others } = await supabase
+          .from('blog_posts')
+          .select('*')
+          .eq('published', true)
+          .neq('id', data.id)
+          .order('created_at', { ascending: false })
+          .limit(3);
+        if (others) setRelated(others);
+      }
       setLoading(false);
     };
     fetchPost();
