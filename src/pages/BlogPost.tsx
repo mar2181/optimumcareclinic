@@ -275,8 +275,50 @@ const BlogPostPage = () => {
                   </a>
                 </Button>
               </div>
+
+              {/* Inline contextual links for SEO */}
+              <p className="mt-8 pt-6 border-t border-primary-foreground/20 text-sm text-primary-foreground/80">
+                Related: {' '}
+                <Link to="/services" className="underline underline-offset-4 hover:text-primary-foreground">All services</Link>
+                {' · '}
+                <Link to="/wound-care" className="underline underline-offset-4 hover:text-primary-foreground">Wound care</Link>
+                {' · '}
+                <Link to="/about" className="underline underline-offset-4 hover:text-primary-foreground">Meet our team</Link>
+              </p>
             </div>
           </div>
+
+          {/* Related Articles */}
+          {related.length > 0 && (
+            <div className="mt-16 mb-20">
+              <div className="flex items-center gap-4 mb-8">
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                  Related articles
+                </h3>
+                <div className="flex-1 h-px bg-border" />
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {related.map((r) => (
+                  <Link key={r.id} to={`/blog/${r.slug}`} className="group block">
+                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-muted mb-4">
+                      <img
+                        src={resolveImage(r.image_url)}
+                        alt={r.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <h4 className="text-base font-bold text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                      {r.title}
+                    </h4>
+                    {r.excerpt && (
+                      <p className="text-sm text-muted-foreground mt-2 line-clamp-2">{r.excerpt}</p>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </article>
 
