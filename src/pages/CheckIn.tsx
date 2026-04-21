@@ -136,6 +136,7 @@ const CheckIn = () => {
         titleEs="Registro en Línea | Optimum Health and Wellness Clinic"
         description="Skip the wait with online check-in at Optimum Health and Wellness Clinic. Fast, convenient digital registration for after-hours family medicine."
         descriptionEs="Evita la espera con el registro en línea en Optimum Health and Wellness Clinic. Registro digital rápido y conveniente para medicina familiar nocturna."
+        canonicalUrl="https://optimumhealthandwellnessclinic.com/check-in"
       />
       {/* Header */}
       <div className="bg-primary text-primary-foreground py-6">

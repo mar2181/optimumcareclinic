@@ -188,6 +188,7 @@ const Services = () => {
         titleEs="Nuestros Servicios | Optimum Health and Wellness Clinic"
         description="After-hours medical services in Pharr, TX. Sick visits, medical consultations, rapid testing, wound care, chronic care, and more. Open 5pm-10pm daily."
         descriptionEs="Servicios médicos nocturnos en Pharr, TX. Visitas por enfermedad, consultas médicas, pruebas rápidas, cuidado de heridas, cuidado crónico y más. Abierto 5pm-10pm."
+        canonicalUrl="https://optimumhealthandwellnessclinic.com/services"
       />
       <Navbar />
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
 import Navbar from '@/components/Navbar';
@@ -162,6 +163,11 @@ const ArticlePage = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-background"
     >
+      <Helmet>
+        <title>{article.title} | Optimum Health and Wellness Clinic</title>
+        <meta name="description" content={article.excerpt || article.title} />
+        <link rel="canonical" href={`https://optimumhealthandwellnessclinic.com/resources/${article.slug}`} />
+      </Helmet>
       <Navbar />
 
       <main className="container mx-auto px-6 py-12 max-w-3xl">
