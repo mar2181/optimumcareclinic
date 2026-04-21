@@ -11,6 +11,7 @@ const AboutUs = () => {
       <Helmet>
         <title>About Us | Optimum Health and Wellness Clinic</title>
         <meta name="description" content="Meet the dedicated team at Optimum Health and Wellness Clinic in Pharr, TX. Learn about our mission to provide quality after-hours healthcare." />
+        <link rel="canonical" href="https://optimumhealthandwellnessclinic.com/about" />
       </Helmet>
 
       <Navbar />
