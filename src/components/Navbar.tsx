@@ -55,14 +55,14 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">O</span>
             </div>
             <span className="text-xl font-bold text-foreground">
               Optimum Health & <span className="text-accent">Wellness Clinic</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -87,6 +87,12 @@ const Navbar = () => {
               className="text-foreground/80 hover:text-foreground transition-colors font-medium"
             >
               {t.nav.services}
+            </Link>
+            <Link 
+              to="/about"
+              className="text-foreground/80 hover:text-foreground transition-colors font-medium"
+            >
+              {lang === 'es' ? 'Nosotros' : 'About'}
             </Link>
             <Link 
               to="/resources"
@@ -154,6 +160,15 @@ const Navbar = () => {
                     className="block text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
                   >
                     {t.nav.services}
+                  </Link>
+                </motion.div>
+                <motion.div custom={3} variants={itemVariants}>
+                  <Link
+                    to="/about"
+                    onClick={handleNavClick}
+                    className="block text-foreground/80 hover:text-foreground transition-colors font-medium py-2 text-center"
+                  >
+                    {lang === 'es' ? 'Nosotros' : 'About'}
                   </Link>
                 </motion.div>
                 <motion.div custom={4} variants={itemVariants}>

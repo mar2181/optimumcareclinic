@@ -6,6 +6,7 @@ import TrustBadges from '@/components/TrustBadges';
 import ServiceGrid from '@/components/ServiceGrid';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import TestimonialsSection from '@/components/TestimonialsSection';
+import LatestFromBlog from '@/components/LatestFromBlog';
 
 import PricingTable from '@/components/PricingTable';
 import LocationSection from '@/components/LocationSection';
@@ -41,6 +42,8 @@ const Index = () => {
         <SectionDivider variant="wave" flip fillClassName="fill-background" />
         <TestimonialsSection />
         <SectionDivider variant="dots" />
+        <LatestFromBlog />
+        <SectionDivider variant="wave" fillClassName="fill-background" />
         <PricingTable />
         <SectionDivider variant="wave" fillClassName="fill-secondary/30" />
         <LocationSection />
