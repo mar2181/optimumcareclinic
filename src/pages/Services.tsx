@@ -323,6 +323,22 @@ const Services = () => {
                   {c.ctaCall} — (956) 627-3258
                 </a>
               </Button>
+
+              {/* Internal cross-links for SEO */}
+              <div className="mt-10 pt-8 border-t border-primary-foreground/10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
+                <Link to="/wound-care" className="text-primary-foreground/80 hover:text-accent underline-offset-4 hover:underline transition-colors">
+                  {lang === 'es' ? 'Cuidado de heridas' : 'Wound Care services'}
+                </Link>
+                <Link to="/check-in" className="text-primary-foreground/80 hover:text-accent underline-offset-4 hover:underline transition-colors">
+                  {lang === 'es' ? 'Registro en línea' : 'Check in online'}
+                </Link>
+                <Link to="/blog" className="text-primary-foreground/80 hover:text-accent underline-offset-4 hover:underline transition-colors">
+                  {lang === 'es' ? 'Lee nuestro blog' : 'Read our blog'}
+                </Link>
+                <Link to="/about" className="text-primary-foreground/80 hover:text-accent underline-offset-4 hover:underline transition-colors">
+                  {lang === 'es' ? 'Sobre nosotros' : 'About our team'}
+                </Link>
+              </div>
             </motion.div>
           </div>
         </section>
