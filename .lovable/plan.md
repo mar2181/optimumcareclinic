@@ -1,48 +1,68 @@
 
 
-## Hero Redesign: Full-Screen Cinematic Image with Text Overlay
+## Goal
 
-Transform the current split-layout hero into an immersive, full-screen image hero with bold text overlaid on a cinematic gradient -- like a movie poster for the clinic.
+Make this Lovable project the source of truth for `optimumhealthandwellnessclinic.com` so Google indexes the new content (blog, updated copy, "physician" wording, $70-only pricing) under the correct slugs.
 
-### What Changes
+## Slug audit — already aligned
 
-**Desktop Layout (complete redesign)**
-- The hero image (`hero-family-doctor.jpg`) fills the entire section edge-to-edge as a background image
-- A dramatic multi-layer gradient overlay (bottom-to-top and left-to-right) darkens the image so white/gold text pops
-- All content (badge, headline, subtitle, CTAs, trust indicators) is centered-left over the image
-- The floating stat cards (5000+ Patients, 10+ Years, 4.9 Rating) reposition as a horizontal row at the bottom of the hero, sitting on a glass-morphism bar
-- Remove the grid/two-column layout, diagonal clip-path, and geometric SVG grid
-- Keep the animated gradient orbs and particles as subtle background texture behind the image overlay
+Comparing the live sitemap to this project's router, every URL already matches. **No slug changes needed.**
 
-**Mobile Layout (adjusted)**
-- Image fills the full viewport height behind all content (no separate image + card layout)
-- Stronger bottom gradient so the text card area blends seamlessly over the image
-- Content card becomes semi-transparent, overlaid at the bottom of the screen
-- More dramatic, immersive feel compared to the current stacked approach
+| Live URL | Lovable Route | Status |
+|---|---|---|
+| `/` | `/` (Index) | Match |
+| `/about` | `/about` (AboutUs) | Match |
+| `/services` | `/services` (Services) | Match |
+| `/resources` | `/resources` (Resources) | Match |
+| `/resources/:slug` | `/resources/:slug` (ArticlePage) | Match |
+| `/check-in` | `/check-in` (CheckIn) | Match |
+| `/wound-care` | `/wound-care` (WoundCare) | Match |
+| `/blog` | `/blog` (Blog) | Match |
+| `/blog/why-choose-cash-clinic-pharr-tx` | `/blog/:slug` (BlogPost) | Match |
 
-**Animations (enhanced)**
-- Headline fades up with a slight blur-to-sharp effect (cinematic reveal)
-- CTAs slide in from the bottom with a spring bounce
-- Stats bar slides up from below the fold
-- Subtle Ken Burns (slow zoom) effect on the background image for a living, breathing feel
+`public/sitemap.xml` and `public/robots.txt` already point to `https://optimumhealthandwellnessclinic.com/...` — also correct.
 
-**What stays the same**
-- All text content (headline, subhead, badge, trust indicators, CTAs)
-- Bilingual support (EN/ES)
-- Animated counters for stats
-- Gold accent color scheme and shimmer text effect
-- All button links and scroll behaviors
+## What's actually needed
 
-### Technical Details
+The reason your live site doesn't show the new changes is that **the custom domain is currently pointing at an older deployment**, not this Lovable project. We need to publish this project and connect the domain.
 
-Only one file changes: `src/components/Hero.tsx`
+### Step 1 — Publish this project
+Click **Publish** (top-right). This creates a `.lovable.app` URL with all current changes (new Blog, $70 pricing, "physician" wording, fixed nav).
 
-Key structural changes:
-- Replace the two-column `grid` layout with a single full-width container
-- Set `heroImage` as a CSS `background-image` with `object-cover` sizing on the section
-- Add layered gradient overlays using `absolute` positioned divs
-- Reposition stat cards into a horizontal flex row at the bottom
-- Add `@keyframes kenBurns` for the slow background zoom (or use framer-motion scale)
-- Mobile layout switches from image-then-card to a single full-bleed image with overlaid content
+### Step 2 — Connect the custom domain
+In **Project Settings → Domains**, add `optimumhealthandwellnessclinic.com` and `www.optimumhealthandwellnessclinic.com`. Lovable will give DNS records (A / CNAME) to set at your domain registrar. Once DNS propagates (usually 15 min – 24 hr), the domain serves this project.
 
-No changes needed to `index.css`, `Index.tsx`, or any other files.
+### Step 3 — Verify SEO infrastructure (I'll do this in code)
+Once approved, I will:
+
+1. **Confirm `public/sitemap.xml` is complete and accurate** — already correct, no edits needed unless you want to add/remove pages.
+2. **Confirm `public/robots.txt` references the correct sitemap URL** — already correct.
+3. **Audit `<SEOHead>` canonical URLs across every page** to ensure each page passes `canonicalUrl="https://optimumhealthandwellnessclinic.com/<path>"` so Google attributes the content to the right URL. Today only some pages do this consistently — I'll standardize all of them.
+4. **Verify BlogPost.tsx canonical + JSON-LD** uses the production domain (already does).
+
+### Step 4 — Re-submit sitemap to Google
+After the domain points at the new build, in **Google Search Console** for `optimumhealthandwellnessclinic.com`, resubmit `https://optimumhealthandwellnessclinic.com/sitemap.xml`. Google will re-crawl and index the new blog post and updated pages within a few days.
+
+## What I will change in code (Step 3 only)
+
+- **`src/pages/Index.tsx`** — add/verify `<SEOHead canonicalUrl="https://optimumhealthandwellnessclinic.com/" />`
+- **`src/pages/AboutUs.tsx`** — set canonical `/about`
+- **`src/pages/Services.tsx`** — set canonical `/services`
+- **`src/pages/Resources.tsx`** — set canonical `/resources`
+- **`src/pages/ArticlePage.tsx`** — set canonical `/resources/<slug>`
+- **`src/pages/CheckIn.tsx`** — set canonical `/check-in`
+- **`src/pages/WoundCare.tsx`** — set canonical `/wound-care`
+- **`src/pages/Blog.tsx`** — set canonical `/blog`
+- **`src/pages/BlogPost.tsx`** — already correct, just verify
+
+No database changes. No route renames. No slug edits.
+
+## What you need to do (outside Lovable)
+
+1. Click **Publish** in Lovable.
+2. Go to **Project Settings → Domains**, add `optimumhealthandwellnessclinic.com`, follow DNS instructions.
+3. Wait for DNS propagation.
+4. In Google Search Console, resubmit the sitemap.
+
+Once you approve, I'll make the canonical URL fixes in code so everything is airtight for SEO before you publish.
+
